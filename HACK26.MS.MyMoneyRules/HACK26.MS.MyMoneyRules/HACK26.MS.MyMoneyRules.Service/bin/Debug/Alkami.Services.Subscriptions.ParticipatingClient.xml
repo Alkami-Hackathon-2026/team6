@@ -27,7 +27,7 @@
         </member>
         <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.AlkamiCachedClient`1.Refresh">
             <summary>
-            Checks state and will return either the current instance or a new instance.
+            Checks state and will return either the current instance or try to return a new instance if using older system.
             Will create new instance if<see cref="P:System.ServiceModel.ClientBase`1.State"/> is <see cref="F:System.ServiceModel.CommunicationState.Faulted"/>, <see cref="F:System.ServiceModel.CommunicationState.Closed"/>, or <see cref="F:System.ServiceModel.CommunicationState.Closing"/>
             </summary>
             <returns></returns>
@@ -50,6 +50,19 @@
             Will try to close, and if it fails will instead abort. Based on https://www.codeproject.com/Articles/622989/WCF-and-the-Try-Catch-Abort-Pattern
             </summary>
         </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.AlkamiClientFactory`1.#ctor(System.Uri,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="clientEndpoint"></param>
+            <param name="timeoutSeconds"></param>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.AlkamiClientFactory`1.CreateNewClient">
+            <summary>
+            Creates a new client
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.BestAverageThroughputLoadBalancer`1">
              <summary>
             
@@ -61,6 +74,38 @@
         </member>
         <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.BestAverageThroughputLoadBalancer`1.GetNext(Alkami.Contracts.BaseRequest)">
             <inheritdoc />
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.IAlkamiClientFactory`1">
+            <summary>
+            Defines the interface that can be used to create Clients to Alkami endpoints
+            </summary>
+            <typeparam name="TChannel">The type of channel that the client factory creates.</typeparam>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.IAlkamiClientFactory`1.GetClient">
+            <summary>
+            Gets a client from the object pool
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.IAlkamiClientFactory`1.Release(Alkami.Services.Subscriptions.ParticipatingClient.AlkamiCachedClient{`0})">
+            <summary>
+            Release the client back to the object pool
+            </summary>
+            <param name="client"></param>
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.IAlkamiClientFactoryCache`1">
+            <summary>
+            This will be used to create the Alkami Client Factory
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.IAlkamiClientFactoryCache`1.GetOrCreateFactory(System.Uri,System.Int32)">
+            <summary>
+            Gets or creates the Client factory for the endpoint and timeout sent
+            </summary>
+            <param name="endpointUri"></param>
+            <param name="timeoutInSeconds"></param>
+            <returns></returns>
         </member>
         <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.LoadBalancerBase`1">
             <summary>
@@ -79,80 +124,6 @@
             
             </summary>
             <returns></returns>
-        </member>
-        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.ContainerRequestService">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.ContainerRequestService`1.MakeRequestAsync``2(System.Func{`0,``0,System.Threading.Tasks.Task{``1}},``0,System.Uri)">
-            <inheritdoc />
-        </member>
-        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.ContainerRequestService`1.ApplySutToRequestAsync(Alkami.Contracts.BaseRequest,Alkami.Contracts.ClaimsIdentitySerializationMethod,Alkami.Contracts.ClaimsIdentitySerializationMethod)">
-            <inheritdoc />
-        </member>
-        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.ContainerRequestService`1.GetClaimsIdentity(Alkami.Contracts.BaseRequest)">
-            <summary>
-            Gets the ClaimIdentity based on either the request or the current CurrentPrincipal
-            </summary>
-            <param name="request"></param>
-            <remarks>To help make compatible with http services we need this to be a Task</remarks>
-            <returns></returns>
-        </member>
-        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.IContainerRequestService`1">
-            <summary>
-            
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.IContainerRequestService`1.MakeRequestAsync``2(System.Func{`0,``0,System.Threading.Tasks.Task{``1}},``0,System.Uri)">
-            <summary>
-            Makes the request to the container via the <paramref name="serviceUrl"/>
-            </summary>
-            <typeparam name="TRequest"></typeparam>
-            <typeparam name="TResponse"></typeparam>
-            <param name="operation"></param>
-            <param name="request"></param>
-            <param name="serviceUrl"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.IContainerRequestService`1.ApplySutToRequestAsync(Alkami.Contracts.BaseRequest,Alkami.Contracts.ClaimsIdentitySerializationMethod,Alkami.Contracts.ClaimsIdentitySerializationMethod)">
-            <summary>
-            Applies the SUT to the <paramref name="request"/> based on <see cref="P:Alkami.Contracts.BaseRequest.ClaimsIdentity"/> or the Current ThreadPrincipal
-            </summary>
-            <param name="request"></param>
-            <param name="favoredSerializationMethod"></param>
-            <param name="allowedSerializationMethods"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.IParticipatingHttpClientFactory">
-            <summary>
-            Wrapper interface for getting HttpClient's for ParticipatingClient
-            </summary>
-        </member>
-        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.IParticipatingHttpClientFactory.GetHttpClient">
-            <summary>
-            Gets the HttpClient for ParticipatingClient
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.ParticipatingHttpClientFactory">
-            <summary>
-            Based this off of https://github.com/dotnet/aspnetcore/issues/28385#issuecomment-853766480
-            </summary>
-        </member>
-        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ParticipatingHttpClientFactory.Instance">
-            <summary>
-            Get singleton instance of <see cref="T:Alkami.Services.Subscriptions.ParticipatingClient.ParticipatingHttpClientFactory"/>
-            </summary>
-        </member>
-        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.ParticipatingHttpClientFactory.#ctor">
-            <summary>
-            Constructor
-            </summary>
-        </member>
-        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.ParticipatingHttpClientFactory.GetHttpClient">
-            <inheritdoc />
         </member>
         <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.SecurityBehavior">
             <summary>
@@ -207,6 +178,11 @@
              </summary>
              <typeparam name="T"></typeparam>
         </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.AlkamiClientFactory">
+            <summary>
+            Gets the Client Factory to generate clients for endpoints
+            </summary>
+        </member>
         <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.#ctor(System.Int32,System.Version)">
             <summary>
             The base class for all the clients
@@ -226,27 +202,6 @@
             <summary>
             The base class for all the clients
             </summary>
-            <param name="minCompatibleVersion"></param>
-        </member>
-        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.#ctor(Alkami.Services.Subscriptions.ParticipatingClient.IContainerRequestService{`0})">
-            <summary>
-            The base class for all the clients
-            </summary>
-            <param name="containerRequestService"></param>
-        </member>
-        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.#ctor(Alkami.Services.Subscriptions.ParticipatingClient.IContainerRequestService{`0},System.Version)">
-            <summary>
-            The base class for all the clients
-            </summary>
-            <param name="containerRequestService"></param>
-            <param name="minCompatibleVersion"></param>
-        </member>
-        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.#ctor(Alkami.Services.Subscriptions.ParticipatingClient.IContainerRequestService{`0},System.Nullable{System.Int32},System.Version)">
-            <summary>
-            The base class for all the clients
-            </summary>
-            <param name="containerRequestService"></param>
-            <param name="timeoutSeconds"></param>
             <param name="minCompatibleVersion"></param>
         </member>
         <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.GetFavoredClaimsIdentitySerializationMethod">
@@ -274,6 +229,31 @@
             <returns>The response of the operation.</returns>
         </member>
         <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.ProxyCallInternal``2(System.Func{`0,``0,System.Threading.Tasks.Task{``1}},Alkami.Services.Subscriptions.ParticipatingClient.AlkamiCachedClient{`0},``0,System.String)">
+             <summary>
+             Executes the provided function safely to ensure the local client is properly released.
+             </summary>
+             <typeparam name="TRequest">The type of the request object.</typeparam>
+             <typeparam name="TResponse">The type of the response object.</typeparam>
+             <param name="operation">The operation to call on the client.</param>
+             <param name="client">The <see cref="T:Alkami.Services.Subscriptions.ParticipatingClient.AlkamiCachedClient`1"/> to execute against.</param>
+             <param name="request">The instance of the request object to pass to the operation.</param>
+             <param name="callingMethod">The name of the method calling this method.</param>
+             <returns>The response of the operation.</returns>
+            
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.ProxyCallInternal``2(System.Func{`0,``0,System.Threading.Tasks.Task{``1}},Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint{`0},``0,System.String)">
+            <summary>
+            Executes the provided function safely to ensure the local client is properly released.
+            </summary>
+            <typeparam name="TRequest">The type of the request object.</typeparam>
+            <typeparam name="TResponse">The type of the response object.</typeparam>
+            <param name="operation">The operation to call on the client.</param>
+            <param name="serviceEndpoint">The <see cref="T:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1"/> to execute against.</param>
+            <param name="request">The instance of the request object to pass to the operation.</param>
+            <param name="callingMethod">The name of the method calling this method.</param>
+            <returns>The response of the operation.</returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.ProxyCallInternalOld``2(System.Func{`0,``0,System.Threading.Tasks.Task{``1}},Alkami.Services.Subscriptions.ParticipatingClient.AlkamiCachedClient{`0},``0,System.String)">
             <summary>
             Executes the provided function safely to ensure the local client is properly released.
             </summary>
@@ -307,10 +287,22 @@
             </value>
             <exception cref="T:Alkami.Services.Subscriptions.ParticipatingClient.ServiceInstanceNotFoundException"></exception>
         </member>
-        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.ServiceDefinitionWindowData">
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.GetServiceEndpointAsync(Alkami.Contracts.BaseRequest)">
             <summary>
-            Temporary class until we upgrade to 4.0 to prevent any existing signature changes
+            Gets the <see cref="T:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1"/> for the <paramref name="request"/>.
             </summary>
+            <returns>The found Service Endpoint for the request</returns>
+            <exception cref="T:Alkami.Services.Subscriptions.ParticipatingClient.ServiceInstanceNotFoundException"></exception>
+        </member>
+        <member name="F:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.InternalKubernetesUri">
+            <summary>
+            Builds an internal Uri for accessing this service from within a Kubernetes cluster.
+            </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.GenerateInternalKubernetesUri(Alkami.Contracts.BaseRequest,System.Version)">
+            <summary>
+            Builds an internal Uri for accessing this service from within a Kubernetes cluster.
+            </summary>)
         </member>
         <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1">
             <summary>
@@ -346,12 +338,6 @@
             <value>
             The service definition.
             </value>
-        </member>
-        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1.DefinitionWindowData">
-            <summary>
-            A running window of service definition averages. This was added here instead of on the Service Definition
-            to prevent a data contract change. Come the 4.0 version, changes can be made that require signature changes
-            </summary>
         </member>
         <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1.ProviderConfiguration">
             <summary>
@@ -391,16 +377,6 @@
             Replenishes the client.
             </summary>
             <param name="client">The client.</param>
-        </member>
-        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1.TenantMatches">
-            <summary>
-            Determines which tenants are allowed in this service
-            </summary>
-        </member>
-        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1.AdditionalConfiguration">
-            <summary>
-            As the name implies
-            </summary>
         </member>
         <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.ServiceInstanceNotFoundException">
             <summary>

@@ -165,3 +165,4 @@ C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMo
 C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Tests\obj\Debug\HACK26.M.1FA91E0B.Up2Date
 C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Tests\obj\Debug\HACK26.MS.MyMoneyRules.Service.Tests.dll
 C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Tests\obj\Debug\HACK26.MS.MyMoneyRules.Service.Tests.pdb
+C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Tests\bin\Debug\HACK26.MS.MyMoneyRules.Service.dll.config

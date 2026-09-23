@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3A277518-9C07-4C23-818A-DE35F9CCDAED}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Service\\HACK26.MS.MyMoneyRules.Service.csproj|c:\\src\\hack26\\team6\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.service\\serviceimp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A277518-9C07-4C23-818A-DE35F9CCDAED}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Service\\HACK26.MS.MyMoneyRules.Service.csproj|solutionrelative:hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.service\\serviceimp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6EC6AA9E-4687-4ADA-9930-8103AE73697E}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Service.Client\\HACK26.MS.MyMoneyRules.Service.Client.csproj|c:\\src\\hack26\\team6\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.service.client\\mymoneyrulesserviceclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6EC6AA9E-4687-4ADA-9930-8103AE73697E}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Service.Client\\HACK26.MS.MyMoneyRules.Service.Client.csproj|solutionrelative:hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.service.client\\mymoneyrulesserviceclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{84AB8B33-010F-4D7D-8109-5180B99C5BE5}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Service.Tests\\HACK26.MS.MyMoneyRules.Service.Tests.csproj|c:\\src\\hack26\\team6\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.service.tests\\servicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{84AB8B33-010F-4D7D-8109-5180B99C5BE5}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Service.Tests\\HACK26.MS.MyMoneyRules.Service.Tests.csproj|solutionrelative:hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.service.tests\\servicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3A277518-9C07-4C23-818A-DE35F9CCDAED}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Service\\HACK26.MS.MyMoneyRules.Service.csproj|c:\\src\\hack26\\team6\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.service\\serviceimp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A277518-9C07-4C23-818A-DE35F9CCDAED}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Service\\HACK26.MS.MyMoneyRules.Service.csproj|solutionrelative:hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.service\\serviceimp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{24ECE578-3613-4E41-B2E4-BF7C987E265D}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data.Validations\\HACK26.MS.MyMoneyRules.Data.Validations.csproj|c:\\src\\hack26\\team6\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data.validations\\addorupdatesomethingrequestvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 260,
-          "SelectedChildIndex": 17,
+          "SelectedChildIndex": 14,
           "Children": [
             {
               "$type": "Bookmark",
@@ -99,20 +99,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "ServiceImp.cs",
               "DocumentMoniker": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Service\\ServiceImp.cs",
               "RelativeDocumentMoniker": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Service\\ServiceImp.cs",
-              "ToolTip": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Service\\ServiceImp.cs",
-              "RelativeToolTip": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Service\\ServiceImp.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAABBwAAAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Service\\ServiceImp.cs*",
+              "RelativeToolTip": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Service\\ServiceImp.cs*",
+              "ViewState": "AgIAAG8AAAAAAAAAAAA1wHoAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-23T19:19:03.18Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "DistributedService.cs",
               "DocumentMoniker": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Service.Host\\DistributedService.cs",
               "RelativeDocumentMoniker": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Service.Host\\DistributedService.cs",
@@ -125,7 +125,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ServiceTests.cs",
               "DocumentMoniker": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Service.Tests\\ServiceTests.cs",
               "RelativeDocumentMoniker": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Service.Tests\\ServiceTests.cs",
@@ -138,7 +138,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MyMoneyRulesServiceClient.cs",
               "DocumentMoniker": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Service.Client\\MyMoneyRulesServiceClient.cs",
               "RelativeDocumentMoniker": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Service.Client\\MyMoneyRulesServiceClient.cs",

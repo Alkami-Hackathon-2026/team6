@@ -24,6 +24,12 @@
         <member name="M:Alkami.Services.Subscriptions.Resolver.InnerResolver.HeartbeatAsync(Alkami.Services.Subscriptions.Data.ServiceDefinition)">
             <inheritdoc />
         </member>
+        <member name="M:Alkami.Services.Subscriptions.Resolver.InnerResolver.HeartbeatAsync(System.Collections.Generic.List{Alkami.Services.Subscriptions.Data.ServiceDefinition})">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Resolver.InnerResolver.Dispose">
+            <inheritdoc />
+        </member>
         <member name="F:Alkami.Services.Subscriptions.Resolver.ServiceResolver.ResolverFactory">
             <summary>
             Factory to create an instance of <see cref="T:Alkami.Services.Subscriptions.Resolver.IResolver"/>

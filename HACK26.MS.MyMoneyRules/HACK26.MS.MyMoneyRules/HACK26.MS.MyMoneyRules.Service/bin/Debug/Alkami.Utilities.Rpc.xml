@@ -60,6 +60,15 @@
             <param name="providerType">Provider type of the provider-based service</param>
             <param name="providerName">The provider name for this service as configured in the database.</param>
         </member>
+        <member name="M:Alkami.Utilities.Rpc.Extensions.ContractTypeExtensions.BuildRoutedNameFromContractTypeForWcfProvider(System.Type,System.String,System.String,System.Version)">
+            <summary>
+            Builds the route name by convention for a provider.
+            </summary>
+            <param name="contractType">Type representing a service contract</param>
+            <param name="providerType">Provider type of the provider-based service</param>
+            <param name="providerName">The provider name for this service as configured in the database.</param>
+            <param name="currentVersion">The version of the contract.</param>
+        </member>
         <member name="M:Alkami.Utilities.Rpc.Extensions.ContractTypeExtensions.BuildRoutedNameFromNamespacedContractStringForWcfProvider(System.String,System.String,System.String,System.Version)">
             <summary>
             Builds the route name by convention from a namespaced contract type and version for a provider.
@@ -75,11 +84,26 @@
             </summary>
             <param name="contractType"></param>
         </member>
+        <member name="M:Alkami.Utilities.Rpc.Extensions.ContractTypeExtensions.BuildRoutedNameFromContractType(System.Type,System.Version)">
+            <summary>
+            Builds the route name by convention (Defaults build for <see cref="F:Alkami.Utilities.Rpc.Extensions.RouteNameServiceType.Rpc"/>)
+            </summary>
+            <param name="contractType">The contract type to build the route name from.</param>
+            <param name="version">The version used when building the route</param>
+        </member>
         <member name="M:Alkami.Utilities.Rpc.Extensions.ContractTypeExtensions.BuildRoutedNameFromContractType(System.Type,Alkami.Utilities.Rpc.Extensions.RouteNameServiceType)">
             <summary>
             Builds the route name by convention
             </summary>
             <param name="contractType"></param>
+            <param name="serviceType">Indicates the type of service this url needs to be generated for</param>
+        </member>
+        <member name="M:Alkami.Utilities.Rpc.Extensions.ContractTypeExtensions.BuildRoutedNameFromContractType(System.Type,System.Version,Alkami.Utilities.Rpc.Extensions.RouteNameServiceType)">
+            <summary>
+            Builds the route name by convention
+            </summary>
+            <param name="contractType">The contract type to build the route name from.</param>
+            <param name="version">The version used when building the route</param>
             <param name="serviceType">Indicates the type of service this url needs to be generated for</param>
         </member>
         <member name="M:Alkami.Utilities.Rpc.Extensions.ContractTypeExtensions.BuildRoutedNameFromNamespacedContractString(System.String,System.Version)">

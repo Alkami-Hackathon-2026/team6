@@ -510,5 +510,45 @@
             <param name="bytes">The array of bytes to generate the <see cref="T:Alkami.Security.Mask`1"/> from.</param>
             <returns>The <see cref="T:Alkami.Security.Mask`1"/> generated from the provided array of bytes.</returns>
         </member>
+        <member name="F:Alkami.Security.Permission.ElevatedMfaManagement">
+            <summary>
+            Allows admin user to manually generate one time MFA codes.
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.Permission.TransactionEnrichmentSubUserControl">
+            <summary>
+            Gives Business SubUsers the ability to update TDE categories and descriptions
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.Permission.StandardSSOAdmin">
+            <summary>
+            Allows an administrator to access and use the StandardSSO Admin Widget
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.Permission.ManageLoginGrouping">
+            <summary>
+            Allows an administrator to add or remove users from a login group
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.Permission.ManageDesktopRDCSSO">
+            <summary>
+            Allows the controlling of access to RDC via desktop SSO
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.Permission.DesktopRDCFundsIntoSSO">
+            <summary>
+            Ability to RDC into specific accounts via desktop SSO
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.Permission.ManageAccountConfiguration">
+            <summary>
+            Administrative ability to manage acoount configurations
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.Permission.ManageComplianceSettings">
+            <summary>
+            Administrative ability to manage compliance settings
+            </summary>
+        </member>
     </members>
 </doc>

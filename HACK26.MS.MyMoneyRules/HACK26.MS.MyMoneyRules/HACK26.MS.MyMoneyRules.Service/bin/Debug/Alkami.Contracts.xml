@@ -94,6 +94,35 @@
             A simple default orderer
             </summary>
         </member>
+        <member name="M:Alkami.Contracts.PagingDataHelpers.ApplyPagingAsync``2(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},Alkami.Contracts.BaseRequest,Alkami.Contracts.BaseResponse,System.Func{System.Threading.Tasks.Task{System.Int32}})">
+            <summary>
+            Apply the Paging parameters base on <see cref="T:Alkami.Contracts.BaseRequest"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TKey"></typeparam>
+            <param name="query">Query for object</param>
+            <param name="orderBy">Order By function</param>
+            <param name="request">The <see cref="T:Alkami.Contracts.BaseRequest"/> to get Page and MaxResults</param>
+            <param name="response">The <see cref="T:Alkami.Contracts.BaseResponse"/></param>
+            <param name="totalResultsFetchFunction">The function to get the TotalResults</param>
+            <returns>Returns the query with methods</returns>
+        </member>
+        <member name="M:Alkami.Contracts.PagingDataHelpers.ApplyPagingAsync``5(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},Alkami.Contracts.BaseGetRequest{``2,``3,``4},Alkami.Contracts.BaseResponse,System.Func{System.Threading.Tasks.Task{System.Int32}})">
+            <summary>
+            Apply the Paging parameters base on <see cref="T:Alkami.Contracts.BaseGetRequest`3"/> 
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TFilter"></typeparam>
+            <typeparam name="TMapper"></typeparam>
+            <typeparam name="TSorter"></typeparam>
+            <param name="query">Query for object</param>
+            <param name="orderBy">Order By function</param>
+            <param name="request">The <see cref="T:Alkami.Contracts.BaseGetRequest`3"/> to get Page and MaxResults</param>
+            <param name="response">The <see cref="T:Alkami.Contracts.BaseResponse"/></param>
+            <param name="totalResultsFetchFunction">The function to get the TotalResults</param>
+            <returns>Returns the query with methods</returns>
+        </member>
         <member name="T:Alkami.Contracts.ISortOrder">
             <summary>
             base interface for controlling paramter types
@@ -177,16 +206,6 @@
             <param name="sorter">The <see cref="T:Alkami.Contracts.ISortOrder"/>.</param>
             <param name="keySelector">The expression to select the field to sort upon.</param>
             <returns>The sorted <see cref="T:System.Linq.IOrderedQueryable`1"/>.</returns>
-        </member>
-        <member name="T:Alkami.Contracts.SortingHandler`3">
-            <summary>
-            Represents a class that can Sort <typeparamref name="T"/> using the fields in <typeparamref name="TFields"/> as they are passed in by the class <typeparamref name="TSortOrderer"/>
-            This class be eventually be deprecated in favor of SortingHandlerBase.
-            NOTE (MI): this class is intended to be deprecated once the migration to the new SortingHandlerBase is completed.
-            </summary>
-            <typeparam name="T">The class we are sorting</typeparam>
-            <typeparam name="TFields">The List of enums to sort by <remarks>The order of these fields will affect the ordering of the result</remarks></typeparam>
-            <typeparam name="TSortOrderer">The requests sent in by the caller</typeparam>
         </member>
         <member name="T:Alkami.Contracts.SortingHandlerBase`3">
             <summary>

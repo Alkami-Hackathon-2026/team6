@@ -4,6 +4,22 @@
         <name>Alkami.Monitoring</name>
     </assembly>
     <members>
+        <member name="T:Alkami.Monitoring.AlkamiMonitoring">
+            <summary>
+            Alkami Monitoring provider.
+            </summary>
+        </member>
+        <member name="M:Alkami.Monitoring.AlkamiMonitoring.SetUp``1(``0)">
+            <summary>
+            Sets up Alkami monitoring.
+            </summary>
+        </member>
+        <member name="M:Alkami.Monitoring.AlkamiMonitoring.RemoveType``1">
+            <summary>
+            Removes all minions of the type of <typeparamref name="TImplementation"/>
+            </summary>
+            <typeparam name="TImplementation"></typeparam>
+        </member>
         <member name="T:Alkami.Monitoring.IMonitor">
             <summary>
             The IMonitor interface provides an abstraction for recording performance metrics for monitoring the health of an application.
@@ -88,6 +104,11 @@
             <param name="name">The name of the metric.</param>
             <param name="payload">The payload/attributes of the event.</param>
         </member>
+        <member name="T:Alkami.Monitoring.IMonitorMinion">
+            <summary>
+            The IMonitorMinion interface represents a specific implementation of a monitor.
+            </summary>
+        </member>
         <member name="T:Alkami.Monitoring.IMonitorProperties">
             <summary>
             The ICustomProperties interface provides an abstraction for adding custom properties (key/value pair) to the monitoring 
@@ -120,6 +141,118 @@
             <param name="userValue">Specify a name or user name to associate with this request. This value is assigned to the user key.</param>
             <param name="accountValue">Specify the name of a user account to associate with this request. This value is assigned to the account key.</param>
             <param name="productValue">Specify the name of a product to associate with this request. This value is assigned to the product key.</param>
+        </member>
+        <member name="T:Alkami.Monitoring.IMonitorSuppression">
+            <summary>
+            Adds Suppression methods to the Monitoring class
+            </summary>
+        </member>
+        <member name="M:Alkami.Monitoring.IMonitorSuppression.BeginSuppression(System.String)">
+            <summary>
+            Begins a logical operation scope for suppressing data to a specific <see cref="T:Alkami.Monitoring.IMonitorMinion"/>
+            </summary>
+            <param name="minionType">The minion type to suppress.</param>
+            <returns>An <see cref="T:System.IDisposable"/> that ends the logical operation scope on dispose.</returns>
+        </member>
+        <member name="T:Alkami.Monitoring.IMonitorSuppressionProvider">
+            <summary>
+            Represents a storage of common scope data.
+            </summary>
+        </member>
+        <member name="M:Alkami.Monitoring.IMonitorSuppressionProvider.ForEachScope``1(System.Action{System.String,``0},``0)">
+            <summary>
+            Executes callback for each currently active scope objects in order of creation.
+            All callbacks are guaranteed to be called inline from this method.
+            </summary>
+            <param name="callback">The callback to be executed for every scope object</param>
+            <param name="state">The state object to be passed into the callback</param>
+            <typeparam name="TState">The type of state to accept.</typeparam>
+        </member>
+        <member name="M:Alkami.Monitoring.IMonitorSuppressionProvider.Push(System.String)">
+            <summary>
+            Adds scope object to the list
+            </summary>
+            <param name="minionType">The minion type to suppress sending metrics or properties to</param>
+            <returns>The <see cref="T:System.IDisposable"/> token that removes scope on dispose.</returns>
+        </member>
+        <member name="T:Alkami.Monitoring.Implementation.CompositeMonitor">
+            <summary>
+            The default Monitor which supports multiple minion implementations.
+            </summary>
+        </member>
+        <member name="M:Alkami.Monitoring.Implementation.CompositeMonitor.#ctor(System.Collections.Generic.IEnumerable{Alkami.Monitoring.IMonitorMinion},Alkami.Monitoring.IMonitorSuppressionProvider)">
+            <summary>
+            
+            </summary>
+            <param name="minions"></param>
+            <param name="suppressionProvider"></param>
+        </member>
+        <member name="P:Alkami.Monitoring.Implementation.CompositeMonitor.AreaName">
+            <inheritdoc cref="T:Alkami.Monitoring.IMonitor"/>
+        </member>
+        <member name="M:Alkami.Monitoring.Implementation.CompositeMonitor.CreateName(System.String[])">
+            <inheritdoc cref="T:Alkami.Monitoring.IMonitor"/>
+        </member>
+        <member name="M:Alkami.Monitoring.Implementation.CompositeMonitor.IncrementCounter(System.String)">
+            <inheritdoc cref="T:Alkami.Monitoring.IMonitor"/>
+        </member>
+        <member name="M:Alkami.Monitoring.Implementation.CompositeMonitor.IncrementCounter(System.String[])">
+            <inheritdoc cref="T:Alkami.Monitoring.IMonitor"/>
+        </member>
+        <member name="M:Alkami.Monitoring.Implementation.CompositeMonitor.NoticeError(System.Exception)">
+            <inheritdoc cref="T:Alkami.Monitoring.IMonitor"/>
+        </member>
+        <member name="M:Alkami.Monitoring.Implementation.CompositeMonitor.NoticeError(System.Exception,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <inheritdoc cref="T:Alkami.Monitoring.IMonitor"/>
+        </member>
+        <member name="M:Alkami.Monitoring.Implementation.CompositeMonitor.NoticeError(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <inheritdoc cref="T:Alkami.Monitoring.IMonitor"/>
+        </member>
+        <member name="M:Alkami.Monitoring.Implementation.CompositeMonitor.RecordMetric(System.String,System.Single)">
+            <inheritdoc cref="T:Alkami.Monitoring.IMonitor"/>
+        </member>
+        <member name="M:Alkami.Monitoring.Implementation.CompositeMonitor.RecordMetric(System.Single,System.String[])">
+            <inheritdoc cref="T:Alkami.Monitoring.IMonitor"/>
+        </member>
+        <member name="M:Alkami.Monitoring.Implementation.CompositeMonitor.RecordResponseTimeMetric(System.String,System.TimeSpan)">
+            <inheritdoc cref="T:Alkami.Monitoring.IMonitor"/>
+        </member>
+        <member name="M:Alkami.Monitoring.Implementation.CompositeMonitor.RecordResponseTimeMetric(System.TimeSpan,System.String[])">
+            <inheritdoc cref="T:Alkami.Monitoring.IMonitor"/>
+        </member>
+        <member name="M:Alkami.Monitoring.Implementation.CompositeMonitor.RecordCustomEvent(System.String,Alkami.Monitoring.MonitorEvent)">
+            <inheritdoc cref="T:Alkami.Monitoring.IMonitor"/>
+        </member>
+        <member name="M:Alkami.Monitoring.Implementation.CompositeMonitor.AddCustomProperty(System.String,System.String)">
+            <inheritdoc cref="T:Alkami.Monitoring.IMonitorProperties"/>
+        </member>
+        <member name="M:Alkami.Monitoring.Implementation.CompositeMonitor.IgnoreTransaction">
+            <inheritdoc cref="T:Alkami.Monitoring.IMonitorProperties"/>
+        </member>
+        <member name="M:Alkami.Monitoring.Implementation.CompositeMonitor.SetTransactionName(System.String,System.String)">
+            <inheritdoc cref="T:Alkami.Monitoring.IMonitorProperties"/>
+        </member>
+        <member name="M:Alkami.Monitoring.Implementation.CompositeMonitor.SetUserProperties(System.String,System.String,System.String)">
+            <inheritdoc cref="T:Alkami.Monitoring.IMonitorProperties"/>
+        </member>
+        <member name="T:Alkami.Monitoring.Implementation.MonitorSuppressionProvider">
+            <summary>
+            Default implementation of <see cref="T:Alkami.Monitoring.IMonitorSuppressionProvider"/>
+            </summary>
+        </member>
+        <member name="M:Alkami.Monitoring.Implementation.MonitorSuppressionProvider.ForEachScope``1(System.Action{System.String,``0},``0)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Monitoring.Implementation.MonitorSuppressionProvider.Push(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.Monitoring.Implementation.NullScope">
+            <summary>
+            An empty scope without any logic
+            </summary>
+        </member>
+        <member name="M:Alkami.Monitoring.Implementation.NullScope.Dispose">
+            <inheritdoc />
         </member>
         <member name="T:Alkami.Monitoring.Metric">
             <summary>
@@ -237,6 +370,13 @@
             <param name="name">The name of the metric.</param>
             <param name="payload">The payload/attributes of the event.</param>
         </member>
+        <member name="M:Alkami.Monitoring.Metric.BeginSuppression(System.String)">
+            <summary>
+            Suppress sending metrics or setting properties on a specific monitor minion
+            </summary>
+            <param name="minionType"></param>
+            <returns></returns>
+        </member>
         <member name="M:Alkami.Monitoring.Metric.ResetMonitor">
              <summary>
              Resets the internally managed Monitor built from the externally accessible MonitorFactory.
@@ -276,6 +416,22 @@
             </summary>
             <param name="logger">The underlying logging implementation instance that will be wrapped</param>
             <returns>A wrapper instance that respects the ILog interface</returns>
+        </member>
+        <member name="T:Alkami.Monitoring.MonitorMinionAliasAttribute">
+            <summary>
+            Defines alias for <see cref="T:Alkami.Monitoring.IMonitorMinion"/> implementation to be used in filtering rules.
+            </summary>
+        </member>
+        <member name="M:Alkami.Monitoring.MonitorMinionAliasAttribute.#ctor(System.String)">
+            <summary>
+            Creates a new <see cref="T:Alkami.Monitoring.MonitorMinionAliasAttribute"/> instance.
+            </summary>
+            <param name="alias">The alias to set.</param>
+        </member>
+        <member name="P:Alkami.Monitoring.MonitorMinionAliasAttribute.Alias">
+            <summary>
+            The alias of the monitor minion.
+            </summary>
         </member>
     </members>
 </doc>
