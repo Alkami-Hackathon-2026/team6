@@ -11,21 +11,137 @@
 }
 
 @section JavaScriptIncludeContentPlaceholder{
-    @Html.ScriptWithCacheExpiration("~/Scripts/money-rules.js")
+    <script>
+        (function () {
+            function getBuilderElements(root) {
+                return {
+                    panel: root,
+                    name: root.querySelector('[data-builder-name]'),
+                    status: root.querySelector('[data-builder-status]')
+                };
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                var builderRoot = document.querySelector('[data-rule-builder]');
+                if (!builderRoot) {
+                    return;
+                }
+
+                var builder = getBuilderElements(builderRoot);
+                var promptInput = document.querySelector('[data-rule-prompt]');
+                var activateButton = document.querySelector('[data-activate-rule]');
+                var naturalLanguageForm = document.querySelector('[data-natural-language-form]');
+                var naturalLanguageBuilder = document.querySelector('[data-natural-language-builder]');
+                var builderViewToggles = document.querySelectorAll('[data-builder-view-toggle]');
+                var defaultName = builder.name ? builder.name.textContent : 'Payday Vacation Saver';
+
+                function setBuilderView(view) {
+                    var showStepBuilder = view === 'step';
+
+                    if (showStepBuilder && builder.name) {
+                        var promptValue = promptInput ? promptInput.value.trim() : '';
+                        builder.name.textContent = promptValue || defaultName;
+                    }
+
+                    if (builder.status) {
+                        builder.status.textContent = '';
+                    }
+
+                    if (naturalLanguageBuilder) {
+                        if (showStepBuilder) {
+                            naturalLanguageBuilder.classList.add('mrm-hidden');
+                            naturalLanguageBuilder.setAttribute('hidden', 'hidden');
+                            naturalLanguageBuilder.setAttribute('aria-hidden', 'true');
+                        } else {
+                            naturalLanguageBuilder.classList.remove('mrm-hidden');
+                            naturalLanguageBuilder.removeAttribute('hidden');
+                            naturalLanguageBuilder.setAttribute('aria-hidden', 'false');
+                        }
+                    }
+
+                    if (showStepBuilder) {
+                        builder.panel.classList.remove('mrm-hidden');
+                        builder.panel.removeAttribute('hidden');
+                        builder.panel.setAttribute('aria-hidden', 'false');
+                    } else {
+                        builder.panel.classList.add('mrm-hidden');
+                        builder.panel.setAttribute('hidden', 'hidden');
+                        builder.panel.setAttribute('aria-hidden', 'true');
+                    }
+                }
+
+                if (naturalLanguageForm) {
+                    naturalLanguageForm.addEventListener('submit', function (event) {
+                        event.preventDefault();
+                    });
+                }
+
+                Array.prototype.forEach.call(builderViewToggles, function (toggle) {
+                    toggle.addEventListener('change', function () {
+                        if (toggle.checked) {
+                            setBuilderView(toggle.value);
+                        }
+                    });
+                });
+
+                var selectedBuilderView = document.querySelector('[data-builder-view-toggle]:checked');
+                setBuilderView(selectedBuilderView ? selectedBuilderView.value : 'natural');
+
+                if (activateButton) {
+                    activateButton.addEventListener('click', function () {
+                        if (builder.status) {
+                            builder.status.textContent = 'Rule activated (mock).';
+                        }
+                    });
+                }
+
+                var ruleToggles = document.querySelectorAll('[data-rule-toggle]');
+                Array.prototype.forEach.call(ruleToggles, function (toggle) {
+                    toggle.addEventListener('change', function () {
+                        var ruleItem = toggle.closest('[data-rule-item]');
+                        if (!ruleItem) {
+                            return;
+                        }
+
+                        var status = ruleItem.querySelector('[data-rule-status]');
+                        var isActive = toggle.checked;
+                        ruleItem.setAttribute('data-rule-state', isActive ? 'active' : 'paused');
+                        if (status) {
+                            status.textContent = isActive ? 'Active' : 'Paused';
+                        }
+                    });
+                });
+            });
+        })();
+    </script>
 }
 
 <main class="mrm-page widget content pad--base flex flex--col">
     <header class="mrm-page__header mar-bottom--medium">
-        <h1 class="font-large-heading mar-bottom--xsmall">MyMoney Rules</h1>
-        <p class="font-medium-body">Your money. Your rules.</p>
+        <h2 class="font-medium-body">Your money. Your rules.</h2>
     </header>
 
     <section class="mrm-hero mar-bottom--medium">
-        @Html.Partial("Components/_NaturalLanguageBuilder", Model.Builder)
-        @Html.Partial("Components/_AutomationSummary", Model.Summary)
+        <div class="row">
+            <div class="col">
+                <div role="group" class="iris-switchboard mar-bottom--small" aria-label="Choose how to build your rule">
+                    <input id="mrm_builder_natural" class="iris-switchboard__input" type="radio" name="mrm_builder_view" value="natural" data-builder-view-toggle checked />
+                    <label for="mrm_builder_natural" class="iris-switchboard__label">
+                        Natural language
+                    </label>
+                    <input id="mrm_builder_step" class="iris-switchboard__input" type="radio" name="mrm_builder_view" value="step" data-builder-view-toggle />
+                    <label for="mrm_builder_step" class="iris-switchboard__label">
+                        Step-by-step builder
+                    </label>
+                </div>
+                @Html.Partial("Components/_NaturalLanguageBuilder", Model.Builder)
+                @Html.Partial("Components/_RuleBuilder", Model.Builder)
+            </div>
+            <div class="col">
+                @Html.Partial("Components/_AutomationSummary", Model.Summary)
+            </div>
+        </div>
     </section>
-
-    @Html.Partial("Components/_RuleBuilder", Model.Builder)
 
     @Html.Partial("Components/_RecipeGallery", Model.Recipes)
 

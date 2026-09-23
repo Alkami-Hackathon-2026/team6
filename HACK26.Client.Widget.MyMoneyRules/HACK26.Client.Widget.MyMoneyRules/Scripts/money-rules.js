@@ -35,6 +35,7 @@
         var closeButton = document.querySelector('[data-close-rule-builder]');
         var activateButton = document.querySelector('[data-activate-rule]');
         var naturalLanguageForm = document.querySelector('[data-natural-language-form]');
+        var naturalLanguageBuilder = document.querySelector('[data-natural-language-builder]');
         var defaultName = builder.name ? builder.name.textContent : 'Payday Vacation Saver';
 
         function openBuilder(details) {
@@ -53,6 +54,11 @@
                 builder.status.textContent = '';
             }
 
+            if (naturalLanguageBuilder) {
+                naturalLanguageBuilder.classList.add('mrm-hidden');
+                naturalLanguageBuilder.setAttribute('aria-hidden', 'true');
+            }
+
             builder.panel.classList.remove('mrm-hidden');
             builder.panel.setAttribute('aria-hidden', 'false');
         }
@@ -60,13 +66,16 @@
         function closeBuilder() {
             builder.panel.classList.add('mrm-hidden');
             builder.panel.setAttribute('aria-hidden', 'true');
+
+            if (naturalLanguageBuilder) {
+                naturalLanguageBuilder.classList.remove('mrm-hidden');
+                naturalLanguageBuilder.setAttribute('aria-hidden', 'false');
+            }
         }
 
         if (naturalLanguageForm) {
             naturalLanguageForm.addEventListener('submit', function (event) {
                 event.preventDefault();
-                var promptValue = promptInput ? promptInput.value.trim() : '';
-                openBuilder({ name: promptValue || defaultName });
             });
         }
 

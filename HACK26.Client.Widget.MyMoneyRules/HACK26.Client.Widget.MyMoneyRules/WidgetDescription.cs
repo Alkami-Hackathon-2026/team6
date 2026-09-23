@@ -18,7 +18,7 @@ namespace HACK26.Client.Widget.MyMoneyRules
 
         public override string Title
         {
-            get { return _name; }
+            get { return ""; }
         }
     }
 }

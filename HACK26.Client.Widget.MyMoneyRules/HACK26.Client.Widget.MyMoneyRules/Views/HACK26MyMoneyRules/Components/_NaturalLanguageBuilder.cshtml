@@ -1,6 +1,6 @@
 @model HACK26.Client.Widget.MyMoneyRules.Models.MoneyRules.RuleBuilderViewModel
 
-<section class="iris-card mrm-card mrm-natural-builder pad--base">
+<section class="iris-card mrm-card mrm-natural-builder pad--base" data-natural-language-builder>
     <div class="mrm-kicker">BUILD YOUR OWN BANKING</div>
     <h2 class="mrm-title">What do you want your money to do?</h2>
     <p class="mar-bottom--small">Create simple automations that save, move, organize, and watch your money for you.</p>
@@ -18,13 +18,10 @@
                     autocomplete="off"
                     data-rule-prompt />
             </div>
-            <button type="submit" class="iris-button iris-button--primary" data-open-rule-builder>
+            <button type="submit" class="iris-button iris-button--primary">
                 <span class="iris-button__text">Build rule</span>
             </button>
         </div>
     </form>
 
-    <button type="button" class="iris-button iris-button--tertiary mar-top--small" data-open-rule-builder>
-        <span class="iris-button__text">Or build a rule step-by-step</span>
-    </button>
 </section>
