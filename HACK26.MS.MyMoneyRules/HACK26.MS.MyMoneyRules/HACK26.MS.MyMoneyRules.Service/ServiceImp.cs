@@ -176,7 +176,7 @@ namespace HACK26.MS.MyMoneyRules.Service
             WriteTable(ConditionGroupsFile, groups
                 .Select(g => new { g.ConditionGroupId, g.RuleId, g.ParentConditionGroupId, g.LogicOperator }));
             WriteTable(ConditionsFile, groups.SelectMany(g => g.Conditions ?? Enumerable.Empty<RuleCondition>())
-                .Select(c => new { c.ConditionId, c.ConditionGroupId, c.FieldName, c.Operator, c.Value }));
+                .Select(c => new { c.ConditionId, c.ConditionGroupId, c.FieldName, c.Operator, c.Value, c.AccountIds }));
             WriteTable(ActionsFile, rules.SelectMany(r => r.Actions ?? Enumerable.Empty<RuleAction>())
                 .Select(a => new { a.ActionId, a.RuleId, a.ActionType, a.ActionValue }));
         }
@@ -226,9 +226,9 @@ namespace HACK26.MS.MyMoneyRules.Service
                         query = query.Where(r => filter.RuleIds.Contains(r.RuleId));
                     }
 
-                    if (!string.IsNullOrWhiteSpace(filter.UserId))
+                    if (filter.UserId.HasValue)
                     {
-                        query = query.Where(r => string.Equals(r.UserId, filter.UserId, StringComparison.OrdinalIgnoreCase));
+                        query = query.Where(r => r.UserId == filter.UserId.Value);
                     }
 
                     if (filter.IsActive.HasValue)
@@ -407,7 +407,7 @@ namespace HACK26.MS.MyMoneyRules.Service
                 var nextActionExecutionId = NextId(actionExecutions.Select(e => e.ActionExecutionId));
 
                 var activeRules = rules
-                    .Where(r => r.IsActive && string.Equals(r.UserId, request.UserId, StringComparison.OrdinalIgnoreCase))
+                    .Where(r => r.IsActive && request.UserId.HasValue && r.UserId == request.UserId.Value)
                     .OrderBy(r => r.Priority)
                     .ThenBy(r => r.RuleId)
                     .ToList();
@@ -687,7 +687,10 @@ namespace HACK26.MS.MyMoneyRules.Service
             foreach (var condition in group.Conditions ?? Enumerable.Empty<RuleCondition>())
             {
                 var actual = GetFieldValue(transactionEvent, condition.FieldName);
-                var result = Compare(actual, condition.Operator, condition.Value);
+
+                // A condition scoped to other accounts fails for this transaction
+                var result = condition.AppliesToAccount(transactionEvent.AccountId)
+                    && Compare(actual, condition.Operator, condition.Value);
 
                 results.Add(new ConditionEvaluation
                 {

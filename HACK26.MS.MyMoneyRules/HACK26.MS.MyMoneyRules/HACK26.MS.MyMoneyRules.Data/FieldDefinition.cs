@@ -7,13 +7,34 @@ using System.Text;
 
 namespace HACK26.MS.MyMoneyRules.Data
 {
+    /// <summary>
+    /// A transaction field that rules can check, with its data type and allowed operators. Stored in core.UserEngineFieldDefinitions.
+    /// </summary>
     public class FieldDefinition
     {
+        /// <summary>
+        /// Field definition identifier
+        /// </summary>
         [Key] public int FieldId { get; set; }
+
+        /// <summary>
+        /// Name of the transaction field, such as amount
+        /// </summary>
         [MaxLength(100)] public string FieldName { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Data type of the field, such as decimal, string or bool
+        /// </summary>
         [MaxLength(20)] public string DataType { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Allowed operators stored as a JSON array of strings
+        /// </summary>
         public string AllowedOperatorsJson { get; set; } = "[]";
 
+        /// <summary>
+        /// Allowed operators; reads and writes <see cref="AllowedOperatorsJson"/>
+        /// </summary>
         [NotMapped]
         public List<string> AllowedOperators
         {

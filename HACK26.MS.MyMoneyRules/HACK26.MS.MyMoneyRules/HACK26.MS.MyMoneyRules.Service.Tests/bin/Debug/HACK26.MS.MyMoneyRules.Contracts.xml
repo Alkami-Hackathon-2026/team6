@@ -244,17 +244,13 @@
         </member>
         <member name="T:HACK26.MS.MyMoneyRules.Contracts.Requests.EvaluateTransactionRequest">
             <summary>
-            Request to evaluate a <see cref="T:HACK26.MS.MyMoneyRules.Data.TransactionEvent"/> against the active rules
+            Request to evaluate a <see cref="T:HACK26.MS.MyMoneyRules.Data.TransactionEvent"/> against the active rules.
+            The rules evaluated are those owned by the inherited <see cref="P:Alkami.Contracts.BaseRequest.UserId"/>.
             </summary>
         </member>
         <member name="P:HACK26.MS.MyMoneyRules.Contracts.Requests.EvaluateTransactionRequest.TransactionEvent">
             <summary>
             Transaction event to evaluate
-            </summary>
-        </member>
-        <member name="P:HACK26.MS.MyMoneyRules.Contracts.Requests.EvaluateTransactionRequest.UserId">
-            <summary>
-            Owning user whose rules should be evaluated
             </summary>
         </member>
         <member name="T:HACK26.MS.MyMoneyRules.Contracts.Requests.GetDecisionRulesRequest">

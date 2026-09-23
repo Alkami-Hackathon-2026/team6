@@ -34,7 +34,6 @@ namespace HACK26.MS.MyMoneyRules.Service.Client
             return ProxyCall((operation, inner) => operation.GetSettingsAsync(inner), request);
         }
 
-        /// <inheritdoc />
         //public Task<CustomObjectResponse> GetDataAsync(GetSomethingRequest request)
         //{
         //    return ProxyCall((operation, inner) => operation.GetDataAsync(inner), request);

@@ -1,7 +1,7 @@
 
 CREATE TABLE core.UserEngineRules (
     RuleId INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_Rules PRIMARY KEY,
-    UserId NVARCHAR(16) NOT NULL,
+    UserId INT NOT NULL,
     RuleName NVARCHAR(200) NOT NULL,
     Priority INT NOT NULL CONSTRAINT DF_Rules_Priority DEFAULT (100),
     IsActive BIT NOT NULL CONSTRAINT DF_Rules_IsActive DEFAULT (1),
@@ -30,7 +30,8 @@ CREATE TABLE core.UserEngineConditions (
     ConditionGroupId INT NOT NULL,
     FieldName NVARCHAR(100) NOT NULL,
     Operator NVARCHAR(20) NOT NULL,
-    Value NVARCHAR(500) NOT NULL
+    Value NVARCHAR(500) NOT NULL,
+    AccountIds NVARCHAR(500) NULL -- comma-separated account ids the condition applies to; NULL = all accounts
 );
 GO
 

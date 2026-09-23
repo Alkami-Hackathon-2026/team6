@@ -1,6 +1,6 @@
 [
   {
-    "ActionId": 1,
+      "ActionId": 1,
     "RuleId": 1,
     "ActionType": "SendNotification",
     "ActionValue": "{\"channel\":\"push\",\"message\":\"Large purchase detected on your account.\"}"
@@ -21,6 +21,6 @@
     "ActionId": 4,
     "RuleId": 3,
     "ActionType": "TransferToSavings",
-    "ActionValue": "{\"toAccountId\":2002,\"roundUpTo\":1.00}"
+    "ActionValue": "{\"toAccountId\":21085,\"roundUpTo\":1.00}"
   }
 ]

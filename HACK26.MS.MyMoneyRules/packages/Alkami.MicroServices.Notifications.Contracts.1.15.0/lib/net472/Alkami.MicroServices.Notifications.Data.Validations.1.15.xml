@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.MicroServices.Notifications.Data.Validations.1.15</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.MicroServices.Notifications.Data.Validations.Common.TemplateValidation">
+            <summary>
+            Class for common template validation
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Notifications.Data.Validations.Common.TemplateValidation.IsTemplateContentSafe(System.String)">
+            <summary>
+            Checks if the template contains unsafe content
+            </summary>
+            <param name="templateContent">The template content to validate</param>
+            <returns>True if the template content is safe</returns>
+        </member>
+        <member name="T:Alkami.MicroServices.Notifications.Data.Validations.Requests.TemplateFilterValidator">
+            <summary>
+            Base level filter validation to cover any possible issues with invalid filter types
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Notifications.Data.Validations.Requests.TemplateFilterValidator.ValidateInternal(Alkami.MicroServices.Notifications.Contracts.Requests.TemplateFilter)">
+            <summary>
+            Check filter possible values here and determine issues
+            </summary>
+            <param name="src"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.MicroServices.Notifications.Data.Validations.Requests.RegisterTemplateValidator">
+            <summary>
+            Handles validation specific to when a request to register a new template is made
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Notifications.Data.Validations.Requests.RegisterTemplateValidator.ValidateInternal(Alkami.MicroServices.Notifications.Contracts.Requests.RegisterTemplateRequest)">
+            <summary>
+            Specific validation entries should be defined here
+            </summary>
+            <param name="src"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.MicroServices.Notifications.Data.Validations.Requests.RenderTemplateValidator">
+            <summary>
+            A custom validator for the <see cref="T:Alkami.MicroServices.Notifications.Contracts.Requests.RenderTemplateRequest">RenderTemplateRequest</see>
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Notifications.Data.Validations.Requests.RenderTemplateValidator.ValidateInternal(Alkami.MicroServices.Notifications.Contracts.Requests.RenderTemplateRequest)">
+            <summary>
+            Validate that the RenderTemplateRequest object has the required data before attempting to process it.
+            </summary>
+            <param name="src">The deserialized request object</param>
+            <returns>A list of <see cref="T:Alkami.Data.Validations.ValidationResult">ValidationResult</see> objects that describe any validation errors</returns>
+        </member>
+        <member name="T:Alkami.MicroServices.Notifications.Data.Validations.Requests.SendBasicNotificationValidator">
+            <summary>
+            Handles validation specific to when a request to send a basic notification occurs
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Notifications.Data.Validations.Requests.SendBasicNotificationValidator._maxSendBasicNotificationEmailSummaryLength">
+            <summary>
+            The maximum supported Email character length for the summary property on a SendBasicNotification request
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Notifications.Data.Validations.Requests.SendBasicNotificationValidator._maxSendBasicNotificationEmailMessageLength">
+            <summary>
+            The maximum supported Email character length for the message property on a SendBasicNotification request
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Notifications.Data.Validations.Requests.SendBasicNotificationValidator._maxSendBasicNotificationSmsMessageLength">
+            <summary>
+            The maximum supported SMS character  length for the message property on a SendBasicNotification request
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Alkami.MicroServices.Notifications.Data.Validations.Requests.SendBasicNotificationValidator.ValidateInternal(Alkami.MicroServices.Notifications.Contracts.Requests.SendBasicNotificationRequest)" -->
+        <member name="T:Alkami.MicroServices.Notifications.Data.Validations.Requests.SendNotificationValidator">
+            <summary>
+            Handles validation specific to when a request to send a notification occurs
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Notifications.Data.Validations.Requests.SendNotificationValidator.ValidateInternal(Alkami.MicroServices.Notifications.Contracts.Requests.SendNotificationRequest)">
+            <summary>
+            Specific validation entries should be defined here
+            </summary>
+            <param name="src"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.MicroServices.Notifications.Data.Validations.Requests.TemplateValidator">
+            <summary>
+            Handles validation specific to a template that accompanies a send notification request as well
+            as a registration request
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Notifications.Data.Validations.Requests.TemplateValidator.ValidateInternal(Alkami.MicroServices.Notifications.Data.Template)">
+            <summary>
+            Specific validation entries should be defined here
+            </summary>
+            <param name="src"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

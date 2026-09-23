@@ -24,7 +24,7 @@ namespace HACK26.MS.MyMoneyRules.Contracts.Filters
         /// Owning user identifier
         /// </summary>
         [DataMember(EmitDefaultValue = true)]
-        public string UserId { get; set; }
+        public int? UserId { get; set; }
 
         /// <summary>
         /// Active flag to match
