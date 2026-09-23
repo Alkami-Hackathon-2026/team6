@@ -1,5 +1,6 @@
 ﻿using Alkami.Contracts;
 using HACK26.MS.MyMoneyRules.Contracts.Requests;
+using HACK26.MS.MyMoneyRules.Data.Gemini;
 using NUnit.Framework;
 using System;
 using System.Linq;
@@ -36,6 +37,19 @@ namespace HACK26.MS.MyMoneyRules.Service.Tests
 			 do other injections here
 			 ...
 			 */
+        }
+
+        [Test]
+        public async Task CanGetGeminiStatusWhenNotConfigured()
+        {
+            var request = new GetGeminiStatusRequest();
+            AugmentBaseRequest(request);
+
+            var result = await _testClass.GetGeminiStatusAsync(request);
+
+            Assert.IsFalse(result.Configured);
+            Assert.AreEqual(GeminiDefaults.DefaultModel, result.Model);
+            Assert.IsFalse(string.IsNullOrWhiteSpace(result.Message));
         }
 
         [Test]

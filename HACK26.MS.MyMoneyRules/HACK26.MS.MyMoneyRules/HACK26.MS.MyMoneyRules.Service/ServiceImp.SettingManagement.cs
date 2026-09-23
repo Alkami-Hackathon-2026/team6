@@ -1,6 +1,7 @@
 ﻿using Alkami.Data.Validations;
 using Alkami.MicroServices.Settings.ProviderBased.Contracts;
 using Alkami.TrackableObjects.Plugins;
+using HACK26.MS.MyMoneyRules.Data.Gemini;
 using HACK26.MS.MyMoneyRules.Data.ProviderSettings;
 using System.Collections.Generic;
 
@@ -27,6 +28,16 @@ namespace HACK26.MS.MyMoneyRules.Service
                 settings.Add(SettingNames.SecondProviderSetting, "Second Provider Setting");
             }
 
+            if (!settings.ContainsKey(SettingNames.GeminiApiKey))
+            {
+                settings.Add(SettingNames.GeminiApiKey, string.Empty);
+            }
+
+            if (!settings.ContainsKey(SettingNames.GeminiModel))
+            {
+                settings.Add(SettingNames.GeminiModel, GeminiDefaults.DefaultModel);
+            }
+
             return settings;
         }
 
@@ -45,6 +56,8 @@ namespace HACK26.MS.MyMoneyRules.Service
             // Next add a descriptor for each of the settings
             descriptors.Add(new SettingDescriptor(SettingNames.FirstProviderSetting, "A meaningful description of the value, so that administrators of the configuration can know why they are changing this value.", typeof(string), true, "A meaningful display name", false));
             descriptors.Add(new SettingDescriptor(SettingNames.SecondProviderSetting, "A meaningful description of the value, so that administrators of the configuration can know why they are changing this value.", typeof(string), true, "A meaningful display name", false));
+            descriptors.Add(new SettingDescriptor(SettingNames.GeminiApiKey, "API key from Google AI Studio (https://aistudio.google.com/apikey). Can also be set via the GEMINI_API_KEY environment variable.", typeof(string), true, "Gemini Api Key", true));
+            descriptors.Add(new SettingDescriptor(SettingNames.GeminiModel, "Model id for the free Gemini Developer API tier.", typeof(string), true, "Gemini Model", false));
 
             return descriptors;
         }
@@ -89,6 +102,22 @@ namespace HACK26.MS.MyMoneyRules.Service
                                 $"{settingDescriptor.Name} value requires that the word `Second` exist as part of the string value. [{settingValue}]");
                             errors.AddValidationError(SettingNames.SecondProviderSetting,
                                 "Value must contain the word `Second`", SubCode.ValueUnsupported);
+                        }
+
+                        performedValidation = true;
+                        break;
+                    }
+                case SettingNames.GeminiApiKey:
+                    {
+                        performedValidation = true;
+                        break;
+                    }
+                case SettingNames.GeminiModel:
+                    {
+                        if (string.IsNullOrWhiteSpace(settingValue))
+                        {
+                            errors.AddValidationError(SettingNames.GeminiModel,
+                                "Gemini model is required.", SubCode.ValueUnsupported);
                         }
 
                         performedValidation = true;

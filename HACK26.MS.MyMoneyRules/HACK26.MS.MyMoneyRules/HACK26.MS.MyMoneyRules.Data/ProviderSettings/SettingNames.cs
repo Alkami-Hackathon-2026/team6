@@ -18,5 +18,17 @@ namespace HACK26.MS.MyMoneyRules.Data.ProviderSettings
         /// </summary>
         [DataMember(EmitDefaultValue = false)]
         public const string SecondProviderSetting = "Second Provider Setting";
+
+        /// <summary>
+        /// Google AI Studio API key for Gemini. Can also be set via GEMINI_API_KEY.
+        /// </summary>
+        [DataMember(EmitDefaultValue = false)]
+        public const string GeminiApiKey = "Gemini Api Key";
+
+        /// <summary>
+        /// Gemini model id for the free Developer API tier.
+        /// </summary>
+        [DataMember(EmitDefaultValue = false)]
+        public const string GeminiModel = "Gemini Model";
     }
 }

@@ -46,6 +46,7 @@
     <Compile Include="CustomChildObject.cs" />
     <Compile Include="CustomDataObject.cs" />
     <Compile Include="FdicComplianceConfigs.cs" />
+    <Compile Include="Gemini\GeminiDefaults.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProviderSettings\SettingNames.cs" />
     <Compile Include="ProviderSettings\Setting.cs" />
