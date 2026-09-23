@@ -31,6 +31,7 @@ namespace HACK26.MS.MyMoneyRules.Service
         private CancellationTokenSource _cancellation;
         private Timer _timer;
         private int _running;
+        private long _runNumber;
         private DateTime _lastRunUtc;
 
         /// <summary>
@@ -101,12 +102,17 @@ namespace HACK26.MS.MyMoneyRules.Service
 
         private async void OnTick(object state)
         {
+            var runNumber = Interlocked.Increment(ref _runNumber);
+            Logger.Info($"{nameof(RulesBackgroundWorker)} fired | Run [{runNumber}] | At [{DateTime.UtcNow:o}]");
+
             // Skip this tick if the previous run hasn't finished
             if (Interlocked.CompareExchange(ref _running, 1, 0) != 0)
             {
-                Logger.Warn($"{nameof(RulesBackgroundWorker)} | Previous run still in progress, skipping tick");
+                Logger.Warn($"{nameof(RulesBackgroundWorker)} | Run [{runNumber}] skipped; previous run still in progress");
                 return;
             }
+
+            var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
             try
             {
@@ -122,15 +128,16 @@ namespace HACK26.MS.MyMoneyRules.Service
                 }
 
                 await DoWorkAsync(token).ConfigureAwait(false);
+                Logger.Info($"{nameof(RulesBackgroundWorker)} | Run [{runNumber}] completed in [{stopwatch.ElapsedMilliseconds}] ms");
             }
             catch (OperationCanceledException)
             {
-                Logger.Trace($"{nameof(RulesBackgroundWorker)} | Run cancelled");
+                Logger.Info($"{nameof(RulesBackgroundWorker)} | Run [{runNumber}] cancelled after [{stopwatch.ElapsedMilliseconds}] ms");
             }
             catch (Exception ex)
             {
                 // Never let an exception escape a timer callback; it would crash the host
-                Logger.Error($"{nameof(RulesBackgroundWorker)} | Run failed", ex);
+                Logger.Error($"{nameof(RulesBackgroundWorker)} | Run [{runNumber}] failed after [{stopwatch.ElapsedMilliseconds}] ms", ex);
             }
             finally
             {
@@ -160,10 +167,12 @@ namespace HACK26.MS.MyMoneyRules.Service
 
             if (rulesByUser.Count == 0)
             {
-                Logger.Trace($"{nameof(RulesBackgroundWorker)} | No active rules");
+                Logger.Info($"{nameof(RulesBackgroundWorker)} | No active rules; nothing to process");
                 _lastRunUtc = runStartedUtc;
                 return;
             }
+
+            Logger.Info($"{nameof(RulesBackgroundWorker)} | Processing [{rulesResponse.ItemList.Count}] active rules for [{rulesByUser.Count}] users | Since [{_lastRunUtc:o}]");
 
             var evaluatedTransactionIds = ServiceImp.GetEvaluatedTransactionIds();
 
@@ -195,7 +204,7 @@ namespace HACK26.MS.MyMoneyRules.Service
             var accountIds = GetConfiguredAccountIds(rules);
             if (accountIds.Count == 0)
             {
-                Logger.Trace($"{nameof(RulesBackgroundWorker)} | User [{userId}] has no rules configured with account ids");
+                Logger.Info($"{nameof(RulesBackgroundWorker)} | User [{userId}] has no rules configured with account ids; skipped");
                 return;
             }
 
@@ -207,7 +216,7 @@ namespace HACK26.MS.MyMoneyRules.Service
                 .Where(t => t != null && evaluatedTransactionIds.Add(t.TransactionId))
                 .ToList();
 
-            Logger.Trace($"{nameof(RulesBackgroundWorker)} | User [{userId}] | Accounts [{string.Join(",", accountIds)}] | New transactions [{newTransactions.Count}]");
+            Logger.Info($"{nameof(RulesBackgroundWorker)} | User [{userId}] | Accounts [{string.Join(",", accountIds)}] | Retrieved [{transactions?.Count ?? 0}] | New [{newTransactions.Count}]");
 
             UserContact contact = null;
             var contactLoaded = false;
@@ -226,6 +235,8 @@ namespace HACK26.MS.MyMoneyRules.Service
 
                 var statusUpdates = new Dictionary<int, string>();
 
+                Logger.Debug($"{nameof(RulesBackgroundWorker)} | Transaction [{transaction.TransactionId}] | Account [{transaction.AccountId}] | Rules evaluated [{evaluation.ItemList.Count}] | Matched [{evaluation.ItemList.Count(e => e.Matched)}] | Actions [{evaluation.ActionExecutions.Count}]");
+
                 foreach (var execution in evaluation.ActionExecutions)
                 {
                     if (!actionsById.TryGetValue(execution.ActionId, out var action) || !IsNotification(action))
@@ -242,6 +253,7 @@ namespace HACK26.MS.MyMoneyRules.Service
 
                     if (contact == null)
                     {
+                        Logger.Warn($"{nameof(RulesBackgroundWorker)} | No contact information for user [{userId}]; action execution [{execution.ActionExecutionId}] failed");
                         statusUpdates[execution.ActionExecutionId] = "FAILED";
                         continue;
                     }
@@ -250,6 +262,15 @@ namespace HACK26.MS.MyMoneyRules.Service
                     GetNotificationDetails(action, transaction, out var channel, out var message);
                     var sent = await _notifications.SendAsync(baseRequest, contact, channel, message, cancellationToken).ConfigureAwait(false);
                     statusUpdates[execution.ActionExecutionId] = sent ? "SUCCESS" : "FAILED";
+
+                    if (sent)
+                    {
+                        Logger.Info($"{nameof(RulesBackgroundWorker)} | Notification sent | User [{userId}] | Rule action [{action.ActionId}] | Channel [{channel}] | Transaction [{transaction.TransactionId}]");
+                    }
+                    else
+                    {
+                        Logger.Warn($"{nameof(RulesBackgroundWorker)} | Notification not sent | User [{userId}] | Rule action [{action.ActionId}] | Channel [{channel}] | Transaction [{transaction.TransactionId}]");
+                    }
                 }
 
                 ServiceImp.UpdateActionExecutionStatuses(statusUpdates);
@@ -332,6 +353,7 @@ namespace HACK26.MS.MyMoneyRules.Service
                 }
                 catch (Newtonsoft.Json.JsonReaderException)
                 {
+                    Logger.Debug($"{nameof(RulesBackgroundWorker)} | Action [{action.ActionId}] value is not JSON; using it as the message text");
                     message = action.ActionValue;
                 }
             }
