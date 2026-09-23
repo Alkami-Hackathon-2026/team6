@@ -1,7 +1,76 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\src\\devops\\team6\\HACK26.MS.MyMoneyRules\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|c:\\src\\hack26\\team6\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\decisionenginemodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|solutionrelative:hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\decisionenginemodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|c:\\src\\hack26\\team6\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\customdataobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|solutionrelative:hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\customdataobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|c:\\src\\hack26\\team6\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\customchildobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|solutionrelative:hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\customchildobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82D77959-F3D2-46D9-9A6B-2D4B1CEDF06F}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Contracts\\HACK26.MS.MyMoneyRules.Contracts.csproj|c:\\src\\hack26\\team6\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.contracts\\requests\\getsettingsrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82D77959-F3D2-46D9-9A6B-2D4B1CEDF06F}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Contracts\\HACK26.MS.MyMoneyRules.Contracts.csproj|solutionrelative:hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.contracts\\requests\\getsettingsrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|c:\\src\\hack26\\team6\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\json\\12_action_execution.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|solutionrelative:hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\json\\12_action_execution.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|c:\\src\\hack26\\team6\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\json\\11_condition_evaluation.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|solutionrelative:hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\json\\11_condition_evaluation.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|c:\\src\\hack26\\team6\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\json\\10_rule_evaluation.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|solutionrelative:hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\json\\10_rule_evaluation.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|c:\\src\\hack26\\team6\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\json\\09_rule_actions.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|solutionrelative:hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\json\\09_rule_actions.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|c:\\src\\hack26\\team6\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\json\\08_rule_field_catalog.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|solutionrelative:hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\json\\08_rule_field_catalog.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|c:\\src\\hack26\\team6\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\json\\07_rule_conditions.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|solutionrelative:hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\json\\07_rule_conditions.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|c:\\src\\hack26\\team6\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\json\\06_rule_condition_group.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|solutionrelative:hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\json\\06_rule_condition_group.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|c:\\src\\hack26\\team6\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\json\\05_rule_trigger.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|solutionrelative:hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\json\\05_rule_trigger.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|c:\\src\\hack26\\team6\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\json\\03_decision_rule.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|solutionrelative:hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\json\\03_decision_rule.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|c:\\src\\hack26\\team6\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\json\\02_transaction_context.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|solutionrelative:hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\json\\02_transaction_context.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|c:\\src\\hack26\\team6\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\json\\01_transaction_event.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|solutionrelative:hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\json\\01_transaction_event.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|c:\\src\\hack26\\team6\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\json\\04_decision_rule_version.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\HACK26.MS.MyMoneyRules.Data.csproj|solutionrelative:hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.data\\json\\04_decision_rule_version.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82D77959-F3D2-46D9-9A6B-2D4B1CEDF06F}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Contracts\\HACK26.MS.MyMoneyRules.Contracts.csproj|c:\\src\\hack26\\team6\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.contracts\\imymoneyrulesservicecontract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82D77959-F3D2-46D9-9A6B-2D4B1CEDF06F}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Contracts\\HACK26.MS.MyMoneyRules.Contracts.csproj|solutionrelative:hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.contracts\\imymoneyrulesservicecontract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +78,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 260,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 12,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,6 +127,227 @@
             {
               "$type": "Bookmark",
               "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DecisionEngineModels.cs",
+              "DocumentMoniker": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\DecisionEngineModels.cs",
+              "RelativeDocumentMoniker": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\DecisionEngineModels.cs",
+              "ToolTip": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\DecisionEngineModels.cs",
+              "RelativeToolTip": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\DecisionEngineModels.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAMwAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-23T18:18:23.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CustomDataObject.cs",
+              "DocumentMoniker": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\CustomDataObject.cs",
+              "RelativeDocumentMoniker": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\CustomDataObject.cs",
+              "ToolTip": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\CustomDataObject.cs",
+              "RelativeToolTip": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\CustomDataObject.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAqwBoAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-23T18:09:02.879Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CustomChildObject.cs",
+              "DocumentMoniker": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\CustomChildObject.cs",
+              "RelativeDocumentMoniker": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\CustomChildObject.cs",
+              "ToolTip": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\CustomChildObject.cs",
+              "RelativeToolTip": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\CustomChildObject.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-23T18:08:56.17Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GetSettingsRequest.cs",
+              "DocumentMoniker": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Contracts\\Requests\\GetSettingsRequest.cs",
+              "RelativeDocumentMoniker": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Contracts\\Requests\\GetSettingsRequest.cs",
+              "ToolTip": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Contracts\\Requests\\GetSettingsRequest.cs",
+              "RelativeToolTip": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Contracts\\Requests\\GetSettingsRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-23T18:08:36.931Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "12_action_execution.json",
+              "DocumentMoniker": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\12_action_execution.json",
+              "RelativeDocumentMoniker": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\12_action_execution.json",
+              "ToolTip": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\12_action_execution.json",
+              "RelativeToolTip": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\12_action_execution.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-23T18:04:43.315Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "11_condition_evaluation.json",
+              "DocumentMoniker": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\11_condition_evaluation.json",
+              "RelativeDocumentMoniker": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\11_condition_evaluation.json",
+              "ToolTip": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\11_condition_evaluation.json",
+              "RelativeToolTip": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\11_condition_evaluation.json",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-23T18:04:31.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "10_rule_evaluation.json",
+              "DocumentMoniker": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\10_rule_evaluation.json",
+              "RelativeDocumentMoniker": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\10_rule_evaluation.json",
+              "ToolTip": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\10_rule_evaluation.json",
+              "RelativeToolTip": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\10_rule_evaluation.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-23T18:04:29.254Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "09_rule_actions.json",
+              "DocumentMoniker": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\09_rule_actions.json",
+              "RelativeDocumentMoniker": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\09_rule_actions.json",
+              "ToolTip": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\09_rule_actions.json",
+              "RelativeToolTip": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\09_rule_actions.json",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-23T18:04:21.609Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "08_rule_field_catalog.json",
+              "DocumentMoniker": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\08_rule_field_catalog.json",
+              "RelativeDocumentMoniker": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\08_rule_field_catalog.json",
+              "ToolTip": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\08_rule_field_catalog.json",
+              "RelativeToolTip": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\08_rule_field_catalog.json",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-23T18:03:55.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "07_rule_conditions.json",
+              "DocumentMoniker": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\07_rule_conditions.json",
+              "RelativeDocumentMoniker": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\07_rule_conditions.json",
+              "ToolTip": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\07_rule_conditions.json",
+              "RelativeToolTip": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\07_rule_conditions.json",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-23T18:03:38.316Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "06_rule_condition_group.json",
+              "DocumentMoniker": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\06_rule_condition_group.json",
+              "RelativeDocumentMoniker": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\06_rule_condition_group.json",
+              "ToolTip": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\06_rule_condition_group.json",
+              "RelativeToolTip": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\06_rule_condition_group.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-23T18:03:22.089Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "05_rule_trigger.json",
+              "DocumentMoniker": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\05_rule_trigger.json",
+              "RelativeDocumentMoniker": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\05_rule_trigger.json",
+              "ToolTip": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\05_rule_trigger.json",
+              "RelativeToolTip": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\05_rule_trigger.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-23T18:03:09.443Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "04_decision_rule_version.json",
+              "DocumentMoniker": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\04_decision_rule_version.json",
+              "RelativeDocumentMoniker": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\04_decision_rule_version.json",
+              "ToolTip": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\04_decision_rule_version.json",
+              "RelativeToolTip": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\04_decision_rule_version.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-23T18:03:04.55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "03_decision_rule.json",
+              "DocumentMoniker": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\03_decision_rule.json",
+              "RelativeDocumentMoniker": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\03_decision_rule.json",
+              "ToolTip": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\03_decision_rule.json",
+              "RelativeToolTip": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\03_decision_rule.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-23T18:02:49.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "01_transaction_event.json",
+              "DocumentMoniker": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\01_transaction_event.json",
+              "RelativeDocumentMoniker": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\01_transaction_event.json",
+              "ToolTip": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\01_transaction_event.json",
+              "RelativeToolTip": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\01_transaction_event.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-23T18:02:41.148Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "02_transaction_context.json",
+              "DocumentMoniker": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\02_transaction_context.json",
+              "RelativeDocumentMoniker": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\02_transaction_context.json",
+              "ToolTip": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\02_transaction_context.json",
+              "RelativeToolTip": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Data\\json\\02_transaction_context.json",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-23T17:43:49Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IMyMoneyRulesServiceContract.cs",
+              "DocumentMoniker": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Contracts\\IMyMoneyRulesServiceContract.cs",
+              "RelativeDocumentMoniker": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Contracts\\IMyMoneyRulesServiceContract.cs",
+              "ToolTip": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Contracts\\IMyMoneyRulesServiceContract.cs",
+              "RelativeToolTip": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Contracts\\IMyMoneyRulesServiceContract.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-23T17:41:17.903Z",
+              "EditorCaption": ""
             }
           ]
         }

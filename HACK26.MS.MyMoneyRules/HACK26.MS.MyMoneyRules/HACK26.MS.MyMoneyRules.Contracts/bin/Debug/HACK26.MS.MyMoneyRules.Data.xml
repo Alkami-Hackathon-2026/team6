@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HACK26.MS.MyMoneyRules.Data</name>
+    </assembly>
+    <members>
+        <member name="T:HACK26.MS.MyMoneyRules.Data.CustomChildObject">
+            <summary>
+            TODO: add xml doc comments
+            </summary>
+        </member>
+        <member name="P:HACK26.MS.MyMoneyRules.Data.CustomChildObject.DateTime">
+            <summary>
+            TODO: add xml doc comments
+            </summary>
+        </member>
+        <member name="P:HACK26.MS.MyMoneyRules.Data.CustomChildObject.String">
+            <summary>
+            TODO: add xml doc comments
+            </summary>
+        </member>
+        <member name="P:HACK26.MS.MyMoneyRules.Data.CustomChildObject.Int">
+            <summary>
+            TODO: add xml doc comments
+            </summary>
+        </member>
+        <member name="T:HACK26.MS.MyMoneyRules.Data.CustomDataObject">
+            <summary>
+            TODO: add xml doc comments
+            </summary>
+        </member>
+        <member name="P:HACK26.MS.MyMoneyRules.Data.CustomDataObject.OneOfYourObjects">
+            <summary>
+            TODO: add xml doc comments
+            </summary>
+        </member>
+        <member name="P:HACK26.MS.MyMoneyRules.Data.CustomDataObject.AnotherPropertyThatsAnInt">
+            <summary>
+            TODO: add xml doc comments
+            </summary>
+        </member>
+        <member name="P:HACK26.MS.MyMoneyRules.Data.CustomDataObject.ChildrenObjects">
+            <summary>
+            TODO: add xml doc comments
+            </summary>
+        </member>
+        <member name="P:HACK26.MS.MyMoneyRules.Data.Login.IsEnabled">
+            <summary>
+            
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:HACK26.MS.MyMoneyRules.Data.Login.SignColor" -->
+        <member name="T:HACK26.MS.MyMoneyRules.Data.ProviderSettings.SettingNames">
+            <summary>
+            This class contains a list of setting names as string constants
+            </summary>
+        </member>
+        <member name="F:HACK26.MS.MyMoneyRules.Data.ProviderSettings.SettingNames.FirstProviderSetting">
+            <summary>
+            This is an example provider setting name
+            </summary>
+        </member>
+        <member name="F:HACK26.MS.MyMoneyRules.Data.ProviderSettings.SettingNames.SecondProviderSetting">
+            <summary>
+            This is an example provider setting name
+            </summary>
+        </member>
+        <member name="T:HACK26.MS.MyMoneyRules.Data.ProviderSettings.Setting">
+            <summary>
+            This class is used to represent the setting details of any given provider setting
+            </summary>
+        </member>
+        <member name="P:HACK26.MS.MyMoneyRules.Data.ProviderSettings.Setting.Name">
+            <summary>
+            The "key" name of the setting
+            </summary>
+        </member>
+        <member name="P:HACK26.MS.MyMoneyRules.Data.ProviderSettings.Setting.CurrentValue">
+            <summary>
+            The current active value of the setting
+            </summary>
+        </member>
+        <member name="P:HACK26.MS.MyMoneyRules.Data.ProviderSettings.Setting.DefaultValue">
+            <summary>
+            The default value that is initially configured
+            </summary>
+        </member>
+        <member name="P:HACK26.MS.MyMoneyRules.Data.ProviderSettings.Setting.Description">
+            <summary>
+            A descriptive summary of this setting and it's meaning
+            </summary>
+        </member>
+    </members>
+</doc>

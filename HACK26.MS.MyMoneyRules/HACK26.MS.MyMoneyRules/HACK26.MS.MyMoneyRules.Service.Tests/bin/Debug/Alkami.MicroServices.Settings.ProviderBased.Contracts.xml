@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.MicroServices.Settings.ProviderBased.Contracts</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.MicroServices.Settings.ProviderBased.Contracts.SettingDescriptor">
+            <summary>
+            A class that contains information about the settings.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.ProviderBased.Contracts.SettingDescriptor.#ctor(System.String,System.String,System.String,System.Boolean,System.String,System.Boolean)">
+            <summary>
+            The only way to create a descriptor
+            </summary>
+            <param name="name">The name of the setting</param>
+            <param name="description">the description of the setting</param>
+            <param name="type">the type of the setting</param>
+            <param name="isRequired">Is the setting</param>
+            <param name="displayName">An optional Parameter specified</param>
+            <param name="isEnvironmentSpecific"></param>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.ProviderBased.Contracts.SettingDescriptor.#ctor(System.String,System.String,System.Type,System.Boolean,System.String,System.Boolean)">
+            <summary>
+            The only way to create a descriptor
+            </summary>
+            <param name="name">The name of the setting</param>
+            <param name="description">the description of the setting</param>
+            <param name="type">the type of the setting</param>
+            <param name="isRequired">Is the setting</param>
+            <param name="displayName">An optional Parameter specified</param>
+            <param name="isEnvironmentSpecific"></param>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.ProviderBased.Contracts.SettingDescriptor.Name">
+            <summary>
+            The Setting Name. This correlates to the Name in the DB!
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.ProviderBased.Contracts.SettingDescriptor.Description">
+            <summary>
+            The setting description
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.ProviderBased.Contracts.SettingDescriptor.Type">
+            <summary>
+            The type of the setting
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.ProviderBased.Contracts.SettingDescriptor.IsRequired">
+            <summary>
+            Is the Setting Required
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.ProviderBased.Contracts.SettingDescriptor.DisplayName">
+            <summary>
+            The friendly name this name is displayed to the end user if set instead of the Name
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.ProviderBased.Contracts.SettingDescriptor.IsEnvironmentSpecific">
+            <summary>
+            Is this setting environment specific? If set to true this means that this setting will frequently differe between environments (Eg: Dev, Staging Production)
+            </summary>
+        </member>
+    </members>
+</doc>

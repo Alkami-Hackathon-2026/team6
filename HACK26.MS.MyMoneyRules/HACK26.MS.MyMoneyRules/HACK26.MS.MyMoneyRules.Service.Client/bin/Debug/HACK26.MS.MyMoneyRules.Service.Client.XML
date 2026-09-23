@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HACK26.MS.MyMoneyRules.Service.Client</name>
+    </assembly>
+    <members>
+        <member name="T:HACK26.MS.MyMoneyRules.Service.Client.MyMoneyRulesServiceClient">
+            <inheritdoc />
+        </member>
+        <member name="F:HACK26.MS.MyMoneyRules.Service.Client.MyMoneyRulesServiceClient.ProviderType">
+            <summary>
+            The unique provider type designator for this service
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Client.MyMoneyRulesServiceClient.#ctor">
+            <summary>
+             ProviderBased constructor
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Client.MyMoneyRulesServiceClient.#ctor(System.Int64)">
+            <summary>
+            ProviderBased constructor override
+            </summary>
+            <param name="providerId"></param>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Client.MyMoneyRulesServiceClient.GetSettingsAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetSettingsRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Client.MyMoneyRulesServiceClient.GetDataAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetSomethingRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Client.MyMoneyRulesServiceClient.GetFDICConfigurationAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetSomethingRequest)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

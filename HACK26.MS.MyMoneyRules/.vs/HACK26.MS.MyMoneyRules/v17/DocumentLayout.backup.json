@@ -1,7 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\src\\devops\\team6\\HACK26.MS.MyMoneyRules\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{82D77959-F3D2-46D9-9A6B-2D4B1CEDF06F}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Contracts\\HACK26.MS.MyMoneyRules.Contracts.csproj|c:\\src\\hack26\\team6\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.contracts\\imymoneyrulesservicecontract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82D77959-F3D2-46D9-9A6B-2D4B1CEDF06F}|HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Contracts\\HACK26.MS.MyMoneyRules.Contracts.csproj|solutionrelative:hack26.ms.mymoneyrules\\hack26.ms.mymoneyrules.contracts\\imymoneyrulesservicecontract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 260,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 12,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,6 +63,19 @@
             {
               "$type": "Bookmark",
               "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IMyMoneyRulesServiceContract.cs",
+              "DocumentMoniker": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Contracts\\IMyMoneyRulesServiceContract.cs",
+              "RelativeDocumentMoniker": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Contracts\\IMyMoneyRulesServiceContract.cs",
+              "ToolTip": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Contracts\\IMyMoneyRulesServiceContract.cs",
+              "RelativeToolTip": "HACK26.MS.MyMoneyRules\\HACK26.MS.MyMoneyRules.Contracts\\IMyMoneyRulesServiceContract.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-23T17:41:17.903Z",
+              "EditorCaption": ""
             }
           ]
         }

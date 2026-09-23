@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HACK26.MS.MyMoneyRules.Service</name>
+    </assembly>
+    <members>
+        <member name="T:HACK26.MS.MyMoneyRules.Service.ServiceImp">
+            <inheritdoc />
+            <inheritdoc />
+            <inheritdoc />
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.GetSettingsAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetSettingsRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.GetDataAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetSomethingRequest)">
+            <summary>
+            We can get something from the web
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.#ctor(System.String)">
+            <summary>
+            Create a new service for this object
+            </summary>
+            <param name="providerType"></param>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.#ctor(System.String,System.String)">
+            <summary>
+            Create a new service for this object
+            </summary>
+            <param name="providerType"></param>
+            <param name="providerName"></param>
+        </member>
+        <member name="P:HACK26.MS.MyMoneyRules.Service.ServiceImp.ItemType">
+            <summary>
+            Don't change this on configurable microservices.
+            </summary>
+        </member>
+        <member name="P:HACK26.MS.MyMoneyRules.Service.ServiceImp.Name">
+            <summary>
+            Defines the name of this microservice
+            </summary>
+        </member>
+        <member name="F:HACK26.MS.MyMoneyRules.Service.ServiceImp.StaticName">
+            <summary>
+            This is a friendly descriptive name of the service these configurations are a part of
+            </summary>
+        </member>
+        <member name="F:HACK26.MS.MyMoneyRules.Service.ServiceImp.StaticProviderType">
+            <summary>
+            Our provider types can be customized. Any sample provider created by Alkami's SDK team will have the "SDKSample" provider type.
+            </summary>
+        </member>
+        <member name="F:HACK26.MS.MyMoneyRules.Service.ServiceImp.StaticProviderName">
+            <summary>
+            This is the unique name of the provider. This cannot be shared with other providers and is usually the base namespace of this solution.
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.DefaultSettings">
+            <summary>
+            Create default settings that the service expects when first being deployed, these can be anything you'd like them to be
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.SettingDescriptors">
+            <summary>
+            These descriptors need to be added in order to properly display them in the Admin Portal
+            Use the SettingDescriptor constructor to create a new descriptor for each setting name    
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.ValidateChangedSetting(Alkami.MicroServices.Settings.ProviderBased.Contracts.SettingDescriptor,System.String,System.Collections.Generic.List{Alkami.Data.Validations.ValidationResult},System.Boolean,System.Boolean@)">
+            <summary>
+            Each setting should be validated as well as possible. This will safeguard the implementation from incorrect configuration.
+            </summary>
+            <param name="settingDescriptor">The setting Descriptor to validate</param>
+            <param name="settingValue">The value to validate</param>
+            <param name="errors">Pre-initialized collection of errors for you to add any additional errors to</param>
+            <param name="isValidated">A flag that determines if the SettingDescriptor type has been validated; it will be false only if the default type validation fails.</param>
+            <param name="performedValidation">Set this to true if validation checks have been performed</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HACK26.MS.MyMoneyRules.Contracts</name>
+    </assembly>
+    <members>
+        <member name="T:HACK26.MS.MyMoneyRules.Contracts.IMyMoneyRulesServiceContract">
+            <summary>
+            The IService Contract for HACK26.MS.MyMoneyRules.Contracts
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Contracts.IMyMoneyRulesServiceContract.GetSettingsAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetSettingsRequest)">
+            <summary>
+            This is a template method that demonstrates how to get settings from Alkami's data scope abstraction
+            It is sometimes useful to have a service's settings within a widget or another service.
+            This service may be one part of a feature, but it's possible to store all feature settings within a single service
+            Any other widgets or services that are a part of this feature can easily get all the settings they need by calling this method
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Contracts.IMyMoneyRulesServiceContract.GetDataAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetSomethingRequest)">
+            <summary>
+            Get something from a third party service or API
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Contracts.IMyMoneyRulesServiceContract.GetFDICConfigurationAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetSomethingRequest)">
+            <summary>
+            Get FDIC Configuration
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HACK26.MS.MyMoneyRules.Contracts.CustomDataObjectFields">
+            <summary>
+            TODO: add xml doc comments
+            </summary>
+        </member>
+        <member name="F:HACK26.MS.MyMoneyRules.Contracts.CustomDataObjectFields.AnotherPropertyThatsAnInt">
+            <summary>
+            TODO: add xml doc comments
+            </summary>
+        </member>
+        <member name="F:HACK26.MS.MyMoneyRules.Contracts.CustomDataObjectFields.OneOfYourObjects">
+            <summary>
+            TODO: add xml doc comments
+            </summary>
+        </member>
+        <member name="T:HACK26.MS.MyMoneyRules.Contracts.Filters.CustomDataObjectFilter">
+            <summary>
+            TODO: add xml doc comments
+            </summary>
+        </member>
+        <member name="P:HACK26.MS.MyMoneyRules.Contracts.Filters.CustomDataObjectFilter.Ids">
+            <summary>
+            TODO: add xml doc comments
+            </summary>
+        </member>
+        <member name="P:HACK26.MS.MyMoneyRules.Contracts.Filters.CustomDataObjectFilter.PartialOneOfYourObjects">
+            <summary>
+            TODO: add xml doc comments
+            </summary>
+        </member>
+        <member name="T:HACK26.MS.MyMoneyRules.Contracts.Mappers.CustomDataObjectMapper">
+            <summary>
+            TODO: add xml doc comments
+            </summary>
+        </member>
+        <member name="P:HACK26.MS.MyMoneyRules.Contracts.Mappers.CustomDataObjectMapper.IncludeChildren">
+            <summary>
+            //TODO: add xml doc comments
+            </summary>
+        </member>
+        <member name="T:HACK26.MS.MyMoneyRules.Contracts.Sorters.CustomDataObjectSorter">
+            <summary>
+            TODO: add xml doc comments
+            </summary>
+        </member>
+        <member name="P:HACK26.MS.MyMoneyRules.Contracts.Sorters.CustomDataObjectSorter.Ascending">
+            <inheritdoc />
+        </member>
+        <member name="P:HACK26.MS.MyMoneyRules.Contracts.Sorters.CustomDataObjectSorter.OrderByFields">
+            <inheritdoc />
+        </member>
+        <member name="T:HACK26.MS.MyMoneyRules.Contracts.Requests.GetSettingsRequest">
+            <summary>
+            The request doesn't necessarily have to define anything beyond the base request object
+            In this case we'll add a property just for example purposes
+            </summary>
+        </member>
+        <member name="T:HACK26.MS.MyMoneyRules.Contracts.Requests.AddOrUpdateSomethingRequest">
+            <summary>
+            TODO: add xml doc comments
+            </summary>
+        </member>
+        <member name="T:HACK26.MS.MyMoneyRules.Contracts.Requests.GetSomethingRequest">
+            <summary>
+            TODO: add xml doc comments
+            </summary>
+        </member>
+        <member name="T:HACK26.MS.MyMoneyRules.Contracts.Requests.InitateSomethingRequest">
+            <summary>
+            TODO: add xml doc comments
+            </summary>
+        </member>
+        <member name="T:HACK26.MS.MyMoneyRules.Contracts.Responses.CustomObjectResponse">
+            <summary>
+            TODO: add xml doc comments
+            </summary>
+        </member>
+        <member name="T:HACK26.MS.MyMoneyRules.Contracts.Responses.SettingsResponse">
+            <summary>
+            Our response object inherits a base object that takes a type argument of the data we want to return
+            We can add additional properties to this class that may be helpful, it's up to the discretion of the developer
+            </summary>
+        </member>
+    </members>
+</doc>

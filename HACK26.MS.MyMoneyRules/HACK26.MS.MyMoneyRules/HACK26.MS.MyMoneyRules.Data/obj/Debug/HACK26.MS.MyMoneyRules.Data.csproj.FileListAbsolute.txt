@@ -1,0 +1,7 @@
+C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Data\bin\Debug\HACK26.MS.MyMoneyRules.Data.XML
+C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Data\bin\Debug\HACK26.MS.MyMoneyRules.Data.dll
+C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Data\bin\Debug\HACK26.MS.MyMoneyRules.Data.pdb
+C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Data\obj\Debug\HACK26.MS.MyMoneyRules.Data.csproj.AssemblyReference.cache
+C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Data\obj\Debug\HACK26.MS.MyMoneyRules.Data.csproj.CoreCompileInputs.cache
+C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Data\obj\Debug\HACK26.MS.MyMoneyRules.Data.dll
+C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Data\obj\Debug\HACK26.MS.MyMoneyRules.Data.pdb
