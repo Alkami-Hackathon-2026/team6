@@ -26,10 +26,22 @@
         <member name="M:HACK26.MS.MyMoneyRules.Service.Client.MyMoneyRulesServiceClient.GetSettingsAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetSettingsRequest)">
             <inheritdoc />
         </member>
-        <member name="M:HACK26.MS.MyMoneyRules.Service.Client.MyMoneyRulesServiceClient.GetDataAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetSomethingRequest)">
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Client.MyMoneyRulesServiceClient.GetDecisionRulesAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetDecisionRulesRequest)">
             <inheritdoc />
         </member>
-        <member name="M:HACK26.MS.MyMoneyRules.Service.Client.MyMoneyRulesServiceClient.GetFDICConfigurationAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetSomethingRequest)">
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Client.MyMoneyRulesServiceClient.AddOrUpdateDecisionRulesAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.AddOrUpdateDecisionRuleRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Client.MyMoneyRulesServiceClient.DeleteDecisionRulesAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.DeleteDecisionRulesRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Client.MyMoneyRulesServiceClient.GetFieldDefinitionsAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetFieldDefinitionsRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Client.MyMoneyRulesServiceClient.EvaluateTransactionAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.EvaluateTransactionRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Client.MyMoneyRulesServiceClient.GetRuleEvaluationsAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetRuleEvaluationsRequest)">
             <inheritdoc />
         </member>
     </members>

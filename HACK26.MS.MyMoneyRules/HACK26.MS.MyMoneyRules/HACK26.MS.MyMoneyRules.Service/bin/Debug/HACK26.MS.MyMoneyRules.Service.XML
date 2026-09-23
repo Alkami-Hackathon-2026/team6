@@ -12,12 +12,23 @@
         <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.GetSettingsAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetSettingsRequest)">
             <inheritdoc />
         </member>
-        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.GetDataAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetSomethingRequest)">
-            <summary>
-            We can get something from the web
-            </summary>
-            <param name="request"></param>
-            <returns></returns>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.GetDecisionRulesAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetDecisionRulesRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.AddOrUpdateDecisionRulesAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.AddOrUpdateDecisionRuleRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.DeleteDecisionRulesAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.DeleteDecisionRulesRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.GetFieldDefinitionsAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetFieldDefinitionsRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.EvaluateTransactionAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.EvaluateTransactionRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.GetRuleEvaluationsAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetRuleEvaluationsRequest)">
+            <inheritdoc />
         </member>
         <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.#ctor(System.String)">
             <summary>

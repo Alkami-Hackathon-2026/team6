@@ -62,7 +62,6 @@ C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMo
 C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Tests\bin\Debug\System.Security.Principal.Windows.dll
 C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Tests\bin\Debug\System.Threading.Tasks.Extensions.dll
 C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Tests\bin\Debug\System.ValueTuple.dll
-C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Tests\bin\Debug\RestSharp.dll
 C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Tests\bin\Debug\Topshelf.dll
 C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Tests\bin\Debug\Alkami.Monitoring.NewRelic.dll
 C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Tests\bin\Debug\Topshelf.Log4Net.dll
@@ -158,7 +157,6 @@ C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMo
 C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Tests\bin\Debug\System.Security.Principal.Windows.xml
 C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Tests\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Tests\bin\Debug\System.ValueTuple.xml
-C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Tests\bin\Debug\RestSharp.xml
 C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Tests\bin\Debug\Topshelf.xml
 C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Tests\bin\Debug\Alkami.Monitoring.NewRelic.pdb
 C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Tests\bin\Debug\Alkami.Monitoring.NewRelic.xml

@@ -33,10 +33,6 @@ namespace HACK26.MS.MyMoneyRules.Service.Host
             _serviceContract = new ServiceImp(_providerType, _providerName);
 
             // TODO: Add validators here.
-            EntityValidator.AddValidator(new AddOrUpdateSomethingRequestValidator());
-            EntityValidator.AddValidator(new GetSomethingRequestValidator());
-            EntityValidator.AddValidator(new CustomDataObjectFilterValidator());
-            EntityValidator.AddValidator(new CustomDataObjectValidator());
 
             Alkami.Broker.ZeroMq.Setup.PublishUsingZeroMqLocally();
             Alkami.Broker.ZeroMq.Setup.SubscribeUsingZeroMqLocally(_serviceCancellationToken.Token);
@@ -57,14 +53,39 @@ namespace HACK26.MS.MyMoneyRules.Service.Host
         }
 
         /// <inheritdoc />
-        public Task<CustomObjectResponse> GetDataAsync(GetSomethingRequest request)
+        public Task<DecisionRuleResponse> GetDecisionRulesAsync(GetDecisionRulesRequest request)
         {
-            return _serviceContract.GetDataAsync(request);
+            return _serviceContract.GetDecisionRulesAsync(request);
         }
 
-        public Task<FdicComplianceConfigsResponse> GetFDICConfigurationAsync(GetSomethingRequest request)
+        /// <inheritdoc />
+        public Task<DecisionRuleResponse> AddOrUpdateDecisionRulesAsync(AddOrUpdateDecisionRuleRequest request)
         {
-            return _serviceContract.GetFDICConfigurationAsync(request);
+            return _serviceContract.AddOrUpdateDecisionRulesAsync(request);
+        }
+
+        /// <inheritdoc />
+        public Task<DecisionRuleResponse> DeleteDecisionRulesAsync(DeleteDecisionRulesRequest request)
+        {
+            return _serviceContract.DeleteDecisionRulesAsync(request);
+        }
+
+        /// <inheritdoc />
+        public Task<FieldDefinitionResponse> GetFieldDefinitionsAsync(GetFieldDefinitionsRequest request)
+        {
+            return _serviceContract.GetFieldDefinitionsAsync(request);
+        }
+
+        /// <inheritdoc />
+        public Task<TransactionEvaluationResponse> EvaluateTransactionAsync(EvaluateTransactionRequest request)
+        {
+            return _serviceContract.EvaluateTransactionAsync(request);
+        }
+
+        /// <inheritdoc />
+        public Task<RuleEvaluationResponse> GetRuleEvaluationsAsync(GetRuleEvaluationsRequest request)
+        {
+            return _serviceContract.GetRuleEvaluationsAsync(request);
         }
     }
 }

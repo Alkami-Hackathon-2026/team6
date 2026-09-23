@@ -55,7 +55,6 @@ C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMo
 C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Host\bin\Debug\System.ValueTuple.dll
 C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Host\bin\Debug\Topshelf.dll
 C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Host\bin\Debug\Topshelf.Log4Net.dll
-C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Host\bin\Debug\RestSharp.dll
 C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Host\bin\Debug\HACK26.MS.MyMoneyRules.Contracts.pdb
 C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Host\bin\Debug\HACK26.MS.MyMoneyRules.Contracts.xml
 C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Host\bin\Debug\HACK26.MS.MyMoneyRules.Data.pdb
@@ -136,7 +135,6 @@ C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMo
 C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Host\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Host\bin\Debug\System.ValueTuple.xml
 C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Host\bin\Debug\Topshelf.xml
-C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Host\bin\Debug\RestSharp.xml
 C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Host\obj\Debug\HACK26.MS.MyMoneyRules.Service.Host.csproj.AssemblyReference.cache
 C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Host\obj\Debug\HACK26.MS.MyMoneyRules.Service.Host.csproj.SuggestedBindingRedirects.cache
 C:\src\hack26\team6\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Host\obj\Debug\HACK26.MS.MyMoneyRules.Service.Host.exe.config

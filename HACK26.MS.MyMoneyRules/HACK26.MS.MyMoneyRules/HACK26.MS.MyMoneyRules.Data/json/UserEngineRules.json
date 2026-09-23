@@ -1,0 +1,23 @@
+[
+  {
+    "RuleId": 1,
+    "UserId": "U000000000000001",
+    "RuleName": "Large electronics or travel purchase alert",
+    "Priority": 10,
+    "IsActive": true
+  },
+  {
+    "RuleId": 2,
+    "UserId": "U000000000000001",
+    "RuleName": "Low balance warning",
+    "Priority": 20,
+    "IsActive": true
+  },
+  {
+    "RuleId": 3,
+    "UserId": "U000000000000002",
+    "RuleName": "Round up dining purchases to savings",
+    "Priority": 100,
+    "IsActive": false
+  }
+]

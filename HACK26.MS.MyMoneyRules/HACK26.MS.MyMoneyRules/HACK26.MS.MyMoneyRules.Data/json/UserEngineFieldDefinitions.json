@@ -1,0 +1,44 @@
+[
+  {
+    "FieldId": 1,
+    "FieldName": "transactionOccurred",
+    "DataType": "bool",
+    "AllowedOperatorsJson": "[\"=\",\"!=\"]"
+  },
+  {
+    "FieldId": 2,
+    "FieldName": "accountId",
+    "DataType": "int",
+    "AllowedOperatorsJson": "[\"=\",\"!=\"]"
+  },
+  {
+    "FieldId": 3,
+    "FieldName": "amount",
+    "DataType": "decimal",
+    "AllowedOperatorsJson": "[\"=\",\"!=\",\">\",\">=\",\"<\",\"<=\"]"
+  },
+  {
+    "FieldId": 4,
+    "FieldName": "availableBalance",
+    "DataType": "decimal",
+    "AllowedOperatorsJson": "[\"=\",\"!=\",\">\",\">=\",\"<\",\"<=\"]"
+  },
+  {
+    "FieldId": 5,
+    "FieldName": "merchantName",
+    "DataType": "string",
+    "AllowedOperatorsJson": "[\"=\",\"!=\",\"contains\",\"startsWith\",\"endsWith\"]"
+  },
+  {
+    "FieldId": 6,
+    "FieldName": "merchantType",
+    "DataType": "string",
+    "AllowedOperatorsJson": "[\"=\",\"!=\",\"in\"]"
+  },
+  {
+    "FieldId": 7,
+    "FieldName": "transactionType",
+    "DataType": "string",
+    "AllowedOperatorsJson": "[\"=\",\"!=\",\"in\"]"
+  }
+]

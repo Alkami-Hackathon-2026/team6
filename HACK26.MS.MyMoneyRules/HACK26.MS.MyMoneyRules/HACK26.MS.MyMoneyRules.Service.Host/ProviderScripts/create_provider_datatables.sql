@@ -1,4 +1,4 @@
-﻿
+
 CREATE TABLE core.UserEngineRules (
     RuleId INT IDENTITY(1,1) NOT NULL CONSTRAINT PK_Rules PRIMARY KEY,
     UserId NVARCHAR(16) NOT NULL,
