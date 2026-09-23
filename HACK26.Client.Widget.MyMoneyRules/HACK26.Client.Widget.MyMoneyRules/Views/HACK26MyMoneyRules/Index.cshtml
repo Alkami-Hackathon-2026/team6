@@ -1,0 +1,86 @@
+﻿@using Alkami.Client.WebClient.Shared.Helpers
+@using System.Web.Mvc.Html
+@using Alkami.Client.Framework.Utility
+@section TitleContentPlaceholder{
+    @Html.SiteText("Title")
+}
+
+@section StyleSheetContentPlaceholder{
+
+}
+
+@section JavaScriptIncludeContentPlaceholder{
+    
+
+    @Html.ScriptWithCacheExpiration("~/lib/vue/vue.min.js")
+
+    @Html.IrisVueScriptsSnippet()
+    <script>
+        new Vue({
+            el: "#app",
+            data() {
+                return {
+                };
+
+            },
+            methods: {
+
+            },
+
+            template: `
+                                    <div class="widget flex flex--col">
+                                            <div ref="content" class="content flex flex--col-reverse pad--base">
+                                                <div class="col-md-6 pad-left--0 pad-right--huge">
+                                                    <div class="flex flex--col font-medium-heading mar-bottom--small">
+                                                    Money Movement
+                                                    </div>
+                                                    <div class="flex flex-justify--around">
+                                                            <button class="iris-button iris-button--primary">
+                                                                <span class="iris-button__icon font-icon-send-money" aria-hidden="true"></span>
+                                                                <span class="iris-button__text">Send</span>
+                                                            </button>
+                                                            <button class="iris-button iris-button--primary">
+                                                                <span class="iris-button__icon font-icon-external" aria-hidden="true"></span>
+                                                                <span class="iris-button__text">Request</span>
+                                                            </button>
+                                                    </div>
+                                                    <br/>
+                                                    <div class="flex flex--col mar-bottom--small width--100">
+                                                        <button class="iris-button iris-button--secondary" data-collapsable aria-controls="collapsable_drawer">
+                                                            <span class="iris-button__text">Activity</span>
+                                                        </button>
+                                                        <hr/>
+                                                        <div>
+                                                            <div class="container-fluid width--100" id="collapsable_drawer">
+                                                                <div class="row">
+                                                                    <div class="col-12"><span>Please check recent activities.</span></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                                        `
+        });
+
+
+    </script>
+    
+}
+
+    Welcome to a new widget!
+<br/>
+<br />
+
+    
+    
+@{var url = "HACK26MyMoneyRules/Accounts";}
+<a href=@url>
+    <button class="iris-button iris-button--primary">
+        <span class="iris-button__text">Accounts</span>
+    </button>
+</a>
+    
+
+<div id="app"></div>

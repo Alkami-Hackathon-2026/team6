@@ -1,0 +1,14 @@
+{
+  "evaluationId": "eval-55491",
+  "eventId": "evt-01K5V7KA1N4WQB4KJ49M5JA00A",
+  "ruleId": "rule-2938",
+  "ruleVersionId": "rulever-2938-003",
+  "baseTriggerResult": true,
+  "evaluationResult": "MATCHED",
+  "priorityAtEvaluation": 100,
+  "startedAtUtc": "2026-09-23T14:32:18.020Z",
+  "completedAtUtc": "2026-09-23T14:32:18.026Z",
+  "durationMilliseconds": 6,
+  "errorCode": null,
+  "errorMessage": null
+}

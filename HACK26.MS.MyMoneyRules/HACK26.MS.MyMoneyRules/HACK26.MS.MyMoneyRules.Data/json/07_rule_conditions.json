@@ -1,0 +1,64 @@
+{
+  "conditions": [
+    {
+      "conditionId": "cond-direction-2938",
+      "conditionGroupId": "grp-root-2938",
+      "fieldKey": "transaction.direction",
+      "comparisonOperator": "EQ",
+      "valueType": "STRING",
+      "comparisonValue": "DEBIT",
+      "comparisonValue2": null,
+      "caseSensitive": false,
+      "nullBehavior": "NO_MATCH",
+      "sequenceNumber": 1
+    },
+    {
+      "conditionId": "cond-amount-2938",
+      "conditionGroupId": "grp-root-2938",
+      "fieldKey": "transaction.amount",
+      "comparisonOperator": "GTE",
+      "valueType": "DECIMAL",
+      "comparisonValue": 200.0,
+      "comparisonValue2": null,
+      "caseSensitive": false,
+      "nullBehavior": "NO_MATCH",
+      "sequenceNumber": 2
+    },
+    {
+      "conditionId": "cond-balance-2938",
+      "conditionGroupId": "grp-secondary-2938",
+      "fieldKey": "account.availableBalance",
+      "comparisonOperator": "LT",
+      "valueType": "DECIMAL",
+      "comparisonValue": 1000.0,
+      "comparisonValue2": null,
+      "caseSensitive": false,
+      "nullBehavior": "NO_MATCH",
+      "sequenceNumber": 1
+    },
+    {
+      "conditionId": "cond-merchant-2938",
+      "conditionGroupId": "grp-secondary-2938",
+      "fieldKey": "merchant.merchantType",
+      "comparisonOperator": "EQ",
+      "valueType": "STRING",
+      "comparisonValue": "ELECTRONICS_STORE",
+      "comparisonValue2": null,
+      "caseSensitive": false,
+      "nullBehavior": "NO_MATCH",
+      "sequenceNumber": 2
+    }
+  ],
+  "nestedGroup": {
+    "conditionGroupId": "grp-secondary-2938",
+    "ruleVersionId": "rulever-2938-003",
+    "parentGroupId": "grp-root-2938",
+    "logicalOperator": "OR",
+    "sequenceNumber": 3,
+    "negateResult": false,
+    "conditionIds": [
+      "cond-balance-2938",
+      "cond-merchant-2938"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "ruleId": "rule-2938",
+  "ownerType": "USER",
+  "ownerUserId": "usr-100284",
+  "ruleName": "Large purchase or low balance alert",
+  "ruleDescription": "Notify the user when a qualifying transaction occurs.",
+  "status": "ACTIVE",
+  "priority": 100,
+  "evaluationMode": "ALL_MATCHES",
+  "effectiveFromUtc": "2026-09-23T00:00:00Z",
+  "effectiveToUtc": null,
+  "currentVersionNumber": 3,
+  "createdAtUtc": "2026-09-20T15:00:00Z",
+  "createdBy": "usr-100284",
+  "updatedAtUtc": "2026-09-23T13:00:00Z",
+  "updatedBy": "usr-100284"
+}

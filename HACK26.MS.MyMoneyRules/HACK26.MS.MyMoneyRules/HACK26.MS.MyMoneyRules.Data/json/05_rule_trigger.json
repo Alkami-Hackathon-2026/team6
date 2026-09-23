@@ -1,0 +1,10 @@
+{
+  "triggerId": "trg-7731",
+  "ruleVersionId": "rulever-2938-003",
+  "triggerType": "BOOLEAN_EVENT",
+  "fieldKey": "transactionOccurred",
+  "operator": "EQ",
+  "expectedValue": true,
+  "sequenceNumber": 1,
+  "isEnabled": true
+}

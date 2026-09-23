@@ -1,0 +1,85 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\src\\devops\\team6\\HACK26.Client.Widget.MyMoneyRules\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E5C2456E-DA00-4152-93D8-85DB33D0963D}|HACK26.Client.Widget.MyMoneyRules\\HACK26.Client.Widget.MyMoneyRules.csproj|c:\\src\\devops\\team6\\hack26.client.widget.mymoneyrules\\hack26.client.widget.mymoneyrules\\alkamimanifest.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{E5C2456E-DA00-4152-93D8-85DB33D0963D}|HACK26.Client.Widget.MyMoneyRules\\HACK26.Client.Widget.MyMoneyRules.csproj|solutionrelative:hack26.client.widget.mymoneyrules\\alkamimanifest.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 260,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{57d563b6-44a5-47df-85be-f4199ad6b651}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AlkamiManifest.xml",
+              "DocumentMoniker": "C:\\src\\devops\\team6\\HACK26.Client.Widget.MyMoneyRules\\HACK26.Client.Widget.MyMoneyRules\\AlkamiManifest.xml",
+              "RelativeDocumentMoniker": "HACK26.Client.Widget.MyMoneyRules\\AlkamiManifest.xml",
+              "ToolTip": "C:\\src\\devops\\team6\\HACK26.Client.Widget.MyMoneyRules\\HACK26.Client.Widget.MyMoneyRules\\AlkamiManifest.xml",
+              "RelativeToolTip": "HACK26.Client.Widget.MyMoneyRules\\AlkamiManifest.xml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2026-09-23T15:48:39.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

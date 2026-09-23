@@ -1,0 +1,105 @@
+{
+  "fields": [
+    {
+      "fieldKey": "transactionOccurred",
+      "displayName": "A transaction occurred",
+      "category": "EVENT",
+      "dataType": "BOOLEAN",
+      "jsonPath": "$.transactionOccurred",
+      "allowedOperators": [
+        "EQ"
+      ],
+      "isSensitive": false,
+      "isUserConfigurable": false,
+      "isActive": true
+    },
+    {
+      "fieldKey": "transaction.amount",
+      "displayName": "Transaction amount",
+      "category": "TRANSACTION",
+      "dataType": "DECIMAL",
+      "jsonPath": "$.transaction.amount",
+      "allowedOperators": [
+        "EQ",
+        "NE",
+        "GT",
+        "GTE",
+        "LT",
+        "LTE",
+        "BETWEEN"
+      ],
+      "isSensitive": false,
+      "isUserConfigurable": true,
+      "isActive": true
+    },
+    {
+      "fieldKey": "account.availableBalance",
+      "displayName": "Available balance",
+      "category": "ACCOUNT",
+      "dataType": "DECIMAL",
+      "jsonPath": "$.account.availableBalance",
+      "allowedOperators": [
+        "EQ",
+        "GT",
+        "GTE",
+        "LT",
+        "LTE",
+        "BETWEEN"
+      ],
+      "isSensitive": true,
+      "isUserConfigurable": true,
+      "isActive": true
+    },
+    {
+      "fieldKey": "merchant.normalizedName",
+      "displayName": "Merchant name",
+      "category": "MERCHANT",
+      "dataType": "STRING",
+      "jsonPath": "$.merchant.normalizedName",
+      "allowedOperators": [
+        "EQ",
+        "NE",
+        "CONTAINS",
+        "STARTS_WITH",
+        "ENDS_WITH",
+        "IN",
+        "NOT_IN"
+      ],
+      "isSensitive": false,
+      "isUserConfigurable": true,
+      "isActive": true
+    },
+    {
+      "fieldKey": "merchant.merchantType",
+      "displayName": "Merchant type",
+      "category": "MERCHANT",
+      "dataType": "STRING",
+      "jsonPath": "$.merchant.merchantType",
+      "allowedOperators": [
+        "EQ",
+        "NE",
+        "IN",
+        "NOT_IN"
+      ],
+      "isSensitive": false,
+      "isUserConfigurable": true,
+      "isActive": true
+    },
+    {
+      "fieldKey": "transaction.transactionType",
+      "displayName": "Transaction type",
+      "category": "TRANSACTION",
+      "dataType": "STRING",
+      "jsonPath": "$.transaction.transactionType",
+      "allowedOperators": [
+        "EQ",
+        "NE",
+        "IN",
+        "NOT_IN"
+      ],
+      "isSensitive": false,
+      "isUserConfigurable": true,
+      "isActive": true
+    }
+  ]
+}
