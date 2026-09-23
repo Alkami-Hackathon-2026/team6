@@ -40,6 +40,11 @@ namespace HACK26.MS.MyMoneyRules.Service.Host
             _serviceContract = new ServiceImp(_providerType, _providerName);
 
             // TODO: Add validators here.
+            EntityValidator.AddValidator(new AddOrUpdateSomethingRequestValidator());
+            EntityValidator.AddValidator(new GetSomethingRequestValidator());
+            EntityValidator.AddValidator(new CustomDataObjectFilterValidator());
+            EntityValidator.AddValidator(new CustomDataObjectValidator());
+            EntityValidator.AddValidator(new GeminiChatRequestValidator());
 
             Alkami.Broker.ZeroMq.Setup.PublishUsingZeroMqLocally();
             Alkami.Broker.ZeroMq.Setup.SubscribeUsingZeroMqLocally(_serviceCancellationToken.Token);
@@ -108,6 +113,16 @@ namespace HACK26.MS.MyMoneyRules.Service.Host
         public Task<RuleEvaluationResponse> GetRuleEvaluationsAsync(GetRuleEvaluationsRequest request)
         {
             return _serviceContract.GetRuleEvaluationsAsync(request);
+        }
+
+        public Task<GeminiStatusResponse> GetGeminiStatusAsync(GetGeminiStatusRequest request)
+        {
+            return _serviceContract.GetGeminiStatusAsync(request);
+        }
+
+        public Task<GeminiChatResponse> GenerateGeminiChatAsync(GeminiChatRequest request)
+        {
+            return _serviceContract.GenerateGeminiChatAsync(request);
         }
     }
 }

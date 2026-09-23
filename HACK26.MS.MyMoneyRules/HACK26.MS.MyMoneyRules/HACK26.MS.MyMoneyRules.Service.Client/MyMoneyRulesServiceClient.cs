@@ -80,5 +80,15 @@ namespace HACK26.MS.MyMoneyRules.Service.Client
         {
             return ProxyCall((operation, inner) => operation.GetRuleEvaluationsAsync(inner), request);
         }
+
+        public Task<GeminiStatusResponse> GetGeminiStatusAsync(GetGeminiStatusRequest request)
+        {
+            return ProxyCall((operation, inner) => operation.GetGeminiStatusAsync(inner), request);
+        }
+
+        public Task<GeminiChatResponse> GenerateGeminiChatAsync(GeminiChatRequest request)
+        {
+            return ProxyCall((operation, inner) => operation.GenerateGeminiChatAsync(inner), request);
+        }
     }
 }

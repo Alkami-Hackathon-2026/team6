@@ -68,6 +68,7 @@
     <Compile Include="AddOrUpdateSomethingRequestValidator.cs" />
     <Compile Include="GetSomethingRequestValidator.cs" />
     <Compile Include="CustomDataObjectFilterValidator.cs" />
+    <Compile Include="GeminiChatRequestValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
