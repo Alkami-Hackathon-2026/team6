@@ -11,6 +11,7 @@ using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -65,25 +66,120 @@ namespace HACK26.MS.MyMoneyRules.Service
             return await Task.FromResult(response);
         }
 
-        #region In-memory rules engine store
+        #region JSON file store
 
         private static readonly object StoreLock = new object();
-        private static readonly List<DecisionRule> Rules = new List<DecisionRule>();
-        private static readonly List<TransactionEvent> TransactionEvents = new List<TransactionEvent>();
-        private static readonly List<RuleEvaluation> RuleEvaluations = new List<RuleEvaluation>();
-        private static readonly List<ConditionEvaluation> ConditionEvaluations = new List<ConditionEvaluation>();
-        private static readonly List<ActionExecution> ActionExecutions = new List<ActionExecution>();
-        private static readonly List<FieldDefinition> FieldDefinitions = CreateDefaultFieldDefinitions();
 
-        private static int _ruleId;
-        private static int _triggerId;
-        private static int _conditionGroupId;
-        private static int _conditionId;
-        private static int _actionId;
-        private static int _eventId;
-        private static int _evaluationId;
-        private static int _conditionEvaluationId;
-        private static int _actionExecutionId;
+        /// <summary>
+        /// Optional environment variable that overrides the folder containing the table JSON files
+        /// </summary>
+        private const string JsonPathEnvironmentVariable = "MYMONEYRULES_JSON_PATH";
+
+        private const string RulesFile = "UserEngineRules.json";
+        private const string TriggersFile = "UserEngineTriggers.json";
+        private const string ConditionGroupsFile = "UserEngineConditionGroups.json";
+        private const string ConditionsFile = "UserEngineConditions.json";
+        private const string FieldDefinitionsFile = "UserEngineFieldDefinitions.json";
+        private const string ActionsFile = "UserEngineActions.json";
+        private const string TransactionEventsFile = "UserEngineTransactionEvents.json";
+        private const string RuleEvaluationsFile = "UserEngineRuleEvaluations.json";
+        private const string ConditionEvaluationsFile = "UserEngineConditionEvaluations.json";
+        private const string ActionExecutionsFile = "UserEngineActionExecutions.json";
+
+        private static readonly Lazy<string> JsonDirectory = new Lazy<string>(ResolveJsonDirectory);
+
+        private static string ResolveJsonDirectory()
+        {
+            var configured = Environment.GetEnvironmentVariable(JsonPathEnvironmentVariable);
+            if (!string.IsNullOrWhiteSpace(configured))
+            {
+                Directory.CreateDirectory(configured);
+                return configured;
+            }
+
+            // Walk up from the running service to find the Data project's json folder
+            var directory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+            while (directory != null)
+            {
+                var candidate = Path.Combine(directory.FullName, "HACK26.MS.MyMoneyRules.Data", "json");
+                if (Directory.Exists(candidate))
+                {
+                    return candidate;
+                }
+
+                directory = directory.Parent;
+            }
+
+            var fallback = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "json");
+            Directory.CreateDirectory(fallback);
+            return fallback;
+        }
+
+        private static List<T> ReadTable<T>(string fileName)
+        {
+            var path = Path.Combine(JsonDirectory.Value, fileName);
+            if (!File.Exists(path))
+            {
+                return new List<T>();
+            }
+
+            return JsonConvert.DeserializeObject<List<T>>(File.ReadAllText(path)) ?? new List<T>();
+        }
+
+        private static void WriteTable<T>(string fileName, IEnumerable<T> rows)
+        {
+            var path = Path.Combine(JsonDirectory.Value, fileName);
+            File.WriteAllText(path, JsonConvert.SerializeObject(rows, Formatting.Indented));
+        }
+
+        private static int NextId(IEnumerable<int> ids)
+        {
+            return ids.DefaultIfEmpty(0).Max() + 1;
+        }
+
+        /// <summary>
+        /// Reads the rule tables and composes each rule with its triggers, condition groups, conditions and actions
+        /// </summary>
+        private static List<DecisionRule> LoadRules()
+        {
+            var rules = ReadTable<DecisionRule>(RulesFile);
+            var triggers = ReadTable<RuleTrigger>(TriggersFile);
+            var groups = ReadTable<ConditionGroup>(ConditionGroupsFile);
+            var conditions = ReadTable<RuleCondition>(ConditionsFile);
+            var actions = ReadTable<RuleAction>(ActionsFile);
+
+            foreach (var group in groups)
+            {
+                group.Conditions = conditions.Where(c => c.ConditionGroupId == group.ConditionGroupId).ToList();
+            }
+
+            foreach (var rule in rules)
+            {
+                rule.Triggers = triggers.Where(t => t.RuleId == rule.RuleId).ToList();
+                rule.ConditionGroups = groups.Where(g => g.RuleId == rule.RuleId).ToList();
+                rule.Actions = actions.Where(a => a.RuleId == rule.RuleId).ToList();
+            }
+
+            return rules;
+        }
+
+        /// <summary>
+        /// Decomposes the rules back into their flat tables and rewrites each rule table file
+        /// </summary>
+        private static void SaveRules(List<DecisionRule> rules)
+        {
+            var groups = rules.SelectMany(r => r.ConditionGroups ?? Enumerable.Empty<ConditionGroup>()).ToList();
+
+            WriteTable(RulesFile, rules.Select(r => new { r.RuleId, r.UserId, r.RuleName, r.Priority, r.IsActive }));
+            WriteTable(TriggersFile, rules.SelectMany(r => r.Triggers ?? Enumerable.Empty<RuleTrigger>())
+                .Select(t => new { t.TriggerId, t.RuleId, t.FieldName, t.Operator, t.Value }));
+            WriteTable(ConditionGroupsFile, groups
+                .Select(g => new { g.ConditionGroupId, g.RuleId, g.ParentConditionGroupId, g.LogicOperator }));
+            WriteTable(ConditionsFile, groups.SelectMany(g => g.Conditions ?? Enumerable.Empty<RuleCondition>())
+                .Select(c => new { c.ConditionId, c.ConditionGroupId, c.FieldName, c.Operator, c.Value }));
+            WriteTable(ActionsFile, rules.SelectMany(r => r.Actions ?? Enumerable.Empty<RuleAction>())
+                .Select(a => new { a.ActionId, a.RuleId, a.ActionType, a.ActionValue }));
+        }
 
         private static List<FieldDefinition> CreateDefaultFieldDefinitions()
         {
@@ -116,7 +212,7 @@ namespace HACK26.MS.MyMoneyRules.Service
 
             lock (StoreLock)
             {
-                IEnumerable<DecisionRule> query = Rules;
+                IEnumerable<DecisionRule> query = LoadRules();
 
                 if (filter != null)
                 {
@@ -130,9 +226,9 @@ namespace HACK26.MS.MyMoneyRules.Service
                         query = query.Where(r => filter.RuleIds.Contains(r.RuleId));
                     }
 
-                    if (filter.UserId.HasValue)
+                    if (!string.IsNullOrWhiteSpace(filter.UserId))
                     {
-                        query = query.Where(r => r.UserId == filter.UserId.Value);
+                        query = query.Where(r => string.Equals(r.UserId, filter.UserId, StringComparison.OrdinalIgnoreCase));
                     }
 
                     if (filter.IsActive.HasValue)
@@ -153,7 +249,26 @@ namespace HACK26.MS.MyMoneyRules.Service
                     query = query.Take(request.MaxResults);
                 }
 
-                response.ItemList.AddRange(query);
+                var mapper = request?.Mapping;
+                foreach (var rule in query)
+                {
+                    if (mapper?.IncludeTriggers == false)
+                    {
+                        rule.Triggers = new List<RuleTrigger>();
+                    }
+
+                    if (mapper?.IncludeConditionGroups == false)
+                    {
+                        rule.ConditionGroups = new List<ConditionGroup>();
+                    }
+
+                    if (mapper?.IncludeActions == false)
+                    {
+                        rule.Actions = new List<RuleAction>();
+                    }
+
+                    response.ItemList.Add(rule);
+                }
             }
 
             Logger.Trace($"{nameof(GetDecisionRulesAsync)} | Returned [{response.ItemList.Count}] rules");
@@ -173,22 +288,26 @@ namespace HACK26.MS.MyMoneyRules.Service
 
             lock (StoreLock)
             {
+                var rules = LoadRules();
+
                 foreach (var rule in request.ItemList.Where(r => r != null))
                 {
-                    var existing = Rules.FirstOrDefault(r => r.RuleId == rule.RuleId && rule.RuleId > 0);
-                    if (existing != null)
+                    var index = rule.RuleId > 0 ? rules.FindIndex(r => r.RuleId == rule.RuleId) : -1;
+                    if (index >= 0)
                     {
-                        Rules.Remove(existing);
+                        rules[index] = rule;
                     }
                     else
                     {
-                        rule.RuleId = ++_ruleId;
+                        rule.RuleId = NextId(rules.Select(r => r.RuleId));
+                        rules.Add(rule);
                     }
 
-                    AssignChildIds(rule);
-                    Rules.Add(rule);
+                    AssignChildIds(rule, rules);
                     response.ItemList.Add(rule);
                 }
+
+                SaveRules(rules);
             }
 
             Logger.Trace($"{nameof(AddOrUpdateDecisionRulesAsync)} | Saved [{response.ItemList.Count}] rules");
@@ -208,10 +327,14 @@ namespace HACK26.MS.MyMoneyRules.Service
 
             lock (StoreLock)
             {
-                var removed = Rules.Where(r => request.RuleIds.Contains(r.RuleId)).ToList();
-                foreach (var rule in removed)
+                var rules = LoadRules();
+                var removed = rules.Where(r => request.RuleIds.Contains(r.RuleId)).ToList();
+
+                if (removed.Count > 0)
                 {
-                    Rules.Remove(rule);
+                    // Rewriting the tables drops the rules' triggers, condition groups, conditions and actions too
+                    rules.RemoveAll(r => request.RuleIds.Contains(r.RuleId));
+                    SaveRules(rules);
                 }
 
                 response.ItemList.AddRange(removed);
@@ -229,10 +352,18 @@ namespace HACK26.MS.MyMoneyRules.Service
 
             lock (StoreLock)
             {
+                var definitions = ReadTable<FieldDefinition>(FieldDefinitionsFile);
+                if (definitions.Count == 0)
+                {
+                    // Seed the file with the default field catalog
+                    definitions = CreateDefaultFieldDefinitions();
+                    WriteTable(FieldDefinitionsFile, definitions.Select(f => new { f.FieldId, f.FieldName, f.DataType, f.AllowedOperatorsJson }));
+                }
+
                 var names = request?.FieldNames;
                 var fields = names == null || names.Count == 0
-                    ? FieldDefinitions
-                    : FieldDefinitions.Where(f => names.Contains(f.FieldName, StringComparer.OrdinalIgnoreCase));
+                    ? definitions
+                    : definitions.Where(f => names.Contains(f.FieldName, StringComparer.OrdinalIgnoreCase));
 
                 response.ItemList.AddRange(fields);
             }
@@ -253,16 +384,30 @@ namespace HACK26.MS.MyMoneyRules.Service
 
             lock (StoreLock)
             {
+                var rules = LoadRules();
+                var transactionEvents = ReadTable<TransactionEvent>(TransactionEventsFile);
+                var ruleEvaluations = ReadTable<RuleEvaluation>(RuleEvaluationsFile);
+                var conditionEvaluations = ReadTable<ConditionEvaluation>(ConditionEvaluationsFile);
+                var actionExecutions = ReadTable<ActionExecution>(ActionExecutionsFile);
+
                 if (transactionEvent.EventId <= 0)
                 {
-                    transactionEvent.EventId = ++_eventId;
+                    transactionEvent.EventId = NextId(transactionEvents.Select(e => e.EventId));
+                    transactionEvents.Add(transactionEvent);
+                }
+                else if (transactionEvents.All(e => e.EventId != transactionEvent.EventId))
+                {
+                    transactionEvents.Add(transactionEvent);
                 }
 
-                TransactionEvents.Add(transactionEvent);
                 response.TransactionEvent = transactionEvent;
 
-                var activeRules = Rules
-                    .Where(r => r.IsActive && r.UserId == request.UserId)
+                var nextEvaluationId = NextId(ruleEvaluations.Select(e => e.EvaluationId));
+                var nextConditionEvaluationId = NextId(conditionEvaluations.Select(e => e.ConditionEvaluationId));
+                var nextActionExecutionId = NextId(actionExecutions.Select(e => e.ActionExecutionId));
+
+                var activeRules = rules
+                    .Where(r => r.IsActive && string.Equals(r.UserId, request.UserId, StringComparison.OrdinalIgnoreCase))
                     .OrderBy(r => r.Priority)
                     .ThenBy(r => r.RuleId)
                     .ToList();
@@ -271,7 +416,7 @@ namespace HACK26.MS.MyMoneyRules.Service
                 {
                     var evaluation = new RuleEvaluation
                     {
-                        EvaluationId = ++_evaluationId,
+                        EvaluationId = nextEvaluationId++,
                         EventId = transactionEvent.EventId,
                         RuleId = rule.RuleId,
                         EvaluationDateUtc = DateTime.UtcNow
@@ -281,10 +426,10 @@ namespace HACK26.MS.MyMoneyRules.Service
                     var triggered = rule.Triggers == null || rule.Triggers.Count == 0
                         || rule.Triggers.All(t => Compare(GetFieldValue(transactionEvent, t.FieldName), t.Operator, t.Value));
 
-                    evaluation.Matched = triggered && EvaluateRuleConditions(rule, transactionEvent, evaluation.EvaluationId, conditionResults);
+                    evaluation.Matched = triggered && EvaluateRuleConditions(rule, transactionEvent, evaluation.EvaluationId, conditionResults, ref nextConditionEvaluationId);
 
-                    RuleEvaluations.Add(evaluation);
-                    ConditionEvaluations.AddRange(conditionResults);
+                    ruleEvaluations.Add(evaluation);
+                    conditionEvaluations.AddRange(conditionResults);
                     response.ItemList.Add(evaluation);
                     response.ConditionEvaluations.AddRange(conditionResults);
 
@@ -294,18 +439,43 @@ namespace HACK26.MS.MyMoneyRules.Service
                         {
                             var execution = new ActionExecution
                             {
-                                ActionExecutionId = ++_actionExecutionId,
+                                ActionExecutionId = nextActionExecutionId++,
                                 EvaluationId = evaluation.EvaluationId,
                                 ActionId = action.ActionId,
                                 Status = "PENDING",
                                 ExecutionDateUtc = DateTime.UtcNow
                             };
 
-                            ActionExecutions.Add(execution);
+                            actionExecutions.Add(execution);
                             response.ActionExecutions.Add(execution);
                         }
                     }
                 }
+
+                WriteTable(TransactionEventsFile, transactionEvents.Select(e => new
+                {
+                    e.EventId,
+                    e.TransactionOccurred,
+                    e.AccountId,
+                    e.TransactionId,
+                    e.Amount,
+                    e.AvailableBalance,
+                    e.MerchantName,
+                    e.MerchantType,
+                    e.TransactionType,
+                    e.TransactionDateUtc
+                }));
+                WriteTable(RuleEvaluationsFile, ruleEvaluations.Select(e => new { e.EvaluationId, e.EventId, e.RuleId, e.Matched, e.EvaluationDateUtc }));
+                WriteTable(ConditionEvaluationsFile, conditionEvaluations.Select(e => new
+                {
+                    e.ConditionEvaluationId,
+                    e.EvaluationId,
+                    e.ConditionId,
+                    e.ActualValue,
+                    e.ExpectedValue,
+                    e.Result
+                }));
+                WriteTable(ActionExecutionsFile, actionExecutions.Select(e => new { e.ActionExecutionId, e.EvaluationId, e.ActionId, e.Status, e.ExecutionDateUtc }));
             }
 
             Logger.Trace($"{nameof(EvaluateTransactionAsync)} | Event [{transactionEvent.EventId}] | Evaluated [{response.ItemList.Count}] rules | Matched [{response.ItemList.Count(e => e.Matched)}]");
@@ -321,7 +491,7 @@ namespace HACK26.MS.MyMoneyRules.Service
 
             lock (StoreLock)
             {
-                IEnumerable<RuleEvaluation> query = RuleEvaluations;
+                IEnumerable<RuleEvaluation> query = ReadTable<RuleEvaluation>(RuleEvaluationsFile);
 
                 if (filter != null)
                 {
@@ -368,7 +538,28 @@ namespace HACK26.MS.MyMoneyRules.Service
                     query = query.Take(request.MaxResults);
                 }
 
-                response.ItemList.AddRange(query);
+                var evaluations = query.ToList();
+                var mapper = request?.Mapping;
+
+                if (mapper?.IncludeEvent == true)
+                {
+                    var events = ReadTable<TransactionEvent>(TransactionEventsFile).ToDictionary(e => e.EventId);
+                    foreach (var evaluation in evaluations)
+                    {
+                        evaluation.Event = events.TryGetValue(evaluation.EventId, out var transactionEvent) ? transactionEvent : null;
+                    }
+                }
+
+                if (mapper?.IncludeRule == true)
+                {
+                    var rules = LoadRules().ToDictionary(r => r.RuleId);
+                    foreach (var evaluation in evaluations)
+                    {
+                        evaluation.Rule = rules.TryGetValue(evaluation.RuleId, out var rule) ? rule : null;
+                    }
+                }
+
+                response.ItemList.AddRange(evaluations);
             }
 
             return await Task.FromResult(response);
@@ -376,46 +567,91 @@ namespace HACK26.MS.MyMoneyRules.Service
 
         #region Rules engine helpers
 
-        private static void AssignChildIds(DecisionRule rule)
+        private static void AssignChildIds(DecisionRule rule, List<DecisionRule> allRules)
         {
-            foreach (var trigger in rule.Triggers ?? Enumerable.Empty<RuleTrigger>())
+            var allGroups = allRules.SelectMany(r => r.ConditionGroups ?? Enumerable.Empty<ConditionGroup>()).ToList();
+
+            var nextTriggerId = NextId(allRules.SelectMany(r => r.Triggers ?? Enumerable.Empty<RuleTrigger>()).Select(t => t.TriggerId));
+            var nextGroupId = NextId(allGroups.Select(g => g.ConditionGroupId));
+            var nextConditionId = NextId(allGroups.SelectMany(g => g.Conditions ?? Enumerable.Empty<RuleCondition>()).Select(c => c.ConditionId));
+            var nextActionId = NextId(allRules.SelectMany(r => r.Actions ?? Enumerable.Empty<RuleAction>()).Select(a => a.ActionId));
+
+            rule.Triggers = rule.Triggers ?? new List<RuleTrigger>();
+            foreach (var trigger in rule.Triggers)
             {
                 trigger.RuleId = rule.RuleId;
+                trigger.Rule = null;
                 if (trigger.TriggerId <= 0)
                 {
-                    trigger.TriggerId = ++_triggerId;
+                    trigger.TriggerId = nextTriggerId++;
                 }
             }
 
-            foreach (var group in rule.ConditionGroups ?? Enumerable.Empty<ConditionGroup>())
+            // Nested ChildGroups are flattened into the rule's ConditionGroups with ParentConditionGroupId set
+            var flattened = new List<ConditionGroup>();
+            foreach (var group in (rule.ConditionGroups ?? Enumerable.Empty<ConditionGroup>()).ToList())
             {
-                group.RuleId = rule.RuleId;
-                if (group.ConditionGroupId <= 0)
-                {
-                    group.ConditionGroupId = ++_conditionGroupId;
-                }
-
-                foreach (var condition in group.Conditions ?? Enumerable.Empty<RuleCondition>())
-                {
-                    condition.ConditionGroupId = group.ConditionGroupId;
-                    if (condition.ConditionId <= 0)
-                    {
-                        condition.ConditionId = ++_conditionId;
-                    }
-                }
+                AssignGroupIds(group, null, rule, flattened, ref nextGroupId, ref nextConditionId);
             }
 
-            foreach (var action in rule.Actions ?? Enumerable.Empty<RuleAction>())
+            rule.ConditionGroups = flattened;
+
+            rule.Actions = rule.Actions ?? new List<RuleAction>();
+            foreach (var action in rule.Actions)
             {
                 action.RuleId = rule.RuleId;
+                action.Rule = null;
                 if (action.ActionId <= 0)
                 {
-                    action.ActionId = ++_actionId;
+                    action.ActionId = nextActionId++;
                 }
             }
         }
 
-        private static bool EvaluateRuleConditions(DecisionRule rule, TransactionEvent transactionEvent, int evaluationId, List<ConditionEvaluation> results)
+        private static void AssignGroupIds(ConditionGroup group, int? parentId, DecisionRule rule, List<ConditionGroup> flattened,
+            ref int nextGroupId, ref int nextConditionId)
+        {
+            if (flattened.Contains(group))
+            {
+                return;
+            }
+
+            group.RuleId = rule.RuleId;
+            group.Rule = null;
+            group.ParentConditionGroup = null;
+            if (group.ConditionGroupId <= 0)
+            {
+                group.ConditionGroupId = nextGroupId++;
+            }
+
+            if (parentId.HasValue)
+            {
+                group.ParentConditionGroupId = parentId;
+            }
+
+            flattened.Add(group);
+
+            group.Conditions = group.Conditions ?? new List<RuleCondition>();
+            foreach (var condition in group.Conditions)
+            {
+                condition.ConditionGroupId = group.ConditionGroupId;
+                condition.ConditionGroup = null;
+                if (condition.ConditionId <= 0)
+                {
+                    condition.ConditionId = nextConditionId++;
+                }
+            }
+
+            foreach (var child in (group.ChildGroups ?? Enumerable.Empty<ConditionGroup>()).ToList())
+            {
+                AssignGroupIds(child, group.ConditionGroupId, rule, flattened, ref nextGroupId, ref nextConditionId);
+            }
+
+            group.ChildGroups = new List<ConditionGroup>();
+        }
+
+        private static bool EvaluateRuleConditions(DecisionRule rule, TransactionEvent transactionEvent, int evaluationId,
+            List<ConditionEvaluation> results, ref int nextConditionEvaluationId)
         {
             var groups = rule.ConditionGroups?.ToList() ?? new List<ConditionGroup>();
             if (groups.Count == 0)
@@ -424,20 +660,22 @@ namespace HACK26.MS.MyMoneyRules.Service
             }
 
             var groupIds = new HashSet<int>(groups.Select(g => g.ConditionGroupId));
-            var rootGroups = groups.Where(g => !groupIds.Contains(g.ParentConditionGroupId)).ToList();
+            var rootGroups = groups
+                .Where(g => !g.ParentConditionGroupId.HasValue || !groupIds.Contains(g.ParentConditionGroupId.Value))
+                .ToList();
 
             // Root groups are combined with AND
             var matched = true;
             foreach (var root in rootGroups)
             {
-                matched &= EvaluateGroup(root, groups, transactionEvent, evaluationId, results, new HashSet<int>());
+                matched &= EvaluateGroup(root, groups, transactionEvent, evaluationId, results, new HashSet<int>(), ref nextConditionEvaluationId);
             }
 
             return matched;
         }
 
         private static bool EvaluateGroup(ConditionGroup group, List<ConditionGroup> allGroups, TransactionEvent transactionEvent,
-            int evaluationId, List<ConditionEvaluation> results, HashSet<int> visited)
+            int evaluationId, List<ConditionEvaluation> results, HashSet<int> visited, ref int nextConditionEvaluationId)
         {
             if (!visited.Add(group.ConditionGroupId))
             {
@@ -453,7 +691,7 @@ namespace HACK26.MS.MyMoneyRules.Service
 
                 results.Add(new ConditionEvaluation
                 {
-                    ConditionEvaluationId = ++_conditionEvaluationId,
+                    ConditionEvaluationId = nextConditionEvaluationId++,
                     EvaluationId = evaluationId,
                     ConditionId = condition.ConditionId,
                     ActualValue = actual,
@@ -466,7 +704,7 @@ namespace HACK26.MS.MyMoneyRules.Service
 
             foreach (var child in allGroups.Where(g => g.ParentConditionGroupId == group.ConditionGroupId && g.ConditionGroupId != group.ConditionGroupId))
             {
-                outcomes.Add(EvaluateGroup(child, allGroups, transactionEvent, evaluationId, results, visited));
+                outcomes.Add(EvaluateGroup(child, allGroups, transactionEvent, evaluationId, results, visited, ref nextConditionEvaluationId));
             }
 
             if (outcomes.Count == 0)

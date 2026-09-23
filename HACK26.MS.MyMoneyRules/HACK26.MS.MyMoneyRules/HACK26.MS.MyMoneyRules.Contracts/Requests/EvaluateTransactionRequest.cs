@@ -20,6 +20,6 @@ namespace HACK26.MS.MyMoneyRules.Contracts.Requests
         /// Owning user whose rules should be evaluated
         /// </summary>
         [DataMember(EmitDefaultValue = true)]
-        public int UserId { get; set; }
+        public string UserId { get; set; }
     }
 }

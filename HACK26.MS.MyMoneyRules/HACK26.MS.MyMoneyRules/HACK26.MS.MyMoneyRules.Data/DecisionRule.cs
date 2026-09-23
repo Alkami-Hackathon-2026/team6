@@ -8,7 +8,7 @@ namespace HACK26.MS.MyMoneyRules.Data
     public class DecisionRule
     {
         [Key] public int RuleId { get; set; }
-        public int UserId { get; set; }
+        [MaxLength(16)] public string UserId { get; set; } = string.Empty;
         [MaxLength(200)] public string RuleName { get; set; } = string.Empty;
         public int Priority { get; set; } = 100;
         public bool IsActive { get; set; } = true;

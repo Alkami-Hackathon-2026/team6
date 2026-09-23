@@ -7,7 +7,7 @@ namespace HACK26.MS.MyMoneyRules.Data
     {
         [Key] public int ConditionGroupId { get; set; }
         public int RuleId { get; set; }
-        public int ParentConditionGroupId { get; set; }
+        public int? ParentConditionGroupId { get; set; }
         [MaxLength(3)] public string LogicOperator { get; set; } = "AND";
         public DecisionRule Rule { get; set; }
         public ConditionGroup ParentConditionGroup { get; set; }

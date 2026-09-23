@@ -12,6 +12,21 @@
         <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.GetSettingsAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetSettingsRequest)">
             <inheritdoc />
         </member>
+        <member name="F:HACK26.MS.MyMoneyRules.Service.ServiceImp.JsonPathEnvironmentVariable">
+            <summary>
+            Optional environment variable that overrides the folder containing the table JSON files
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.LoadRules">
+            <summary>
+            Reads the rule tables and composes each rule with its triggers, condition groups, conditions and actions
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.SaveRules(System.Collections.Generic.List{HACK26.MS.MyMoneyRules.Data.DecisionRule})">
+            <summary>
+            Decomposes the rules back into their flat tables and rewrites each rule table file
+            </summary>
+        </member>
         <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.GetDecisionRulesAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetDecisionRulesRequest)">
             <inheritdoc />
         </member>
