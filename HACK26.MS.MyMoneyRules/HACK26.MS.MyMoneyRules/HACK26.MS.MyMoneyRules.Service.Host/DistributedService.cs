@@ -49,9 +49,9 @@ namespace HACK26.MS.MyMoneyRules.Service.Host
 
             _backgroundWorker = new RulesBackgroundWorker(
                 _serviceContract,
-                new Integrations.NotConfiguredIntegrations(),
-                new Integrations.NotConfiguredIntegrations(),
-                new Integrations.NotConfiguredIntegrations(),
+                new Integrations.AlkamiTransactionSource(),
+                new Integrations.AlkamiUserContactSource(),
+                new Integrations.AlkamiNotificationSender(),
                 TimeSpan.FromMinutes(1));
             _backgroundWorker.Start();
         }
