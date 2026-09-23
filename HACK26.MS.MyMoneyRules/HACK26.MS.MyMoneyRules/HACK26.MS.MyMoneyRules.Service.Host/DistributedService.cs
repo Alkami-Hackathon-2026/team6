@@ -37,13 +37,11 @@ namespace HACK26.MS.MyMoneyRules.Service.Host
         /// </summary>
         public void OnStart()
         {
-            _serviceContract = new ServiceImp(_providerType, _providerName);
+            _serviceContract = new ServiceImp(_providerType, _providerName, new Gemini.GeminiClient());
 
             // TODO: Add validators here.
-            EntityValidator.AddValidator(new AddOrUpdateSomethingRequestValidator());
             EntityValidator.AddValidator(new GetSomethingRequestValidator());
             EntityValidator.AddValidator(new CustomDataObjectFilterValidator());
-            EntityValidator.AddValidator(new CustomDataObjectValidator());
             EntityValidator.AddValidator(new GeminiChatRequestValidator());
 
             Alkami.Broker.ZeroMq.Setup.PublishUsingZeroMqLocally();

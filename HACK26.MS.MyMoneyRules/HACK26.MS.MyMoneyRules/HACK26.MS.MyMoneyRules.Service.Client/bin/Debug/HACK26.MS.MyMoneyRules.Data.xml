@@ -224,6 +224,16 @@
             This is an example provider setting name
             </summary>
         </member>
+        <member name="F:HACK26.MS.MyMoneyRules.Data.ProviderSettings.SettingNames.GeminiApiKey">
+            <summary>
+            Google AI Studio API key for Gemini. Can also be set via GEMINI_API_KEY.
+            </summary>
+        </member>
+        <member name="F:HACK26.MS.MyMoneyRules.Data.ProviderSettings.SettingNames.GeminiModel">
+            <summary>
+            Gemini model id for the free Developer API tier.
+            </summary>
+        </member>
         <member name="T:HACK26.MS.MyMoneyRules.Data.ProviderSettings.Setting">
             <summary>
             This class is used to represent the setting details of any given provider setting

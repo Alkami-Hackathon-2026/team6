@@ -64,14 +64,6 @@ namespace HACK26.MS.MyMoneyRules.Contracts
         Task<TransactionEvaluationResponse> EvaluateTransactionAsync(EvaluateTransactionRequest request);
 
         /// <summary>
-        /// Get rule evaluation history
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        [OperationContract]
-        Task<FdicComplianceConfigsResponse> GetFDICConfigurationAsync(GetSomethingRequest request);
-
-        /// <summary>
         /// Returns whether Gemini is configured and which model will be used.
         /// </summary>
         [OperationContract]

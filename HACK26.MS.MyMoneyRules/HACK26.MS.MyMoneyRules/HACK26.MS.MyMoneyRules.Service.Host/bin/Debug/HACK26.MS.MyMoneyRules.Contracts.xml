@@ -160,12 +160,15 @@
             <param name="request"></param>
             <returns></returns>
         </member>
-        <member name="M:HACK26.MS.MyMoneyRules.Contracts.IMyMoneyRulesServiceContract.GetRuleEvaluationsAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetRuleEvaluationsRequest)">
+        <member name="M:HACK26.MS.MyMoneyRules.Contracts.IMyMoneyRulesServiceContract.GetGeminiStatusAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetGeminiStatusRequest)">
             <summary>
-            Get rule evaluation history
+            Returns whether Gemini is configured and which model will be used.
             </summary>
-            <param name="request"></param>
-            <returns></returns>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Contracts.IMyMoneyRulesServiceContract.GenerateGeminiChatAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GeminiChatRequest)">
+            <summary>
+            Sends a prompt to Gemini and returns the generated text.
+            </summary>
         </member>
         <member name="T:HACK26.MS.MyMoneyRules.Contracts.CustomDataObjectFields">
             <summary>

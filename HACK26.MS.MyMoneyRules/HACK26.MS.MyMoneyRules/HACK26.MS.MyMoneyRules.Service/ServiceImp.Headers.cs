@@ -6,6 +6,7 @@ namespace HACK26.MS.MyMoneyRules.Service
     public partial class ServiceImp : Plugin
     {
         private string _providerName = "";
+        private readonly Gemini.IGeminiClient _geminiClient;
 
         /// <summary>
         /// Create a new service for this object
@@ -14,6 +15,7 @@ namespace HACK26.MS.MyMoneyRules.Service
         public ServiceImp(string providerType) : base(providerType)
         {
             _providerName = GetType().AssemblyQualifiedName;
+            _geminiClient = new Gemini.GeminiClient();
         }
 
         /// <summary>
@@ -21,9 +23,20 @@ namespace HACK26.MS.MyMoneyRules.Service
         /// </summary>
         /// <param name="providerType"></param>
         /// <param name="providerName"></param>
-        public ServiceImp(string providerType, string providerName) : base(providerType, providerName)
+        public ServiceImp(string providerType, string providerName) : this(providerType, providerName, new Gemini.GeminiClient())
+        {
+        }
+
+        /// <summary>
+        /// Create a new service for this object with an injected Gemini client
+        /// </summary>
+        /// <param name="providerType"></param>
+        /// <param name="providerName"></param>
+        /// <param name="geminiClient"></param>
+        public ServiceImp(string providerType, string providerName, Gemini.IGeminiClient geminiClient) : base(providerType, providerName)
         {
             _providerName = string.IsNullOrWhiteSpace(providerName) ? GetType().AssemblyQualifiedName : providerName;
+            _geminiClient = geminiClient ?? throw new System.ArgumentNullException(nameof(geminiClient));
         }
 
         /// <summary>

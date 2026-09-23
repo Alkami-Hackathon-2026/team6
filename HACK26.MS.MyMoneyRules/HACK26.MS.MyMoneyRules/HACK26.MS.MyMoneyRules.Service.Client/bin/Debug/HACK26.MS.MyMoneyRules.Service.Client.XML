@@ -44,5 +44,11 @@
         <member name="M:HACK26.MS.MyMoneyRules.Service.Client.MyMoneyRulesServiceClient.GetRuleEvaluationsAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetRuleEvaluationsRequest)">
             <inheritdoc />
         </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Client.MyMoneyRulesServiceClient.GetGeminiStatusAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetGeminiStatusRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Client.MyMoneyRulesServiceClient.GenerateGeminiChatAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GeminiChatRequest)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>

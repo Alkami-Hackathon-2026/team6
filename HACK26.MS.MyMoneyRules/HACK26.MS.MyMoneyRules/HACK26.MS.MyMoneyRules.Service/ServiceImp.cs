@@ -5,7 +5,9 @@ using HACK26.MS.MyMoneyRules.Contracts;
 using HACK26.MS.MyMoneyRules.Contracts.Requests;
 using HACK26.MS.MyMoneyRules.Contracts.Responses;
 using HACK26.MS.MyMoneyRules.Data;
+using HACK26.MS.MyMoneyRules.Data.Gemini;
 using HACK26.MS.MyMoneyRules.Data.ProviderSettings;
+using HACK26.MS.MyMoneyRules.Service.Gemini;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -31,6 +33,8 @@ namespace HACK26.MS.MyMoneyRules.Service
             // We want some local variables that are available outside of the data scope
             string firstSetting = string.Empty;
             string secondSetting = string.Empty;
+            string geminiApiKey = string.Empty;
+            string geminiModel = string.Empty;
 
             // GetScopeAsync() is how we retrieve settings using the request type of this service
             using (var scope = await GetScopeAsync(request))
@@ -38,6 +42,8 @@ namespace HACK26.MS.MyMoneyRules.Service
                 // Assigning the settings to our local variables
                 firstSetting = scope.GetSettingOrDefault<string>(SettingNames.FirstProviderSetting);
                 secondSetting = scope.GetSettingOrDefault<string>(SettingNames.SecondProviderSetting);
+                geminiApiKey = scope.GetSettingOrDefault<string>(SettingNames.GeminiApiKey);
+                geminiModel = scope.GetSettingOrDefault<string>(SettingNames.GeminiModel);
             }
 
             // It's always good to add a trace log for future troubleshooting
@@ -53,13 +59,29 @@ namespace HACK26.MS.MyMoneyRules.Service
                 Description = SettingDescriptors().FirstOrDefault(x => x.Name == SettingNames.FirstProviderSetting)?.Description
             });
 
-            // We'll do the same for the second setting, adding another instance of the Setting to the response's ItemList
             response.ItemList.Add(new Setting
             {
                 Name = SettingNames.SecondProviderSetting,
                 DefaultValue = DefaultSettings()[SettingNames.SecondProviderSetting],
                 CurrentValue = secondSetting,
                 Description = SettingDescriptors().FirstOrDefault(x => x.Name == SettingNames.SecondProviderSetting)?.Description
+            });
+
+            // We'll do the same for the second setting, adding another instance of the Setting to the response's ItemList
+            response.ItemList.Add(new Setting
+            {
+                Name = SettingNames.GeminiApiKey,
+                DefaultValue = DefaultSettings()[SettingNames.GeminiApiKey],
+                CurrentValue = geminiApiKey,
+                Description = SettingDescriptors().FirstOrDefault(x => x.Name == SettingNames.GeminiApiKey)?.Description
+            });
+
+            response.ItemList.Add(new Setting
+            {
+                Name = SettingNames.GeminiModel,
+                DefaultValue = DefaultSettings()[SettingNames.GeminiModel],
+                CurrentValue = geminiModel,
+                Description = SettingDescriptors().FirstOrDefault(x => x.Name == SettingNames.GeminiModel)?.Description
             });
 
             // Return the response using an awaited task
@@ -563,6 +585,51 @@ namespace HACK26.MS.MyMoneyRules.Service
             }
 
             return await Task.FromResult(response);
+        }
+
+        /// <inheritdoc />
+        public async Task<GeminiStatusResponse> GetGeminiStatusAsync(GetGeminiStatusRequest request)
+        {
+            var (apiKey, model) = await GetGeminiSettingsAsync(request);
+            var configured = !string.IsNullOrWhiteSpace(apiKey);
+
+            return new GeminiStatusResponse
+            {
+                Configured = configured,
+                Model = model,
+                Message = configured
+                    ? "Gemini free-tier API is ready for testing."
+                    : "Set the Gemini Api Key provider setting or GEMINI_API_KEY in the environment."
+            };
+        }
+
+        /// <inheritdoc />
+        public async Task<GeminiChatResponse> GenerateGeminiChatAsync(GeminiChatRequest request)
+        {
+            var (apiKey, model) = await GetGeminiSettingsAsync(request);
+            return await _geminiClient.GenerateAsync(apiKey, model, request);
+        }
+
+        /// <summary>
+        /// Resolves the tenant's Gemini API key (falling back to the environment) and model from provider settings
+        /// </summary>
+        private async Task<(string ApiKey, string Model)> GetGeminiSettingsAsync(Alkami.Contracts.BaseRequest request)
+        {
+            string apiKey;
+            string model;
+
+            using (var scope = await GetScopeAsync(request))
+            {
+                apiKey = scope.GetSettingOrDefault<string>(SettingNames.GeminiApiKey);
+                model = scope.GetSettingOrDefault<string>(SettingNames.GeminiModel);
+            }
+
+            if (string.IsNullOrWhiteSpace(apiKey))
+            {
+                apiKey = Environment.GetEnvironmentVariable(GeminiDefaults.ApiKeyEnvironmentVariable);
+            }
+
+            return (apiKey, string.IsNullOrWhiteSpace(model) ? GeminiDefaults.DefaultModel : model);
         }
 
         #region Rules engine helpers

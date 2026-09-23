@@ -10,27 +10,35 @@ using System.Threading.Tasks;
 
 namespace HACK26.MS.MyMoneyRules.Service.Gemini
 {
-    public sealed class GeminiService
+    /// <inheritdoc />
+    public sealed class GeminiClient : IGeminiClient
     {
-        private const string GenerateContentUrlTemplate =
-            "https://generativelanguage.googleapis.com/v1beta/models/{0}:generateContent";
+        private const string BaseUrl = "https://generativelanguage.googleapis.com/v1beta/";
+        private const string GenerateContentResource = "models/{model}:generateContent";
+        private const string ApiKeyHeader = "x-goog-api-key";
+        private static readonly TimeSpan DefaultTimeout = TimeSpan.FromSeconds(30);
 
-        private readonly string _apiKey;
-        private readonly string _model;
+        private readonly IRestClient _restClient;
 
-        public GeminiService(string apiKey, string model)
+        /// <summary>
+        /// Creates a client with a reusable RestClient and the default timeout
+        /// </summary>
+        public GeminiClient() : this(new RestClient(BaseUrl) { Timeout = (int)DefaultTimeout.TotalMilliseconds })
         {
-            _apiKey = apiKey;
-            _model = string.IsNullOrWhiteSpace(model) ? GeminiDefaults.DefaultModel : model;
         }
 
-        public bool IsConfigured => !string.IsNullOrWhiteSpace(_apiKey);
-
-        public string Model => _model;
-
-        public async Task<GeminiChatResponse> GenerateAsync(GeminiChatRequest request)
+        /// <summary>
+        /// Creates a client over the supplied RestClient
+        /// </summary>
+        public GeminiClient(IRestClient restClient)
         {
-            if (!IsConfigured)
+            _restClient = restClient ?? throw new ArgumentNullException(nameof(restClient));
+        }
+
+        /// <inheritdoc />
+        public async Task<GeminiChatResponse> GenerateAsync(string apiKey, string model, GeminiChatRequest request)
+        {
+            if (string.IsNullOrWhiteSpace(apiKey))
             {
                 throw new InvalidOperationException(
                     "Gemini is not configured. Set the Gemini Api Key provider setting or GEMINI_API_KEY in the environment.");
@@ -41,8 +49,11 @@ namespace HACK26.MS.MyMoneyRules.Service.Gemini
                 throw new ArgumentException("Prompt is required.", nameof(request));
             }
 
-            var restRequest = new RestRequest(Method.POST);
-            restRequest.AddQueryParameter("key", _apiKey);
+            model = string.IsNullOrWhiteSpace(model) ? GeminiDefaults.DefaultModel : model;
+
+            var restRequest = new RestRequest(GenerateContentResource, Method.POST);
+            restRequest.AddUrlSegment("model", model);
+            restRequest.AddHeader(ApiKeyHeader, apiKey);
 
             var body = new GeminiGenerateContentRequest
             {
@@ -71,8 +82,7 @@ namespace HACK26.MS.MyMoneyRules.Service.Gemini
 
             restRequest.AddJsonBody(body);
 
-            var client = new RestClient(string.Format(GenerateContentUrlTemplate, _model));
-            var response = await client.ExecuteAsync(restRequest);
+            var response = await _restClient.ExecuteAsync(restRequest);
 
             if (!response.IsSuccessful)
             {
@@ -98,19 +108,9 @@ namespace HACK26.MS.MyMoneyRules.Service.Gemini
 
             return new GeminiChatResponse
             {
-                Model = _model,
+                Model = model,
                 Text = text
             };
-        }
-
-        public static string ResolveApiKey(string configuredApiKey)
-        {
-            if (!string.IsNullOrWhiteSpace(configuredApiKey))
-            {
-                return configuredApiKey;
-            }
-
-            return Environment.GetEnvironmentVariable(GeminiDefaults.ApiKeyEnvironmentVariable);
         }
 
         private static string TryReadGeminiError(string content)

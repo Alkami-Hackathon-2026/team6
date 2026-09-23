@@ -44,9 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomChildObject.cs" />
-    <Compile Include="CustomDataObject.cs" />
-    <Compile Include="FdicComplianceConfigs.cs" />
     <Compile Include="Gemini\GeminiDefaults.cs" />
     <Compile Include="ActionExecution.cs" />
     <Compile Include="ConditionEvaluation.cs" />

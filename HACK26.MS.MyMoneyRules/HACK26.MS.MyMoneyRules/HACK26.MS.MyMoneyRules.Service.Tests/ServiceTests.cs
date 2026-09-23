@@ -57,6 +57,8 @@ namespace HACK26.MS.MyMoneyRules.Service.Tests
         {
             var request = new GetSomethingRequest();
             AugmentBaseRequest(request);
+        }
+
         //[Test]
         //public async Task CanGetData()
         //{

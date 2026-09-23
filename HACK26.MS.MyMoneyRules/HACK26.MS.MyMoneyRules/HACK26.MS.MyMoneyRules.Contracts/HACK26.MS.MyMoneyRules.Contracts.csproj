@@ -94,9 +94,7 @@
     <Compile Include="Requests\InitateSomethingRequest.cs" />
     <Compile Include="Requests\GeminiChatRequest.cs" />
     <Compile Include="Requests\GetGeminiStatusRequest.cs" />
-    <Compile Include="Responses\CustomObjectResponse.cs" />
     <Compile Include="Responses\SettingsResponse.cs" />
-    <Compile Include="Responses\FdicComplianceConfigsResponse.cs" />
     <Compile Include="Responses\GeminiChatResponse.cs" />
     <Compile Include="Responses\GeminiStatusResponse.cs" />
     <Compile Include="Responses\SettingsResponse.cs" />
