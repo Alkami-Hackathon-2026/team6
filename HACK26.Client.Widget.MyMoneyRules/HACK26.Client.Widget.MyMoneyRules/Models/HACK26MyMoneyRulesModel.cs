@@ -1,4 +1,5 @@
 ﻿using Alkami.Client.Framework.Mvc;
+using System.Collections.Generic;
 using System;
 
 namespace HACK26.Client.Widget.MyMoneyRules.Models

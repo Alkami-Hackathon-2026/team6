@@ -24,12 +24,12 @@ namespace HACK26.Client.Widget.MyMoneyRules.Controllers
             try
             {
                 Logger.DebugFormat("[GET] Controller/Index");
-                return View("Index");
+                return View("~/Views/HACK26MyMoneyRules/Mobile/Index.cshtml");
             }
             catch (Exception e)
             {
                 Logger.Error("Error [GET] Controller/Index", e);
-                return View("Error");
+                return View("~/Views/HACK26MyMoneyRules/Mobile/Error.cshtml");
             }
         }
     }

@@ -1,0 +1,23 @@
+[
+  {
+    "TriggerId": 1,
+    "RuleId": 1,
+    "FieldName": "transactionOccurred",
+    "Operator": "=",
+    "Value": "true"
+  },
+  {
+    "TriggerId": 2,
+    "RuleId": 2,
+    "FieldName": "transactionOccurred",
+    "Operator": "=",
+    "Value": "true"
+  },
+  {
+    "TriggerId": 3,
+    "RuleId": 3,
+    "FieldName": "transactionOccurred",
+    "Operator": "=",
+    "Value": "true"
+  }
+]

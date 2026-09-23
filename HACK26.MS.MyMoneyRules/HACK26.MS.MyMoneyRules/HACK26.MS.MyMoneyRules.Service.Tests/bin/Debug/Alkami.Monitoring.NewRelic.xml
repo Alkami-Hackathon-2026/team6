@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.Monitoring.NewRelic</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.Monitoring.NewRelic.NewRelicMonitor">
+            <summary>
+            The New Relic Monitor is a concrete implementation of the IMonitor interface for logging performance metrics to New Relic.
+            </summary> 
+        </member>
+        <member name="M:Alkami.Monitoring.NewRelic.NewRelicMonitor.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="P:Alkami.Monitoring.NewRelic.NewRelicMonitor.AreaName">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Monitoring.NewRelic.NewRelicMonitor.CreateName(System.String[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Monitoring.NewRelic.NewRelicMonitor.IncrementCounter(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.Monitoring.NewRelic.NewRelicMonitor.IncrementCounter(System.String[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.Monitoring.NewRelic.NewRelicMonitor.NoticeError(System.Exception)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.Monitoring.NewRelic.NewRelicMonitor.NoticeError(System.Exception,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.Monitoring.NewRelic.NewRelicMonitor.NoticeError(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.Monitoring.NewRelic.NewRelicMonitor.RecordMetric(System.String,System.Single)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.Monitoring.NewRelic.NewRelicMonitor.RecordMetric(System.Single,System.String[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Monitoring.NewRelic.NewRelicMonitor.RecordResponseTimeMetric(System.String,System.TimeSpan)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.Monitoring.NewRelic.NewRelicMonitor.RecordResponseTimeMetric(System.TimeSpan,System.String[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Monitoring.NewRelic.NewRelicMonitor.RecordCustomEvent(System.String,Alkami.Monitoring.MonitorEvent)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.Monitoring.NewRelic.NewRelicMonitor.IgnoreTransaction">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Monitoring.NewRelic.NewRelicMonitor.AddCustomProperty(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.Monitoring.NewRelic.NewRelicMonitor.SetTransactionName(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.Monitoring.NewRelic.NewRelicMonitor.SetUserProperties(System.String,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Alkami.Monitoring.NewRelic.StringExtensions">
+            <summary>
+            Helpful extensions for strings
+            </summary> 
+        </member>
+        <member name="M:Alkami.Monitoring.NewRelic.StringExtensions.Contains(System.String,System.String,System.StringComparison)">
+            <summary>
+            Verifies if the string contains the substring using the StringComparison protocol provided
+            This extension is copied over from the .NET Core implementation
+            </summary>
+            <param name="str"></param>
+            <param name="substring"></param>
+            <param name="comp"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="T:Alkami.Monitoring.ISettingsWrapper">
+            <summary>
+            Interface for GetSetting function that will return settings in config files.
+            </summary> 
+        </member>
+        <member name="M:Alkami.Monitoring.ISettingsWrapper.GetSetting(System.String)">
+            <summary>
+            Finding the value for "name" setting from config files
+            </summary>
+            <param name="name">name of setting key</param>
+            <returns>value of key</returns>
+        </member>
+        <member name="M:Alkami.Monitoring.ISettingsWrapper.GetEnvironmentVariable(System.String)">
+            <summary>
+            Finding the value for "name" setting from Environment Variables
+            </summary>
+            <param name="name">name of setting key</param>
+            <returns>value of key</returns>
+        </member>
+        <member name="T:Alkami.Monitoring.SettingsWrapperImp">
+            <summary>
+            Class that implements ISettingsWrapper
+            </summary>
+        </member>
+        <member name="M:Alkami.Monitoring.SettingsWrapperImp.GetEnvironmentVariable(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Monitoring.SettingsWrapperImp.GetSetting(System.String)">
+            <summary>
+            Finding the value for "name" setting from config files
+            </summary>
+            <param name="name">name of setting key</param>
+            <returns>value of key</returns>
+        </member>
+        <member name="T:Alkami.Monitoring.Setup">
+            <summary>
+            Setup class for the <see cref="T:Alkami.Monitoring.Metric"/> class.
+            </summary>
+        </member>
+        <member name="F:Alkami.Monitoring.Setup.ConfigSettings">
+            <summary>
+            Settings service wrapper that can fetch setting values
+            </summary>
+        </member>
+        <member name="M:Alkami.Monitoring.Setup.UseNewRelic">
+            <summary>
+            Setup Monitoring to use <see cref="T:Alkami.Monitoring.NewRelic.NewRelicMonitor"/>.
+            </summary>
+        </member>
+        <member name="M:Alkami.Monitoring.Setup.GetNewRelicAppName">
+            <summary>
+            Finds the app name for New Relic.
+            </summary>
+            <returns> It returns the desired app name to be set for New Relic Transaction. </returns>
+        </member>
+    </members>
+</doc>

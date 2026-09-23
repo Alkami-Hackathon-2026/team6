@@ -34,16 +34,51 @@ namespace HACK26.MS.MyMoneyRules.Service.Client
             return ProxyCall((operation, inner) => operation.GetSettingsAsync(inner), request);
         }
 
+        //public Task<CustomObjectResponse> GetDataAsync(GetSomethingRequest request)
+        //{
+        //    return ProxyCall((operation, inner) => operation.GetDataAsync(inner), request);
+        //}
+
+        ///// <inheritdoc />
+        //public Task<FdicComplianceConfigsResponse> GetFDICConfigurationAsync(GetSomethingRequest request)
+        //{
+        //    return ProxyCall((operation, inner) => operation.GetFDICConfigurationAsync(inner), request);
+        //}
+
         /// <inheritdoc />
-        public Task<CustomObjectResponse> GetDataAsync(GetSomethingRequest request)
+        public Task<DecisionRuleResponse> GetDecisionRulesAsync(GetDecisionRulesRequest request)
         {
-            return ProxyCall((operation, inner) => operation.GetDataAsync(inner), request);
+            return ProxyCall((operation, inner) => operation.GetDecisionRulesAsync(inner), request);
         }
 
         /// <inheritdoc />
-        public Task<FdicComplianceConfigsResponse> GetFDICConfigurationAsync(GetSomethingRequest request)
+        public Task<DecisionRuleResponse> AddOrUpdateDecisionRulesAsync(AddOrUpdateDecisionRuleRequest request)
         {
-            return ProxyCall((operation, inner) => operation.GetFDICConfigurationAsync(inner), request);
+            return ProxyCall((operation, inner) => operation.AddOrUpdateDecisionRulesAsync(inner), request);
+        }
+
+        /// <inheritdoc />
+        public Task<DecisionRuleResponse> DeleteDecisionRulesAsync(DeleteDecisionRulesRequest request)
+        {
+            return ProxyCall((operation, inner) => operation.DeleteDecisionRulesAsync(inner), request);
+        }
+
+        /// <inheritdoc />
+        public Task<FieldDefinitionResponse> GetFieldDefinitionsAsync(GetFieldDefinitionsRequest request)
+        {
+            return ProxyCall((operation, inner) => operation.GetFieldDefinitionsAsync(inner), request);
+        }
+
+        /// <inheritdoc />
+        public Task<TransactionEvaluationResponse> EvaluateTransactionAsync(EvaluateTransactionRequest request)
+        {
+            return ProxyCall((operation, inner) => operation.EvaluateTransactionAsync(inner), request);
+        }
+
+        /// <inheritdoc />
+        public Task<RuleEvaluationResponse> GetRuleEvaluationsAsync(GetRuleEvaluationsRequest request)
+        {
+            return ProxyCall((operation, inner) => operation.GetRuleEvaluationsAsync(inner), request);
         }
 
         public Task<GeminiStatusResponse> GetGeminiStatusAsync(GetGeminiStatusRequest request)

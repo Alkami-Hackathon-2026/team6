@@ -1,0 +1,38 @@
+[
+  {
+    "EventId": 1,
+    "TransactionOccurred": true,
+    "AccountId": 21083,
+    "TransactionId": 9000000001,
+    "Amount": 799.9900,
+    "AvailableBalance": 1200.0000,
+    "MerchantName": "Best Buy #1142",
+    "MerchantType": "Electronics",
+    "TransactionType": "Debit",
+    "TransactionDateUtc": "2026-01-15T14:32:10.123Z"
+  },
+  {
+    "EventId": 2,
+    "TransactionOccurred": true,
+    "AccountId": 21084,
+    "TransactionId": 9000000002,
+    "Amount": 45.0000,
+    "AvailableBalance": 82.5000,
+    "MerchantName": "Olive Garden",
+    "MerchantType": "Restaurant",
+    "TransactionType": "Debit",
+    "TransactionDateUtc": "2026-01-16T01:05:44.500Z"
+  },
+  {
+    "EventId": 3,
+    "TransactionOccurred": true,
+    "AccountId": 21085,
+    "TransactionId": 9000000003,
+    "Amount": 25.0000,
+    "AvailableBalance": 950.0000,
+    "MerchantName": "Kroger",
+    "MerchantType": "Grocery",
+    "TransactionType": "Debit",
+    "TransactionDateUtc": "2026-01-17T18:20:00.000Z"
+  }
+]

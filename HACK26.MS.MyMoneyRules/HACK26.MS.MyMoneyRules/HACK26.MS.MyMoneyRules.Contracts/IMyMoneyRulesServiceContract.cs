@@ -24,16 +24,49 @@ namespace HACK26.MS.MyMoneyRules.Contracts
         Task<SettingsResponse> GetSettingsAsync(GetSettingsRequest request);
 
         /// <summary>
-        /// Get something from a third party service or API
+        /// Get decision rules
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
         [OperationContract]
-        Task<CustomObjectResponse> GetDataAsync(GetSomethingRequest request);
+        Task<DecisionRuleResponse> GetDecisionRulesAsync(GetDecisionRulesRequest request);
 
         /// <summary>
-        /// Get FDIC Configuration
+        /// Create or update decision rules
         /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [OperationContract]
+        Task<DecisionRuleResponse> AddOrUpdateDecisionRulesAsync(AddOrUpdateDecisionRuleRequest request);
+
+        /// <summary>
+        /// Delete decision rules
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [OperationContract]
+        Task<DecisionRuleResponse> DeleteDecisionRulesAsync(DeleteDecisionRulesRequest request);
+
+        /// <summary>
+        /// Get the field definitions available for rule conditions
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [OperationContract]
+        Task<FieldDefinitionResponse> GetFieldDefinitionsAsync(GetFieldDefinitionsRequest request);
+
+        /// <summary>
+        /// Evaluate a transaction event against the active rules
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [OperationContract]
+        Task<TransactionEvaluationResponse> EvaluateTransactionAsync(EvaluateTransactionRequest request);
+
+        /// <summary>
+        /// Get rule evaluation history
+        /// </summary>
+        /// <param name="request"></param>
         /// <returns></returns>
         [OperationContract]
         Task<FdicComplianceConfigsResponse> GetFDICConfigurationAsync(GetSomethingRequest request);
@@ -49,5 +82,6 @@ namespace HACK26.MS.MyMoneyRules.Contracts
         /// </summary>
         [OperationContract]
         Task<GeminiChatResponse> GenerateGeminiChatAsync(GeminiChatRequest request);
+        Task<RuleEvaluationResponse> GetRuleEvaluationsAsync(GetRuleEvaluationsRequest request);
     }
 }
