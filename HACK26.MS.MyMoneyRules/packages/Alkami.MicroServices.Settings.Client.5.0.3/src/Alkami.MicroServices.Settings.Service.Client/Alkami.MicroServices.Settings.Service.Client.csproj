@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net472;net6.0</TargetFrameworks>
+    <Description>Contains the proxy client distributable that enables communication with the Settings Micro Service.</Description>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyName>Alkami.MicroServices.Settings.Service.Client.$(MediumNameSuffix)</AssemblyName>
+    <RootNamespace>Alkami.MicroServices.Settings.Service.Client</RootNamespace>
+    <PackageId>Alkami.MicroServices.Settings.Client</PackageId>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <VersionPrefix>$(MediumNameVersionPrefix)</VersionPrefix>
+    <Configurations>Debug;Release;k8s</Configurations>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Alkami.GlobalAssets" Version="2.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Alkami.LibraryAssets" Version="1.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Alkami.Subscription.ParticipatingClient" Version="5.0.11" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Alkami.MicroServices.Settings.Contracts\Alkami.MicroServices.Settings.Contracts.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\Alkami.MicroServices.Settings.Data.Validations\Alkami.MicroServices.Settings.Data.Validations.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>$(ProjectName).Tests</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+</Project>

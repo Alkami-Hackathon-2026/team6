@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -43,26 +44,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomChildObject.cs" />
-    <Compile Include="CustomDataObject.cs" />
-    <Compile Include="FdicComplianceConfigs.cs" />
+    <Compile Include="ActionExecution.cs" />
+    <Compile Include="ConditionEvaluation.cs" />
+    <Compile Include="ConditionGroup.cs" />
+    <Compile Include="DecisionRule.cs" />
+    <Compile Include="FieldDefinition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProviderSettings\SettingNames.cs" />
     <Compile Include="ProviderSettings\Setting.cs" />
+    <Compile Include="RuleAction.cs" />
+    <Compile Include="RuleCondition.cs" />
+    <Compile Include="RuleEvaluation.cs" />
+    <Compile Include="RuleTrigger.cs" />
+    <Compile Include="TransactionEvent.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="json\01_transaction_event.json" />
-    <None Include="json\02_transaction_context.json" />
-    <None Include="json\03_decision_rule.json" />
-    <None Include="json\04_decision_rule_version.json" />
-    <None Include="json\05_rule_trigger.json" />
-    <None Include="json\06_rule_condition_group.json" />
-    <None Include="json\07_rule_conditions.json" />
-    <None Include="json\08_rule_field_catalog.json" />
-    <None Include="json\09_rule_actions.json" />
-    <None Include="json\10_rule_evaluation.json" />
-    <None Include="json\11_condition_evaluation.json" />
-    <None Include="json\12_action_execution.json" />
+    <None Include="json\UserEngineActionExecutions.json" />
+    <None Include="json\UserEngineActions.json" />
+    <None Include="json\UserEngineConditionEvaluations.json" />
+    <None Include="json\UserEngineConditionGroups.json" />
+    <None Include="json\UserEngineConditions.json" />
+    <None Include="json\UserEngineFieldDefinitions.json" />
+    <None Include="json\UserEngineRuleEvaluations.json" />
+    <None Include="json\UserEngineRules.json" />
+    <None Include="json\UserEngineTransactionEvents.json" />
+    <None Include="json\UserEngineTriggers.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,0 +1,227 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.MicroServices.Settings.Data.Validations.5.0</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.MicroServices.Settings.Data.Validations.ItemFilterValidator">
+            <summary>
+            Validates the <see cref="T:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ItemFilter"/>
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Data.Validations.ItemFilterValidator.ValidateInternal(Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ItemFilter)">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Data.Validations.ItemMapperValidator">
+            <summary>
+            Validates the <see cref="T:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ItemMapper"/>
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Data.Validations.ItemMapperValidator.ValidateInternal(Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ItemMapper)">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Data.Validations.ItemSettingValidator">
+            <summary>
+            Validates the <see cref="T:Alkami.MicroServices.Settings.Data.ItemSetting"/>
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Data.Validations.ItemSettingValidator.ValidateInternal(Alkami.MicroServices.Settings.Data.ItemSetting)">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Data.Validations.ItemSorterValidator">
+            <summary>
+            Validates the <see cref="T:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ItemSorter"/>
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Data.Validations.ItemSorterValidator.ValidateInternal(Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ItemSorter)">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Data.Validations.ItemValidator">
+            <summary>
+            Validates the <see cref="T:Alkami.MicroServices.Settings.Data.Item"/>
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Data.Validations.ItemValidator.ValidateInternal(Alkami.MicroServices.Settings.Data.Item)">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Data.Validations.ProviderSettingValidator">
+            <summary>
+            Validates the <see cref="T:Alkami.MicroServices.Settings.Data.ProviderSetting"/>
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Data.Validations.ProviderSettingValidator.ValidateInternal(Alkami.MicroServices.Settings.Data.ProviderSetting)">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Data.Validations.ProviderTypeFilterValidator">
+            <summary>
+            Validates the <see cref="T:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ProviderTypeFilter"/>
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Data.Validations.ProviderTypeFilterValidator.ValidateInternal(Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ProviderTypeFilter)">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Data.Validations.ProviderTypeMapperValidator">
+            <summary>
+            Validates the <see cref="T:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ProviderTypeMapper"/>
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Data.Validations.ProviderTypeMapperValidator.ValidateInternal(Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ProviderTypeMapper)">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Data.Validations.ProviderTypeSorterValidator">
+            <summary>
+            Validates the <see cref="T:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ProviderTypeSorter"/>
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Data.Validations.ProviderTypeSorterValidator.ValidateInternal(Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ProviderTypeSorter)">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Data.Validations.ProviderTypeValidator">
+            <summary>
+            Validates the <see cref="T:Alkami.MicroServices.Settings.Data.ProviderType"/>
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Data.Validations.ProviderTypeValidator.ValidateInternal(Alkami.MicroServices.Settings.Data.ProviderType)">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Data.Validations.ProviderValidator">
+            <summary>
+            Validates the <see cref="T:Alkami.MicroServices.Settings.Data.Provider"/>
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Data.Validations.ProviderValidator.ValidateInternal(Alkami.MicroServices.Settings.Data.Provider)">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Data.Validations.Requests.AddOrUpdateItemRequestValidator">
+            <summary>
+            Validates the <see cref="T:Alkami.MicroServices.Settings.Contracts.Requests.AddOrUpdateItemRequest"/>
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Data.Validations.Requests.AddOrUpdateItemRequestValidator.ValidateInternal(Alkami.MicroServices.Settings.Contracts.Requests.AddOrUpdateItemRequest)">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Data.Validations.Requests.AddOrUpdateProviderSettingRequestValidator">
+            <summary>
+            Validates the <see cref="T:Alkami.MicroServices.Settings.Contracts.Requests.AddOrUpdateProviderSettingRequest"/>
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Data.Validations.Requests.AddOrUpdateProviderSettingRequestValidator.ValidateInternal(Alkami.MicroServices.Settings.Contracts.Requests.AddOrUpdateProviderSettingRequest)">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Data.Validations.Requests.GetBanksRequestValidator">
+            <summary>
+            Validates the <see cref="T:Alkami.MicroServices.Settings.Contracts.Requests.GetBanksRequest"/>
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Data.Validations.Requests.GetBanksRequestValidator.ValidateInternal(Alkami.MicroServices.Settings.Contracts.Requests.GetBanksRequest)">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Data.Validations.Requests.GetProviderSettingRequestValidator">
+            <summary>
+            Validates the <see cref="T:Alkami.MicroServices.Settings.Contracts.Requests.GetProviderSettingRequest"/>
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Data.Validations.Requests.GetProviderSettingRequestValidator.ValidateInternal(Alkami.MicroServices.Settings.Contracts.Requests.GetProviderSettingRequest)">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Data.Validations.ValidationErrors">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Validations.ValidationErrors.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Validations.ValidationErrors.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Validations.ValidationErrors.ItemInvalidItemType">
+            <summary>
+              Looks up a localized string similar to An item was provided which did not have a valid ItemType. Please correct your request and try again..
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Validations.ValidationErrors.ItemInvalidName">
+            <summary>
+              Looks up a localized string similar to An item was provided which did not have a name. Please correct your request and try again..
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Validations.ValidationErrors.ItemInvalidParentId">
+            <summary>
+              Looks up a localized string similar to An item was provided which did not specify a valid Parent Id. Please correct your request and try again..
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Validations.ValidationErrors.ItemSettingInvalidName">
+            <summary>
+              Looks up a localized string similar to An item setting was provided which did not have a valid name. Please correct your request and try again..
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Validations.ValidationErrors.NoEntityWasPresentToValidate">
+            <summary>
+              Looks up a localized string similar to An attempt was made to validate a null entity. Please check your request for invalid entries and try again..
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Validations.ValidationErrors.ProviderAssemblyInfoInvalid">
+            <summary>
+              Looks up a localized string similar to A provider was provided which did not have valid assembly information. Please correct your request and try again..
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Validations.ValidationErrors.ProviderInvalidName">
+            <summary>
+              Looks up a localized string similar to A provider was provided which did not have a valid name. Please correct your request and try again..
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Validations.ValidationErrors.ProviderSettingInvalidName">
+            <summary>
+              Looks up a localized string similar to A provider setting was provided which did not have a valid name. Please check your request for errors and try again..
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Validations.ValidationErrors.ProviderTypeInvalidDisplayName">
+            <summary>
+              Looks up a localized string similar to A provider type was provided which did not have a valid display name. Please correct your request and try again..
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Validations.ValidationErrors.ProviderTypeInvalidName">
+            <summary>
+              Looks up a localized string similar to A provider type was provided which did not have a valid name. Please correct your request and try again..
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Validations.ValidationErrors.RedundantItemTypeFilterError">
+            <summary>
+              Looks up a localized string similar to The ItemType and the ItemTypes filter properties cannot be used together. Both cannot be used for the same request..
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Validations.ValidationErrors.UnknownValidationError">
+            <summary>
+              Looks up a localized string similar to An unknown error occurred during validation. Please check your request for errors and try again..
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Data.Validations.ValidationHelper">
+            <summary>
+            Helper functions for the Validation objects
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Data.Validations.ValidationHelper.Validate``1(``0)">
+            <summary>
+            Run Validate for <paramref name="sourceObject"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sourceObject"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Data.Validations.ValidatorRegistrations">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Data.Validations.ValidatorRegistrations.RegisterAvailableValidators">
+            <summary>
+            Finds and registers all <see cref="T:Alkami.Data.Validations.EntityValidator"/>
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,79 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net472;net6.0</TargetFrameworks>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <OpenApiGenerateDocumentsOnBuild>false</OpenApiGenerateDocumentsOnBuild>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageId>Alkami.Subscription.ParticipatingService</PackageId>
+    <Description>Includes the participating service assemblies for the subscription services</Description>
+    <Title>Alkami Services Subscriptions Participating Service</Title>
+    <PackageTags>SubscriptionService ParticipatingService</PackageTags>
+  </PropertyGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net472' ">
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.ServiceModel" />
+    <PackageReference Include="Alkami.Broker.ZeroMq" Version="2.15.1" />
+    <PackageReference Include="Common.Logging.Log4Net.Universal" Version="3.4.1" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net6.0' ">
+    <PackageReference Include="Alkami.Broker" Version="2.15.1" />
+    <PackageReference Include="Alkami.Extensions.RpcHost.Health" Version="1.0.0" />
+    <PackageReference Include="Alkami.Extensions.Logging" Version="4.0.8" />
+    <PackageReference Include="Alkami.Utilities.Rpc" Version="4.0.0" />
+    <PackageReference Include="Alkami.Monitoring.NewRelic" Version="2.10.0" />
+    <PackageReference Include="Common.Logging.Serilog" Version="4.4.0" />
+    <PackageReference Include="CoreWCF.Http" Version="1.3.2" />
+    <PackageReference Include="CoreWCF.NetTcp" Version="1.3.2" />
+    <PackageReference Include="CoreWCF.WebHttp" Version="1.3.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="6.0.1" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Configuration\appsettings.Development.default.json" />
+    <None Remove="Configuration\appsettings.Production.default.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Alkami.GlobalAssets" Version="2.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Alkami.LibraryAssets" Version="1.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Alkami.Services.Subscriptions.Data\Alkami.Services.Subscriptions.Data.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\Alkami.Services.Subscriptions.Resolver\Alkami.Services.Subscriptions.Resolver.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="BaseErrorHandlerNet*.cs">
+      <DependentUpon>BaseErrorHandler.cs</DependentUpon>
+    </Compile>
+    <Compile Update="DistributedServiceBase*.cs">
+      <DependentUpon>DistributedServiceBase.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>$(ProjectName).Tests</_Parameter1>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>Alkami.Services.Subscriptions.ParticipatingClient.Tests</_Parameter1>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>Alkami.Services.Subscriptions.Tests</_Parameter1>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>DynamicProxyGenAssembly2</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Configuration\appsettings.Development.default.json" />
+    <EmbeddedResource Include="Configuration\appsettings.Production.default.json" />
+  </ItemGroup>
+</Project>

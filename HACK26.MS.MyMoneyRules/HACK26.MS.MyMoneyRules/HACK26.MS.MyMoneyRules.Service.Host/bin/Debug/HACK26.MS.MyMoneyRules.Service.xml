@@ -1,0 +1,226 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HACK26.MS.MyMoneyRules.Service</name>
+    </assembly>
+    <members>
+        <member name="T:HACK26.MS.MyMoneyRules.Service.Integrations.ITransactionSource">
+            <summary>
+            Retrieves transactions for accounts. Wrap the Alkami transactions service client in an implementation of this interface.
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Integrations.ITransactionSource.GetTransactionsAsync(Alkami.Contracts.BaseRequest,System.Collections.Generic.IList{System.Int32},System.DateTime,System.Threading.CancellationToken)">
+            <summary>
+            Get transactions posted to the given accounts since <paramref name="sinceUtc"/>, mapped to <see cref="T:HACK26.MS.MyMoneyRules.Data.TransactionEvent"/>
+            </summary>
+        </member>
+        <member name="T:HACK26.MS.MyMoneyRules.Service.Integrations.UserContact">
+            <summary>
+            Contact details used to deliver a notification
+            </summary>
+        </member>
+        <member name="P:HACK26.MS.MyMoneyRules.Service.Integrations.UserContact.UserId">
+            <summary>User identifier</summary>
+        </member>
+        <member name="P:HACK26.MS.MyMoneyRules.Service.Integrations.UserContact.Email">
+            <summary>Email address</summary>
+        </member>
+        <member name="P:HACK26.MS.MyMoneyRules.Service.Integrations.UserContact.MobilePhone">
+            <summary>Mobile phone number</summary>
+        </member>
+        <member name="T:HACK26.MS.MyMoneyRules.Service.Integrations.IUserContactSource">
+            <summary>
+            Retrieves user contact information. Wrap the Alkami user/contact service client in an implementation of this interface.
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Integrations.IUserContactSource.GetUserContactAsync(Alkami.Contracts.BaseRequest,System.Threading.CancellationToken)">
+            <summary>
+            Get contact information for the user identified on <paramref name="request"/>
+            </summary>
+        </member>
+        <member name="T:HACK26.MS.MyMoneyRules.Service.Integrations.INotificationSender">
+            <summary>
+            Sends notifications. Wrap the Alkami notification service client in an implementation of this interface.
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Integrations.INotificationSender.SendAsync(Alkami.Contracts.BaseRequest,HACK26.MS.MyMoneyRules.Service.Integrations.UserContact,System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Send a notification to the user; returns true when accepted by the notification service
+            </summary>
+        </member>
+        <member name="T:HACK26.MS.MyMoneyRules.Service.Integrations.NotConfiguredIntegrations">
+            <summary>
+            Placeholder integrations used until the Alkami service clients are wired in. Each logs a warning and does nothing.
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Integrations.NotConfiguredIntegrations.GetTransactionsAsync(Alkami.Contracts.BaseRequest,System.Collections.Generic.IList{System.Int32},System.DateTime,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Integrations.NotConfiguredIntegrations.GetUserContactAsync(Alkami.Contracts.BaseRequest,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Integrations.NotConfiguredIntegrations.SendAsync(Alkami.Contracts.BaseRequest,HACK26.MS.MyMoneyRules.Service.Integrations.UserContact,System.String,System.String,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="T:HACK26.MS.MyMoneyRules.Service.RulesBackgroundWorker">
+            <summary>
+            Background worker that runs <see cref="M:HACK26.MS.MyMoneyRules.Service.RulesBackgroundWorker.DoWorkAsync(System.Threading.CancellationToken)"/> on a fixed interval (every minute by default)
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.RulesBackgroundWorker.#ctor(HACK26.MS.MyMoneyRules.Contracts.IMyMoneyRulesServiceContract,HACK26.MS.MyMoneyRules.Service.Integrations.ITransactionSource,HACK26.MS.MyMoneyRules.Service.Integrations.IUserContactSource,HACK26.MS.MyMoneyRules.Service.Integrations.INotificationSender)">
+            <summary>
+            Create a worker that fires every minute
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.RulesBackgroundWorker.#ctor(HACK26.MS.MyMoneyRules.Contracts.IMyMoneyRulesServiceContract,HACK26.MS.MyMoneyRules.Service.Integrations.ITransactionSource,HACK26.MS.MyMoneyRules.Service.Integrations.IUserContactSource,HACK26.MS.MyMoneyRules.Service.Integrations.INotificationSender,System.TimeSpan)">
+            <summary>
+            Create a worker that fires on the given interval
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.RulesBackgroundWorker.Start">
+            <summary>
+            Start the timer. The first run happens after one interval.
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.RulesBackgroundWorker.Stop">
+            <summary>
+            Stop the timer and signal any running work to cancel
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.RulesBackgroundWorker.DoWorkAsync(System.Threading.CancellationToken)">
+            <summary>
+            The work performed on each tick
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.RulesBackgroundWorker.GetConfiguredAccountIds(System.Collections.Generic.IEnumerable{HACK26.MS.MyMoneyRules.Data.DecisionRule})">
+            <summary>
+            Account ids come from condition AccountIds, and from rule triggers or conditions on the accountId field using "=" or "in"
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.RulesBackgroundWorker.GetNotificationDetails(HACK26.MS.MyMoneyRules.Data.RuleAction,HACK26.MS.MyMoneyRules.Data.TransactionEvent,System.String@,System.String@)">
+            <summary>
+            ActionValue is expected to be JSON like {"channel":"push","message":"..."}; plain text is used as the message
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.RulesBackgroundWorker.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="T:HACK26.MS.MyMoneyRules.Service.ServiceImp">
+            <inheritdoc />
+            <inheritdoc />
+            <inheritdoc />
+            <summary>
+            JSON store operations used by <see cref="T:HACK26.MS.MyMoneyRules.Service.RulesBackgroundWorker"/>
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.GetSettingsAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetSettingsRequest)">
+            <inheritdoc />
+        </member>
+        <member name="F:HACK26.MS.MyMoneyRules.Service.ServiceImp.JsonPathEnvironmentVariable">
+            <summary>
+            Optional environment variable that overrides the folder containing the table JSON files
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.LoadRules">
+            <summary>
+            Reads the rule tables and composes each rule with its triggers, condition groups, conditions and actions
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.SaveRules(System.Collections.Generic.List{HACK26.MS.MyMoneyRules.Data.DecisionRule})">
+            <summary>
+            Decomposes the rules back into their flat tables and rewrites each rule table file
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.GetDecisionRulesAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetDecisionRulesRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.AddOrUpdateDecisionRulesAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.AddOrUpdateDecisionRuleRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.DeleteDecisionRulesAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.DeleteDecisionRulesRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.GetFieldDefinitionsAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetFieldDefinitionsRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.EvaluateTransactionAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.EvaluateTransactionRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.GetRuleEvaluationsAsync(HACK26.MS.MyMoneyRules.Contracts.Requests.GetRuleEvaluationsRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.#ctor(System.String)">
+            <summary>
+            Create a new service for this object
+            </summary>
+            <param name="providerType"></param>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.#ctor(System.String,System.String)">
+            <summary>
+            Create a new service for this object
+            </summary>
+            <param name="providerType"></param>
+            <param name="providerName"></param>
+        </member>
+        <member name="P:HACK26.MS.MyMoneyRules.Service.ServiceImp.ItemType">
+            <summary>
+            Don't change this on configurable microservices.
+            </summary>
+        </member>
+        <member name="P:HACK26.MS.MyMoneyRules.Service.ServiceImp.Name">
+            <summary>
+            Defines the name of this microservice
+            </summary>
+        </member>
+        <member name="F:HACK26.MS.MyMoneyRules.Service.ServiceImp.StaticName">
+            <summary>
+            This is a friendly descriptive name of the service these configurations are a part of
+            </summary>
+        </member>
+        <member name="F:HACK26.MS.MyMoneyRules.Service.ServiceImp.StaticProviderType">
+            <summary>
+            Our provider types can be customized. Any sample provider created by Alkami's SDK team will have the "SDKSample" provider type.
+            </summary>
+        </member>
+        <member name="F:HACK26.MS.MyMoneyRules.Service.ServiceImp.StaticProviderName">
+            <summary>
+            This is the unique name of the provider. This cannot be shared with other providers and is usually the base namespace of this solution.
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.DefaultSettings">
+            <summary>
+            Create default settings that the service expects when first being deployed, these can be anything you'd like them to be
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.SettingDescriptors">
+            <summary>
+            These descriptors need to be added in order to properly display them in the Admin Portal
+            Use the SettingDescriptor constructor to create a new descriptor for each setting name    
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.ValidateChangedSetting(Alkami.MicroServices.Settings.ProviderBased.Contracts.SettingDescriptor,System.String,System.Collections.Generic.List{Alkami.Data.Validations.ValidationResult},System.Boolean,System.Boolean@)">
+            <summary>
+            Each setting should be validated as well as possible. This will safeguard the implementation from incorrect configuration.
+            </summary>
+            <param name="settingDescriptor">The setting Descriptor to validate</param>
+            <param name="settingValue">The value to validate</param>
+            <param name="errors">Pre-initialized collection of errors for you to add any additional errors to</param>
+            <param name="isValidated">A flag that determines if the SettingDescriptor type has been validated; it will be false only if the default type validation fails.</param>
+            <param name="performedValidation">Set this to true if validation checks have been performed</param>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.GetEvaluatedTransactionIds">
+            <summary>
+            Transaction ids that have already been evaluated
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.ServiceImp.UpdateActionExecutionStatuses(System.Collections.Generic.IDictionary{System.Int32,System.String})">
+            <summary>
+            Update the status of action executions
+            </summary>
+        </member>
+    </members>
+</doc>

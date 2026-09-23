@@ -1,0 +1,14 @@
+[
+  { "ConditionEvaluationId": 1, "EvaluationId": 1, "ConditionId": 1, "ActualValue": "799.9900", "ExpectedValue": "500", "Result": true },
+  { "ConditionEvaluationId": 2, "EvaluationId": 1, "ConditionId": 2, "ActualValue": "Electronics", "ExpectedValue": "Electronics", "Result": true },
+  { "ConditionEvaluationId": 3, "EvaluationId": 1, "ConditionId": 3, "ActualValue": "Electronics", "ExpectedValue": "Travel", "Result": false },
+  { "ConditionEvaluationId": 4, "EvaluationId": 2, "ConditionId": 4, "ActualValue": "1200.0000", "ExpectedValue": "100", "Result": false },
+  { "ConditionEvaluationId": 5, "EvaluationId": 3, "ConditionId": 1, "ActualValue": "45.0000", "ExpectedValue": "500", "Result": false },
+  { "ConditionEvaluationId": 6, "EvaluationId": 3, "ConditionId": 2, "ActualValue": "Restaurant", "ExpectedValue": "Electronics", "Result": false },
+  { "ConditionEvaluationId": 7, "EvaluationId": 3, "ConditionId": 3, "ActualValue": "Restaurant", "ExpectedValue": "Travel", "Result": false },
+  { "ConditionEvaluationId": 8, "EvaluationId": 4, "ConditionId": 4, "ActualValue": "82.5000", "ExpectedValue": "100", "Result": true },
+  { "ConditionEvaluationId": 9, "EvaluationId": 5, "ConditionId": 1, "ActualValue": "25.0000", "ExpectedValue": "500", "Result": false },
+  { "ConditionEvaluationId": 10, "EvaluationId": 5, "ConditionId": 2, "ActualValue": "Grocery", "ExpectedValue": "Electronics", "Result": false },
+  { "ConditionEvaluationId": 11, "EvaluationId": 5, "ConditionId": 3, "ActualValue": "Grocery", "ExpectedValue": "Travel", "Result": false },
+  { "ConditionEvaluationId": 12, "EvaluationId": 6, "ConditionId": 4, "ActualValue": "950.0000", "ExpectedValue": "100", "Result": false }
+]

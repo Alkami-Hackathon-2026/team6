@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\src\\devops\\team6\\HACK26.MS.MyMoneyRules\\",
+  "WorkspaceRootPath": "C:\\src\\hack26\\team6\\HACK26.MS.MyMoneyRules\\",
   "Documents": [],
   "DocumentGroupContainers": [
     {
@@ -54,6 +54,10 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
               "$type": "Bookmark",

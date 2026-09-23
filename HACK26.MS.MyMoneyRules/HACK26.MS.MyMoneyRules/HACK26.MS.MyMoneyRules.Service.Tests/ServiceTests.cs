@@ -38,22 +38,22 @@ namespace HACK26.MS.MyMoneyRules.Service.Tests
 			 */
         }
 
-        [Test]
-        public async Task CanGetData()
-        {
-            var request = new GetSomethingRequest();
-            AugmentBaseRequest(request);
+        //[Test]
+        //public async Task CanGetData()
+        //{
+        //    var request = new GetSomethingRequest();
+        //    AugmentBaseRequest(request);
 
-            // Result should have two default settings
-            var result = await _testClass.GetDataAsync(request);
+        //    // Result should have two default settings
+        //    var result = await _testClass.GetDataAsync(request);
 
-            // Each should have a name containing these partial strings
-            var hasAnotherIntProperty = result.ItemList.Any(x => x.AnotherPropertyThatsAnInt == 9999);
-            var hasItemwitChildObjects = result.ItemList.Any(x => x.ChildrenObjects.Count == 2);
+        //    // Each should have a name containing these partial strings
+        //    var hasAnotherIntProperty = result.ItemList.Any(x => x.AnotherPropertyThatsAnInt == 9999);
+        //    var hasItemwitChildObjects = result.ItemList.Any(x => x.ChildrenObjects.Count == 2);
 
-            Assert.IsTrue(result.ItemList.Count == 1);
-            Assert.IsTrue(hasAnotherIntProperty);
-            Assert.IsTrue(hasItemwitChildObjects);
-        }
+        //    Assert.IsTrue(result.ItemList.Count == 1);
+        //    Assert.IsTrue(hasAnotherIntProperty);
+        //    Assert.IsTrue(hasItemwitChildObjects);
+        //}
     }
 }

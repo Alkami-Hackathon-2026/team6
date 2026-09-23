@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.Broker.ZeroMq</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.Broker.Local.ZmqLocalPublisher">
+            <summary>
+            A 0MQ implementation of a publisher designed to be used to communicate with the OnboardDispatcher on this machine.
+            </summary>
+            <see cref="!:http://zeromq.org/"/>
+        </member>
+        <member name="M:Alkami.Broker.Local.ZmqLocalPublisher.StartInternal">
+            <summary>
+            Begins the process of binding to the transport and prepares the resources to broadcast events
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.Local.ZmqLocalPublisher.StopInternal">
+            <summary>
+            Ends the process of binding to the transport and allows for resources to be freed
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.Local.ZmqLocalPublisher.DispatchInternal(Alkami.Broker.Base.TransmissionEnvelope)">
+            <summary>
+            Sends a message from the queue to the transport
+            </summary>
+            <param name="envelope"></param>
+        </member>
+        <member name="T:Alkami.Broker.ZeroMq.Local.ZmqLocalSubscriber">
+            <summary>
+            A 0MQ implementation of a subscriber designed to be used to communicate with the OnboardDispatcher on this machine.
+            </summary>
+            <see cref="!:http://zeromq.org/"/>
+        </member>
+        <member name="P:Alkami.Broker.ZeroMq.Local.ZmqLocalSubscriber.IntrospectiveAction">
+            <summary>
+            used in the case of an override to allow for logging of the envelope, analysis etc
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.ZeroMq.Local.ZmqLocalSubscriber.Start">
+            <summary>
+            Begins the process of binding to the transport
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.ZeroMq.Local.ZmqLocalSubscriber.Stop">
+            <summary>
+            Ends the process of binding to the transport and cleans up any resources
+            </summary>
+        </member>
+    </members>
+</doc>
