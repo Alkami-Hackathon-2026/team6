@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.37628.2 d17.14
+VisualStudioVersion = 17.14.37628.2
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HACK26.MS.MyMoneyRules.Service.Host", "HACK26.MS.MyMoneyRules\HACK26.MS.MyMoneyRules.Service.Host\HACK26.MS.MyMoneyRules.Service.Host.csproj", "{25362663-F882-4A42-983F-0233ED1B5ECD}"
 EndProject
