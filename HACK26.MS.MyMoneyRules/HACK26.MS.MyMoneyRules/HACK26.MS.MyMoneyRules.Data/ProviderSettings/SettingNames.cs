@@ -18,5 +18,17 @@ namespace HACK26.MS.MyMoneyRules.Data.ProviderSettings
         /// </summary>
         [DataMember(EmitDefaultValue = false)]
         public const string SecondProviderSetting = "Second Provider Setting";
+
+        /// <summary>
+        /// Api key used to call the Gemini API
+        /// </summary>
+        [DataMember(EmitDefaultValue = false)]
+        public const string GeminiApiKey = "Gemini Api Key";
+
+        /// <summary>
+        /// Gemini model name used for generation
+        /// </summary>
+        [DataMember(EmitDefaultValue = false)]
+        public const string GeminiModel = "Gemini Model";
     }
 }

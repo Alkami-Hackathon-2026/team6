@@ -109,5 +109,17 @@ namespace HACK26.MS.MyMoneyRules.Service.Host
         {
             return _serviceContract.GetRuleEvaluationsAsync(request);
         }
+
+        /// <inheritdoc />
+        public Task<GeminiStatusResponse> GetGeminiStatusAsync(GetGeminiStatusRequest request)
+        {
+            return _serviceContract.GetGeminiStatusAsync(request);
+        }
+
+        /// <inheritdoc />
+        public Task<GeminiChatResponse> GenerateGeminiChatAsync(GeminiChatRequest request)
+        {
+            return _serviceContract.GenerateGeminiChatAsync(request);
+        }
     }
 }

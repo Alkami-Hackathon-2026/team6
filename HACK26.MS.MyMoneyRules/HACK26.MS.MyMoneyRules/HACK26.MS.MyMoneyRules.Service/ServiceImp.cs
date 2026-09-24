@@ -6,6 +6,7 @@ using HACK26.MS.MyMoneyRules.Contracts.Requests;
 using HACK26.MS.MyMoneyRules.Contracts.Responses;
 using HACK26.MS.MyMoneyRules.Data;
 using HACK26.MS.MyMoneyRules.Data.ProviderSettings;
+using HACK26.MS.MyMoneyRules.Service.Integrations;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -565,39 +566,71 @@ namespace HACK26.MS.MyMoneyRules.Service
             return await Task.FromResult(response);
         }
 
+        /// <inheritdoc />
         public async Task<GeminiStatusResponse> GetGeminiStatusAsync(GetGeminiStatusRequest request)
         {
-            var geminiService = await CreateGeminiServiceAsync(request);
-
-            return await Task.FromResult(new GeminiStatusResponse
+            try
             {
-                Configured = geminiService.IsConfigured,
-                Model = geminiService.Model,
-                Message = geminiService.IsConfigured
-                    ? "Gemini free-tier API is ready for testing."
-                    : "Set the Gemini Api Key provider setting or GEMINI_API_KEY in the environment."
-            });
+                var geminiService = await CreateGeminiServiceAsync(request).ConfigureAwait(false);
+
+                return new GeminiStatusResponse
+                {
+                    Configured = geminiService.IsConfigured,
+                    Model = geminiService.Model,
+                    Message = geminiService.IsConfigured
+                        ? "Gemini free-tier API is ready for testing."
+                        : "Set the Gemini Api Key provider setting or GEMINI_API_KEY in the environment."
+                };
+            }
+            catch (Exception ex)
+            {
+                Logger.Error($"{nameof(GetGeminiStatusAsync)} | Failed resolving Gemini configuration", ex);
+                return new GeminiStatusResponse
+                {
+                    HasError = true,
+                    Configured = false,
+                    SystemMessage = "Unable to resolve Gemini configuration.",
+                    Message = "Unable to resolve Gemini configuration."
+                };
+            }
         }
 
+        /// <inheritdoc />
         public async Task<GeminiChatResponse> GenerateGeminiChatAsync(GeminiChatRequest request)
         {
-            var geminiService = await CreateGeminiServiceAsync(request);
-            return await geminiService.GenerateAsync(request);
+            if (string.IsNullOrWhiteSpace(request?.Prompt))
+            {
+                return new GeminiChatResponse { HasError = true, SystemMessage = "A prompt is required." };
+            }
+
+            try
+            {
+                var geminiService = await CreateGeminiServiceAsync(request).ConfigureAwait(false);
+                var response = await geminiService.GenerateAsync(request).ConfigureAwait(false);
+
+                Logger.Trace($"{nameof(GenerateGeminiChatAsync)} | Model [{response.Model}] | HasError [{response.HasError}]");
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                Logger.Error($"{nameof(GenerateGeminiChatAsync)} | Unexpected failure generating Gemini chat", ex);
+                return new GeminiChatResponse { HasError = true, SystemMessage = "An unexpected error occurred while contacting Gemini." };
+            }
         }
 
         private async Task<GeminiService> CreateGeminiServiceAsync(Alkami.Contracts.BaseRequest request)
         {
-            string apiKey = null;
-            string model = GeminiDefaults.DefaultModel;
+            string apiKey;
+            string model;
 
-            using (var scope = await GetScopeAsync(request))
+            using (var scope = await GetScopeAsync(request).ConfigureAwait(false))
             {
-                apiKey = GeminiService.ResolveApiKey(
-                    scope.GetSettingOrDefault<string>(SettingNames.GeminiApiKey));
-                model = scope.GetSettingOrDefault<string>(SettingNames.GeminiModel) ?? GeminiDefaults.DefaultModel;
+                apiKey = GeminiService.ResolveApiKey(scope.GetSettingOrDefault<string>(SettingNames.GeminiApiKey));
+                model = scope.GetSettingOrDefault<string>(SettingNames.GeminiModel);
             }
 
-            return new GeminiService(apiKey, model);
+            return new GeminiService(apiKey, string.IsNullOrWhiteSpace(model) ? GeminiDefaults.DefaultModel : model);
         }
 
         #region Rules engine helpers

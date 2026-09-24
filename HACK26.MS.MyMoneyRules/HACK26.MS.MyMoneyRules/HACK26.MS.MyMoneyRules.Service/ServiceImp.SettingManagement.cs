@@ -2,6 +2,7 @@
 using Alkami.MicroServices.Settings.ProviderBased.Contracts;
 using Alkami.TrackableObjects.Plugins;
 using HACK26.MS.MyMoneyRules.Data.ProviderSettings;
+using HACK26.MS.MyMoneyRules.Service.Integrations;
 using System.Collections.Generic;
 
 namespace HACK26.MS.MyMoneyRules.Service
@@ -27,6 +28,16 @@ namespace HACK26.MS.MyMoneyRules.Service
                 settings.Add(SettingNames.SecondProviderSetting, "Second Provider Setting");
             }
 
+            if (!settings.ContainsKey(SettingNames.GeminiApiKey))
+            {
+                settings.Add(SettingNames.GeminiApiKey, "GeminiApiKey");
+            }
+
+            if (!settings.ContainsKey(SettingNames.GeminiModel))
+            {
+                settings.Add(SettingNames.GeminiModel, GeminiDefaults.DefaultModel);
+            }
+
             return settings;
         }
 
@@ -45,6 +56,8 @@ namespace HACK26.MS.MyMoneyRules.Service
             // Next add a descriptor for each of the settings
             descriptors.Add(new SettingDescriptor(SettingNames.FirstProviderSetting, "A meaningful description of the value, so that administrators of the configuration can know why they are changing this value.", typeof(string), true, "A meaningful display name", false));
             descriptors.Add(new SettingDescriptor(SettingNames.SecondProviderSetting, "A meaningful description of the value, so that administrators of the configuration can know why they are changing this value.", typeof(string), true, "A meaningful display name", false));
+            descriptors.Add(new SettingDescriptor(SettingNames.GeminiApiKey, "Api key for the Gemini API. When empty the GEMINI_API_KEY environment variable is used.", typeof(string), false, "Gemini Api Key", true));
+            descriptors.Add(new SettingDescriptor(SettingNames.GeminiModel, "Gemini model used for generation.", typeof(string), false, "Gemini Model", false));
 
             return descriptors;
         }
