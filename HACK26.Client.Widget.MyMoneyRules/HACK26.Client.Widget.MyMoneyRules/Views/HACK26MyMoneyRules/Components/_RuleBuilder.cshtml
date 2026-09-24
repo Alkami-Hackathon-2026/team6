@@ -1,0 +1,29 @@
+@model HACK26.Client.Widget.MyMoneyRules.Models.MoneyRules.RuleBuilderViewModel
+
+<section class="iris-card mrm-card mrm-builder pad--base mar-bottom--medium mrm-hidden" data-rule-builder aria-hidden="true" hidden="hidden">
+    <div class="mrm-builder__header">
+        <div>
+            <p class="mrm-kicker mrm-kicker--primary">@Model.Header</p>
+            <h2 class="font-medium-heading mar-top--xsmall" data-builder-name>@Model.DefaultRuleName</h2>
+        </div>
+    </div>
+
+    <div class="mrm-step-grid">
+        @for (var i = 0; i < Model.Steps.Count; i++)
+        {
+            var step = Model.Steps[i];
+            <article class="mrm-step-card @(step.IsOutcomeStep ? "mrm-step-card--then" : string.Empty)">
+                <p class="mrm-kicker @(step.IsOutcomeStep ? "mrm-kicker--primary" : string.Empty)">@step.Label</p>
+                <p class="mrm-step-card__primary" data-builder-step-primary="@i">@step.PrimaryText</p>
+                <p class="mrm-step-card__secondary" data-builder-step-secondary="@i">@step.SecondaryText</p>
+            </article>
+        }
+    </div>
+
+    <div class="mrm-builder__actions">
+        <button type="button" class="iris-button iris-button--primary" data-activate-rule>
+            <span class="iris-button__text">Activate rule</span>
+        </button>
+        <p class="mrm-builder__status" data-builder-status aria-live="polite"></p>
+    </div>
+</section>

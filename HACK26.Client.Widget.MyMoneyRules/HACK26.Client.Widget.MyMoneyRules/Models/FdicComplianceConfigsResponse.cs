@@ -1,6 +1,6 @@
 ﻿using Alkami.Client.Framework.Mvc;
 
-namespace $ext_safeprojectname$.Models
+namespace HACK26.Client.Widget.MyMoneyRules.Models
 {
     public class FdicComplianceConfigsResponse : BaseModel
 {

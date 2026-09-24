@@ -1,0 +1,16 @@
+@model IList<HACK26.Client.Widget.MyMoneyRules.Models.MoneyRules.RecipeViewModel>
+
+<section class="mar-bottom--medium">
+    <div class="mrm-section-head">
+        <div>
+            <h2 class="font-medium-heading">Popular recipes</h2>
+        </div>
+    </div>
+
+    <div class="mrm-recipe-grid">
+        @foreach (var recipe in Model)
+        {
+            @Html.Partial("Components/_RecipeCard", recipe)
+        }
+    </div>
+</section>
