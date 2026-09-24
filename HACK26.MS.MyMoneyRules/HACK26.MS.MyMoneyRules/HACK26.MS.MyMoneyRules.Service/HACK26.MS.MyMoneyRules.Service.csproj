@@ -253,7 +253,8 @@
     <Compile Include="Integrations\AlkamiNotificationSender.cs" />
     <Compile Include="Integrations\AlkamiTransactionSource.cs" />
     <Compile Include="Integrations\AlkamiUserContactSource.cs" />
-    <Compile Include="Integrations\GeminiService.cs" />
+    <Compile Include="Integrations\GeminiClient.cs" />
+    <Compile Include="Integrations\GeminiOptions.cs" />
     <Compile Include="Integrations\IntegrationContracts.cs" />
     <Compile Include="Integrations\NotConfiguredIntegrations.cs" />
     <Compile Include="RulesBackgroundWorker.cs" />

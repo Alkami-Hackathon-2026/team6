@@ -34,17 +34,6 @@ namespace HACK26.MS.MyMoneyRules.Service.Client
             return ProxyCall((operation, inner) => operation.GetSettingsAsync(inner), request);
         }
 
-        //public Task<CustomObjectResponse> GetDataAsync(GetSomethingRequest request)
-        //{
-        //    return ProxyCall((operation, inner) => operation.GetDataAsync(inner), request);
-        //}
-
-        ///// <inheritdoc />
-        //public Task<FdicComplianceConfigsResponse> GetFDICConfigurationAsync(GetSomethingRequest request)
-        //{
-        //    return ProxyCall((operation, inner) => operation.GetFDICConfigurationAsync(inner), request);
-        //}
-
         /// <inheritdoc />
         public Task<DecisionRuleResponse> GetDecisionRulesAsync(GetDecisionRulesRequest request)
         {

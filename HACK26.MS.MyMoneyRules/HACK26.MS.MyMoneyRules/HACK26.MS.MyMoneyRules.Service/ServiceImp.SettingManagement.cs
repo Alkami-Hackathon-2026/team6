@@ -35,7 +35,7 @@ namespace HACK26.MS.MyMoneyRules.Service
 
             if (!settings.ContainsKey(SettingNames.GeminiModel))
             {
-                settings.Add(SettingNames.GeminiModel, GeminiDefaults.DefaultModel);
+                settings.Add(SettingNames.GeminiModel, GeminiOptions.DefaultModel);
             }
 
             return settings;

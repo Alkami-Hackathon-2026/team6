@@ -54,4 +54,15 @@ namespace HACK26.MS.MyMoneyRules.Service.Integrations
         /// </summary>
         Task<bool> SendAsync(BaseRequest request, UserContact contact, string channel, string message, CancellationToken cancellationToken);
     }
+
+    /// <summary>
+    /// Generates text using a Gemini model. Implementations must be thread-safe; a single instance is shared across requests.
+    /// </summary>
+    public interface IGeminiClient
+    {
+        /// <summary>
+        /// Generate text for <paramref name="prompt"/> using the per-request <paramref name="options"/>
+        /// </summary>
+        Task<GeminiResult> GenerateAsync(GeminiOptions options, string prompt, string systemInstruction, CancellationToken cancellationToken);
+    }
 }

@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace HACK26.MS.MyMoneyRules.Service
@@ -39,6 +40,8 @@ namespace HACK26.MS.MyMoneyRules.Service
                 // Assigning the settings to our local variables
                 firstSetting = scope.GetSettingOrDefault<string>(SettingNames.FirstProviderSetting);
                 secondSetting = scope.GetSettingOrDefault<string>(SettingNames.SecondProviderSetting);
+                secondSetting = scope.GetSettingOrDefault<string>(SettingNames.GeminiApiKey);
+                secondSetting = scope.GetSettingOrDefault<string>(SettingNames.GeminiApiKey);
             }
 
             // It's always good to add a trace log for future troubleshooting
@@ -61,6 +64,24 @@ namespace HACK26.MS.MyMoneyRules.Service
                 DefaultValue = DefaultSettings()[SettingNames.SecondProviderSetting],
                 CurrentValue = secondSetting,
                 Description = SettingDescriptors().FirstOrDefault(x => x.Name == SettingNames.SecondProviderSetting)?.Description
+            });
+
+            // We'll do the same for the second setting, adding another instance of the Setting to the response's ItemList
+            response.ItemList.Add(new Setting
+            {
+                Name = SettingNames.GeminiApiKey,
+                DefaultValue = DefaultSettings()[SettingNames.GeminiApiKey],
+                CurrentValue = secondSetting,
+                Description = SettingDescriptors().FirstOrDefault(x => x.Name == SettingNames.GeminiApiKey)?.Description
+            });
+
+            // We'll do the same for the second setting, adding another instance of the Setting to the response's ItemList
+            response.ItemList.Add(new Setting
+            {
+                Name = SettingNames.GeminiModel,
+                DefaultValue = DefaultSettings()[SettingNames.GeminiModel],
+                CurrentValue = secondSetting,
+                Description = SettingDescriptors().FirstOrDefault(x => x.Name == SettingNames.GeminiModel)?.Description
             });
 
             // Return the response using an awaited task
@@ -571,13 +592,13 @@ namespace HACK26.MS.MyMoneyRules.Service
         {
             try
             {
-                var geminiService = await CreateGeminiServiceAsync(request).ConfigureAwait(false);
+                var options = await GetGeminiOptionsAsync(request).ConfigureAwait(false);
 
                 return new GeminiStatusResponse
                 {
-                    Configured = geminiService.IsConfigured,
-                    Model = geminiService.Model,
-                    Message = geminiService.IsConfigured
+                    Configured = options.IsConfigured,
+                    Model = options.Model,
+                    Message = options.IsConfigured
                         ? "Gemini free-tier API is ready for testing."
                         : "Set the Gemini Api Key provider setting or GEMINI_API_KEY in the environment."
                 };
@@ -605,12 +626,18 @@ namespace HACK26.MS.MyMoneyRules.Service
 
             try
             {
-                var geminiService = await CreateGeminiServiceAsync(request).ConfigureAwait(false);
-                var response = await geminiService.GenerateAsync(request).ConfigureAwait(false);
+                var options = await GetGeminiOptionsAsync(request).ConfigureAwait(false);
+                var result = await _geminiClient.GenerateAsync(options, request.Prompt, request.SystemInstruction, CancellationToken.None).ConfigureAwait(false);
 
-                Logger.Trace($"{nameof(GenerateGeminiChatAsync)} | Model [{response.Model}] | HasError [{response.HasError}]");
+                Logger.Trace($"{nameof(GenerateGeminiChatAsync)} | {options} | Result [{result.ErrorKind}]");
 
-                return response;
+                return new GeminiChatResponse
+                {
+                    Model = result.Model,
+                    Text = result.Text,
+                    HasError = !result.IsSuccess,
+                    SystemMessage = result.ErrorMessage
+                };
             }
             catch (Exception ex)
             {
@@ -619,18 +646,17 @@ namespace HACK26.MS.MyMoneyRules.Service
             }
         }
 
-        private async Task<GeminiService> CreateGeminiServiceAsync(Alkami.Contracts.BaseRequest request)
+        /// <summary>
+        /// Resolves per-tenant Gemini configuration from provider settings
+        /// </summary>
+        private async Task<GeminiOptions> GetGeminiOptionsAsync(Alkami.Contracts.BaseRequest request)
         {
-            string apiKey;
-            string model;
-
             using (var scope = await GetScopeAsync(request).ConfigureAwait(false))
             {
-                apiKey = GeminiService.ResolveApiKey(scope.GetSettingOrDefault<string>(SettingNames.GeminiApiKey));
-                model = scope.GetSettingOrDefault<string>(SettingNames.GeminiModel);
+                return GeminiOptions.From(
+                    scope.GetSettingOrDefault<string>(SettingNames.GeminiApiKey),
+                    scope.GetSettingOrDefault<string>(SettingNames.GeminiModel));
             }
-
-            return new GeminiService(apiKey, string.IsNullOrWhiteSpace(model) ? GeminiDefaults.DefaultModel : model);
         }
 
         #region Rules engine helpers

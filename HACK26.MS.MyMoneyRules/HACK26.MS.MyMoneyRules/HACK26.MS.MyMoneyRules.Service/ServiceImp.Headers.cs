@@ -1,10 +1,18 @@
 ﻿using Alkami.TrackableObjects.Plugins;
+using HACK26.MS.MyMoneyRules.Service.Integrations;
+using System;
 
 namespace HACK26.MS.MyMoneyRules.Service
 {
     /// <inheritdoc />
     public partial class ServiceImp : Plugin
     {
+        /// <summary>
+        /// Shared default client so every ServiceImp instance reuses one HTTP pipeline
+        /// </summary>
+        private static readonly Lazy<IGeminiClient> DefaultGeminiClient = new Lazy<IGeminiClient>(() => new GeminiClient());
+
+        private readonly IGeminiClient _geminiClient;
         private string _providerName = "";
 
         /// <summary>
@@ -14,6 +22,7 @@ namespace HACK26.MS.MyMoneyRules.Service
         public ServiceImp(string providerType) : base(providerType)
         {
             _providerName = GetType().AssemblyQualifiedName;
+            _geminiClient = DefaultGeminiClient.Value;
         }
 
         /// <summary>
@@ -21,9 +30,20 @@ namespace HACK26.MS.MyMoneyRules.Service
         /// </summary>
         /// <param name="providerType"></param>
         /// <param name="providerName"></param>
-        public ServiceImp(string providerType, string providerName) : base(providerType, providerName)
+        public ServiceImp(string providerType, string providerName) : this(providerType, providerName, null)
+        {
+        }
+
+        /// <summary>
+        /// Create a new service for this object with explicit integrations
+        /// </summary>
+        /// <param name="providerType"></param>
+        /// <param name="providerName"></param>
+        /// <param name="geminiClient">Gemini client; the shared default is used when null</param>
+        public ServiceImp(string providerType, string providerName, IGeminiClient geminiClient) : base(providerType, providerName)
         {
             _providerName = string.IsNullOrWhiteSpace(providerName) ? GetType().AssemblyQualifiedName : providerName;
+            _geminiClient = geminiClient ?? DefaultGeminiClient.Value;
         }
 
         /// <summary>
