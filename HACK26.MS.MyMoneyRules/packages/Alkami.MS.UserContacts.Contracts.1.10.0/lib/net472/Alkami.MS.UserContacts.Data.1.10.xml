@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.MS.UserContacts.Data.1.10</name>
+    </assembly>
+    <members>
+        <member name="M:Alkami.MS.UserContacts.Data.Dtos.UserContactAddress.GetNormalizedAddress">
+            <summary>
+            Make the address into one string
+            </summary>
+            <returns>Address as one string</returns>
+        </member>
+        <member name="M:Alkami.MS.UserContacts.Data.Dtos.UserContactAddress.GetNormalizedAddress(System.String)">
+            <summary>
+            Make the address into one string
+            </summary>
+            <param name="separator"></param>
+            <returns>Address as one string</returns>
+        </member>
+    </members>
+</doc>

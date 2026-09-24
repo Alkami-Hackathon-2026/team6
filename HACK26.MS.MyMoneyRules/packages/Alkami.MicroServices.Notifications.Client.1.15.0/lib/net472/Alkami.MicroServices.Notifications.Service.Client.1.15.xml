@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.MicroServices.Notifications.Service.Client.1.15</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.MicroServices.Notifications.Service.Client.AlkamiNotificationUtility">
+            <summary>
+            Static helper class to easily create templates for registration and send notifications
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Notifications.Service.Client.AlkamiNotificationUtility.AugmentSendRequest">
+            <summary>
+            This can be set to augment the request for authentication/updates to the send request, etc. This can be set to another method to change the request necessary
+            for a traditional service to communicate correctly the notification service.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Notifications.Service.Client.AlkamiNotificationUtility.AugmentSendBasicRequest">
+            <summary>
+            This can be set to augment the request for sending a basic notification request.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Notifications.Service.Client.AlkamiNotificationUtility.AugmentRegisterRequest">
+            <summary>
+            This can be set to augment the request for registering a request.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Notifications.Service.Client.AlkamiNotificationUtility.AugmentGetTemplateRequest">
+            <summary>
+            This can be set to augment the request for retrieving templates in a request.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Notifications.Service.Client.AlkamiNotificationUtility.AugmentRenderTemplateRequest">
+            <summary>
+            This can be set to augment the request for rendering templates in a request.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Notifications.Service.Client.AlkamiNotificationUtility.SendNotification``1(``0,System.Guid,System.String,System.String,System.String,Alkami.MicroServices.Notifications.Data.MediumType,Alkami.MicroServices.Notifications.Data.TemplateTransformType,System.String)">
+            <summary>
+            Allows easy connection and sending of notifications to the Notification MicroService
+            </summary>
+            <param name="dataObject">Any data object to use for mapping to the template</param>
+            <param name="userIdentifier">The target userid for the notification. Used when sending as MediumType of automatic</param>
+            <param name="summary">The subject of the email, if applicable. If you are using a template that has a registered subject (1.3.+) then leave this blank or null</param>
+            <param name="templateName">The name the template was registered as for use</param>
+            <param name="originatorName">The service or element which sent the notification</param>
+            <param name="mediumType">The medium or type of message (email, sms, push, automatic)</param>
+            <param name="templateTransformType">Razor or Xslt transform type to use.</param>
+            <param name="userAddress">The user address to use when sending a notification. This value is ignored if MediumType is automatic</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Notifications.Service.Client.AlkamiNotificationUtility.SendBasicNotification(Alkami.MicroServices.Notifications.Data.MediumType,System.String,System.String,System.String)">
+            <summary>
+            Sends a basic notification
+            </summary>
+            <param name="mediumType">The medium type of the notification (email, sms, push, automatic)</param>
+            <param name="destinationAddress">The destination address (email address, phone number, etc.) to send the message to using the specified <see cref="T:Alkami.MicroServices.Notifications.Data.MediumType"/></param>
+            <param name="summary">A brief summary of the notification. Used as the 'subject' field for email notifications.</param>
+            <param name="message">The notification message content</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Notifications.Service.Client.AlkamiNotificationUtility.RegisterTemplate``1(``0,System.String,System.String,System.String,System.String,Alkami.MicroServices.Notifications.Data.MediumType,Alkami.MicroServices.Notifications.Data.TemplateTransformType,System.String)">
+            <summary>
+            Allows easy connection and registration of templates used by the Notification MicroService
+            </summary>
+            <param name="dataObject">Any data object to use for mapping to the template</param>
+            <param name="templateName">The name the template was registered as for use</param>
+            <param name="notificationActionName">A string which maps to an action notification already defined in orb. These values are defined in core.WidgetActionNotifications</param>
+            <param name="originatorName">The service or element which sent the notification</param>
+            <param name="templateContent">The template content to register</param>
+            <param name="mediumType">The medium or type of message (email, sms, push, automatic)</param>
+            <param name="templateTransformType">Razor or Xslt transform type to use.</param>
+            <param name="subject">The subject that will be associated with the notification (email only).</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Notifications.Service.Client.AlkamiNotificationUtility.GetTemplate(Alkami.MicroServices.Notifications.Contracts.Requests.TemplateFilter)">
+            <summary>
+            Allows easy connection and sourcing of already registered templates
+            </summary>
+            <param name="filter">Filter to apply to templates</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Notifications.Service.Client.AlkamiNotificationUtility.DefaultAugmentRequest(Alkami.Contracts.BaseRequest)">
+            <summary>
+            Default augment request behavior, which does nothing if not set externally
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="T:Alkami.MicroServices.Notifications.Service.Client.NotificationServiceClient">
+            <summary>
+            Common service client for accessing the notification microservice
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Notifications.Service.Client.NotificationServiceClient.GetTemplatesAsync(Alkami.MicroServices.Notifications.Contracts.Requests.GetTemplateRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Notifications.Service.Client.NotificationServiceClient.SendNotificationsAsync(Alkami.MicroServices.Notifications.Contracts.Requests.SendNotificationRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Notifications.Service.Client.NotificationServiceClient.RegisterTemplateAsync(Alkami.MicroServices.Notifications.Contracts.Requests.RegisterTemplateRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Notifications.Service.Client.NotificationServiceClient.RenderTemplateAsync(Alkami.MicroServices.Notifications.Contracts.Requests.RenderTemplateRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Notifications.Service.Client.NotificationServiceClient.UpdateTemplateAsync(Alkami.MicroServices.Notifications.Contracts.Requests.UpdateTemplateRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Notifications.Service.Client.NotificationServiceClient.SendBasicNotificationAsync(Alkami.MicroServices.Notifications.Contracts.Requests.SendBasicNotificationRequest)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

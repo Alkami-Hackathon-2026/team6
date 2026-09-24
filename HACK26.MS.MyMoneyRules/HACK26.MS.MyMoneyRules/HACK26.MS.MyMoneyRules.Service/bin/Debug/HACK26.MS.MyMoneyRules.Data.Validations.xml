@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HACK26.MS.MyMoneyRules.Data.Validations</name>
+    </assembly>
+    <members>
+        <member name="T:HACK26.MS.MyMoneyRules.Data.Validations.GetSomethingRequestValidator">
+            This is a basic example of a validation that we've provided in this template.  Each validator
+            implements the abstract class EntityValidatorImpl&lt;T&gt; and passes in the request object to be validated.
+            What you will see implemented below is an override of our ValidateInternal method.  This method can be
+            used to validate any number of members in the request object and will return a list of validation results.
+            Each result can be as specific as desired for the member being validated and will be shown in the
+            ValidationResults of the response object.
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Data.Validations.GetSomethingRequestValidator.ValidateInternal(HACK26.MS.MyMoneyRules.Contracts.Requests.GetSomethingRequest)">
+            <summary>
+            Override the ValidateInternal method to define custom validations for this particular type of request.
+            </summary>
+            <param name="src"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HACK26.MS.MyMoneyRules.Data.Validations.CustomDataObjectFilterValidator">
+            This is a basic example of a validation that we've provided in this template.  Each validator
+            implements the abstract class EntityValidatorImpl&lt;T&gt; and passes in the request object to be validated.
+            What you will see implemented below is an override of our ValidateInternal method.  This method can be
+            used to validate any number of members in the request object and will return a list of validation results.
+            Each result can be as specific as desired for the member being validated and will be shown in the
+            ValidationResults of the response object.
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Data.Validations.CustomDataObjectFilterValidator.ValidateInternal(HACK26.MS.MyMoneyRules.Contracts.Filters.CustomDataObjectFilter)">
+            <summary>
+            Override the ValidateInternal method to define custom validations for this particular type of request.
+            </summary>
+            <param name="src"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

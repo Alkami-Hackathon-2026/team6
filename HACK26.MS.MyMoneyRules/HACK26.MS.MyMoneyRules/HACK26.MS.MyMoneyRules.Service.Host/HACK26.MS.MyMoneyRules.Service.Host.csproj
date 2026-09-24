@@ -258,6 +258,7 @@
   <ItemGroup>
     <Content Include="Doc\gettingstarted.css" />
     <Content Include="Doc\gettingstarted.html" />
+    <None Include="ProviderScripts\create_provider_datatables.sql" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Installer\ChocolateyInstall.ps1" />
