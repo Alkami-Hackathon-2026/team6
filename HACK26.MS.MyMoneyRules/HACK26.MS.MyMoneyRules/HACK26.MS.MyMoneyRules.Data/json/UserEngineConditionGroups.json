@@ -1,0 +1,26 @@
+[
+  {
+    "ConditionGroupId": 1,
+    "RuleId": 1,
+    "ParentConditionGroupId": null,
+    "LogicOperator": "AND"
+  },
+  {
+    "ConditionGroupId": 2,
+    "RuleId": 1,
+    "ParentConditionGroupId": 1,
+    "LogicOperator": "OR"
+  },
+  {
+    "ConditionGroupId": 3,
+    "RuleId": 2,
+    "ParentConditionGroupId": null,
+    "LogicOperator": "AND"
+  },
+  {
+    "ConditionGroupId": 4,
+    "RuleId": 3,
+    "ParentConditionGroupId": null,
+    "LogicOperator": "AND"
+  }
+]

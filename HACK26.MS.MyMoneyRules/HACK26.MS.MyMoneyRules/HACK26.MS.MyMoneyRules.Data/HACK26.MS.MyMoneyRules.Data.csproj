@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B5A3794B-1A90-4984-A6C4-2B26C7B103BF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HACK26.MS.MyMoneyRules.Data</RootNamespace>
+    <AssemblyName>HACK26.MS.MyMoneyRules.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\HACK26.MS.MyMoneyRules.Data.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\HACK26.MS.MyMoneyRules.Data.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionExecution.cs" />
+    <Compile Include="ConditionEvaluation.cs" />
+    <Compile Include="ConditionGroup.cs" />
+    <Compile Include="DecisionRule.cs" />
+    <Compile Include="FieldDefinition.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProviderSettings\SettingNames.cs" />
+    <Compile Include="ProviderSettings\Setting.cs" />
+    <Compile Include="RuleAction.cs" />
+    <Compile Include="RuleCondition.cs" />
+    <Compile Include="RuleEvaluation.cs" />
+    <Compile Include="RuleTrigger.cs" />
+    <Compile Include="TransactionEvent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="json\UserEngineActionExecutions.json" />
+    <None Include="json\UserEngineActions.json" />
+    <None Include="json\UserEngineConditionEvaluations.json" />
+    <None Include="json\UserEngineConditionGroups.json" />
+    <None Include="json\UserEngineConditions.json" />
+    <None Include="json\UserEngineFieldDefinitions.json" />
+    <None Include="json\UserEngineRuleEvaluations.json" />
+    <None Include="json\UserEngineRules.json" />
+    <None Include="json\UserEngineTransactionEvents.json" />
+    <None Include="json\UserEngineTriggers.json" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
