@@ -1,0 +1,56 @@
+@AlkamiHackathon.Sandbox_HostAddress = http://localhost:5199
+
+### Health
+GET {{AlkamiHackathon.Sandbox_HostAddress}}/api/demo/health
+
+### All members
+GET {{AlkamiHackathon.Sandbox_HostAddress}}/api/members
+
+### Member profile (Mike Brady)
+GET {{AlkamiHackathon.Sandbox_HostAddress}}/api/members/mbr-1001/profile
+
+### Shares for member
+GET {{AlkamiHackathon.Sandbox_HostAddress}}/api/members/mbr-1001/shares
+
+### Share detail with debit cards
+GET {{AlkamiHackathon.Sandbox_HostAddress}}/api/shares/shr-3001/detail
+
+### Simulate transfer
+POST {{AlkamiHackathon.Sandbox_HostAddress}}/api/demo/transfers/simulate
+Content-Type: application/json
+
+{
+  "fromShareId": "shr-3001",
+  "toShareId": "shr-3002",
+  "amount": 7500,
+  "memo": "Hackathon demo transfer"
+}
+
+### Gemini status
+GET {{AlkamiHackathon.Sandbox_HostAddress}}/api/gemini/status
+
+### Gemini chat test
+POST {{AlkamiHackathon.Sandbox_HostAddress}}/api/gemini/chat
+Content-Type: application/json
+
+{
+  "prompt": "Say hello in one short sentence.",
+  "systemInstruction": "You are a helpful assistant for an Alkami hackathon demo.",
+  "responseAsJson": true
+}
+
+### List rules
+GET {{AlkamiHackathon.Sandbox_HostAddress}}/api/rules
+
+### Generate rule with Gemini (Mike Brady)
+POST {{AlkamiHackathon.Sandbox_HostAddress}}/api/rules/generate
+Content-Type: application/json
+
+{
+  "memberId": "mbr-1001",
+  "prompt": "When I transfer more than $500 from checking to Christmas Savings, send me a push notification.",
+  "save": true
+}
+
+### Rules for member
+GET {{AlkamiHackathon.Sandbox_HostAddress}}/api/rules/member/mbr-1001

@@ -1,0 +1,16 @@
+# Local config with secrets (API keys, etc.)
+appsettings.json
+appsettings.Development.json
+
+# Build output
+bin/
+obj/
+
+# IDE / tooling
+.vs/
+Visual Studio 18/
+*.user
+*.suo
+
+# User secrets (local only)
+**/secrets.json

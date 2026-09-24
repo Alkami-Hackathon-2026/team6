@@ -1,0 +1,46 @@
+[
+  {
+    "cardId": "card-4001",
+    "shareId": "shr-3001",
+    "memberId": "mbr-1001",
+    "cardNumberMasked": "4111-11**-****-4821",
+    "lastFour": "4821",
+    "cardType": "Visa Debit",
+    "status": "Active",
+    "expirationDate": "2028-09-30",
+    "cardholderName": "Mike Brady"
+  },
+  {
+    "cardId": "card-4002",
+    "shareId": "shr-3004",
+    "memberId": "mbr-1002",
+    "cardNumberMasked": "4111-11**-****-7733",
+    "lastFour": "7733",
+    "cardType": "Visa Debit",
+    "status": "Active",
+    "expirationDate": "2027-04-30",
+    "cardholderName": "Sarah Chen"
+  },
+  {
+    "cardId": "card-4003",
+    "shareId": "shr-3006",
+    "memberId": "mbr-1003",
+    "cardNumberMasked": "4111-11**-****-9901",
+    "lastFour": "9901",
+    "cardType": "Visa Debit",
+    "status": "Active",
+    "expirationDate": "2026-12-31",
+    "cardholderName": "Demo Member"
+  },
+  {
+    "cardId": "card-4004",
+    "shareId": "shr-3001",
+    "memberId": "mbr-1001",
+    "cardNumberMasked": "4111-11**-****-1156",
+    "lastFour": "1156",
+    "cardType": "Visa Debit",
+    "status": "Inactive",
+    "expirationDate": "2024-03-31",
+    "cardholderName": "Mike Brady"
+  }
+]

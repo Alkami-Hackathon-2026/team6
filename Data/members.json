@@ -1,0 +1,35 @@
+[
+  {
+    "memberId": "mbr-1001",
+    "memberNumber": "0001001842",
+    "firstName": "Mike",
+    "lastName": "Brady",
+    "email": "mike.brady@examplecu.org",
+    "phone": "555-010-1842",
+    "dateOfBirth": "1985-03-14",
+    "status": "Active",
+    "memberSince": "2012-06-01"
+  },
+  {
+    "memberId": "mbr-1002",
+    "memberNumber": "0001002937",
+    "firstName": "Sarah",
+    "lastName": "Chen",
+    "email": "sarah.chen@examplecu.org",
+    "phone": "555-010-2937",
+    "dateOfBirth": "1990-11-02",
+    "status": "Active",
+    "memberSince": "2018-01-15"
+  },
+  {
+    "memberId": "mbr-1003",
+    "memberNumber": "0001004510",
+    "firstName": "Demo",
+    "lastName": "Member",
+    "email": "demo.member@examplecu.org",
+    "phone": "555-010-4510",
+    "dateOfBirth": "1978-07-22",
+    "status": "Active",
+    "memberSince": "2020-09-10"
+  }
+]

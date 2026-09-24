@@ -1,0 +1,38 @@
+[
+  {
+    "accountId": "acct-2001",
+    "memberId": "mbr-1001",
+    "accountNumber": "10018420001",
+    "accountType": "Individual",
+    "relationship": "Primary",
+    "status": "Open",
+    "openDate": "2012-06-01"
+  },
+  {
+    "accountId": "acct-2002",
+    "memberId": "mbr-1002",
+    "accountNumber": "10029370001",
+    "accountType": "Individual",
+    "relationship": "Primary",
+    "status": "Open",
+    "openDate": "2018-01-15"
+  },
+  {
+    "accountId": "acct-2003",
+    "memberId": "mbr-1003",
+    "accountNumber": "10045100001",
+    "accountType": "Individual",
+    "relationship": "Primary",
+    "status": "Open",
+    "openDate": "2020-09-10"
+  },
+  {
+    "accountId": "acct-2004",
+    "memberId": "mbr-1001",
+    "accountNumber": "10018420002",
+    "accountType": "Joint",
+    "relationship": "Primary",
+    "status": "Open",
+    "openDate": "2019-12-01"
+  }
+]
