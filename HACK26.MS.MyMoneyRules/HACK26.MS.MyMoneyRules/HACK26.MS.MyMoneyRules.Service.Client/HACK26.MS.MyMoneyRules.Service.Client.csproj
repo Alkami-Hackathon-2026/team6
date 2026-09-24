@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\Alkami.MicroServices.Settings.ProviderBasedClient.6.0.2\build\net472\Alkami.MicroServices.Settings.ProviderBasedClient.props" Condition="Exists('..\..\packages\Alkami.MicroServices.Settings.ProviderBasedClient.6.0.2\build\net472\Alkami.MicroServices.Settings.ProviderBasedClient.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +13,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,16 +40,20 @@
       <HintPath>..\..\packages\Alkami.Broker.3.0.1\lib\net462\Alkami.Broker.dll</HintPath>
     </Reference>
     <Reference Include="Alkami.Contracts, Version=4.5.0.912, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Core.4.5.0\lib\net462\Alkami.Contracts.dll</HintPath>
+      <HintPath>..\..\packages\Alkami.MicroServices.Core.4.8.1\lib\net462\Alkami.Contracts.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Alkami.Data.Access, Version=4.5.0.912, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Core.4.5.0\lib\net462\Alkami.Data.Access.dll</HintPath>
+      <HintPath>..\..\packages\Alkami.MicroServices.Core.4.8.1\lib\net462\Alkami.Data.Access.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Alkami.Data.Validations, Version=4.5.0.912, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Core.4.5.0\lib\net462\Alkami.Data.Validations.dll</HintPath>
+      <HintPath>..\..\packages\Alkami.MicroServices.Core.4.8.1\lib\net462\Alkami.Data.Validations.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Alkami.Exceptions, Version=4.5.0.912, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Core.4.5.0\lib\net462\Alkami.Exceptions.dll</HintPath>
+      <HintPath>..\..\packages\Alkami.MicroServices.Core.4.8.1\lib\net462\Alkami.Exceptions.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Alkami.MicroServices.Settings.Contracts.5.1, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alkami.MicroServices.Settings.Contracts.5.1.0\lib\net472\Alkami.MicroServices.Settings.Contracts.5.1.dll</HintPath>
@@ -61,10 +68,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Alkami.MicroServices.Settings.ProviderBased.Contracts, Version=5.1.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Settings.ProviderBased.Contracts.5.1.4\lib\net472\Alkami.MicroServices.Settings.ProviderBased.Contracts.dll</HintPath>
+      <HintPath>..\..\packages\Alkami.MicroServices.Settings.ProviderBased.Contracts.6.0.2\lib\net472\Alkami.MicroServices.Settings.ProviderBased.Contracts.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Alkami.MicroServices.Settings.ProviderBasedClient, Version=5.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Settings.ProviderBasedClient.5.0.1\lib\net472\Alkami.MicroServices.Settings.ProviderBasedClient.dll</HintPath>
+      <HintPath>..\..\packages\Alkami.MicroServices.Settings.ProviderBasedClient.6.0.2\lib\net472\Alkami.MicroServices.Settings.ProviderBasedClient.dll</HintPath>
     </Reference>
     <Reference Include="Alkami.MicroServices.Settings.Service.Client.5.0, Version=5.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alkami.MicroServices.Settings.Client.5.0.3\lib\net472\Alkami.MicroServices.Settings.Service.Client.5.0.dll</HintPath>
@@ -73,22 +81,40 @@
       <HintPath>..\..\packages\Alkami.Monitoring.2.11.0\lib\net462\Alkami.Monitoring.dll</HintPath>
     </Reference>
     <Reference Include="Alkami.Security, Version=4.5.0.912, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Core.4.5.0\lib\net462\Alkami.Security.dll</HintPath>
+      <HintPath>..\..\packages\Alkami.MicroServices.Core.4.8.1\lib\net462\Alkami.Security.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Alkami.Services.Subscriptions.Data, Version=5.0.15.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.Subscription.Base.5.0.15\lib\net472\Alkami.Services.Subscriptions.Data.dll</HintPath>
+      <HintPath>..\..\packages\Alkami.Subscription.Base.5.4.0\lib\net472\Alkami.Services.Subscriptions.Data.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Alkami.Services.Subscriptions.ParticipatingClient, Version=5.0.15.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.Subscription.ParticipatingClient.5.0.15\lib\net472\Alkami.Services.Subscriptions.ParticipatingClient.dll</HintPath>
+      <HintPath>..\..\packages\Alkami.Subscription.ParticipatingClient.5.4.0\lib\net472\Alkami.Services.Subscriptions.ParticipatingClient.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Alkami.Services.Subscriptions.Resolver, Version=5.0.15.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.Subscription.Base.5.0.15\lib\net472\Alkami.Services.Subscriptions.Resolver.dll</HintPath>
+      <HintPath>..\..\packages\Alkami.Subscription.Base.5.4.0\lib\net472\Alkami.Services.Subscriptions.Resolver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Alkami.Utilities, Version=2.3.0.943, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Utilities.2.3.0\lib\net462\Alkami.Utilities.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Alkami.Utilities.Certificates, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Utilities.2.3.0\lib\net462\Alkami.Utilities.Certificates.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Alkami.Utilities.Kubernetes, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.Utilities.Kubernetes.2.0.0\lib\net472\Alkami.Utilities.Kubernetes.dll</HintPath>
+      <HintPath>..\..\packages\Alkami.Utilities.Kubernetes.2.0.1\lib\net472\Alkami.Utilities.Kubernetes.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Alkami.Utilities.LegacyIdentity, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Utilities.LegacyIdentity.1.0.3\lib\net472\Alkami.Utilities.LegacyIdentity.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Alkami.Utilities.Rpc, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.Utilities.Rpc.5.0.0\lib\net472\Alkami.Utilities.Rpc.dll</HintPath>
+      <HintPath>..\..\packages\Alkami.Utilities.Rpc.5.0.1\lib\net472\Alkami.Utilities.Rpc.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
@@ -149,16 +175,17 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-	<PropertyGroup>
-		<PostBuildEvent>
+  <PropertyGroup>
+    <PostBuildEvent>
 			if EXIST "$(ProjectDir)tools\IncrementNuspecVersion.ps1" (powershell.exe -NonInteractive -command "$(ProjectDir)tools\IncrementNuspecVersion.ps1" '$(ProjectName)' '$(ProjectDir)' 'ServiceClient.nuspec')
 			if "$(ConfigurationName)" == "Release" nuget pack $(ProjectDir)ServiceClient.nuspec -OutputDirectory $(SolutionDir)nuget
 		</PostBuildEvent>
-	</PropertyGroup>
-	<Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-		<PropertyGroup>
-			<ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-		</PropertyGroup>
-		<Error Condition="!Exists('..\..\packages\Alkami.MicroServices.Settings.ProviderBasedClient.6.0.2\build\net472\Alkami.MicroServices.Settings.ProviderBasedClient.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Alkami.MicroServices.Settings.ProviderBasedClient.6.0.2\build\net472\Alkami.MicroServices.Settings.ProviderBasedClient.props'))" />
-	</Target>
+  </PropertyGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\Alkami.MicroServices.Settings.ProviderBasedClient.6.0.2\build\net472\Alkami.MicroServices.Settings.ProviderBasedClient.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Alkami.MicroServices.Settings.ProviderBasedClient.6.0.2\build\net472\Alkami.MicroServices.Settings.ProviderBasedClient.props'))" />
+    <Error Condition="!Exists('..\..\packages\Alkami.MicroServices.Settings.ProviderBasedClient.6.0.2\build\net472\Alkami.MicroServices.Settings.ProviderBasedClient.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Alkami.MicroServices.Settings.ProviderBasedClient.6.0.2\build\net472\Alkami.MicroServices.Settings.ProviderBasedClient.props'))" />
+  </Target>
 </Project>
