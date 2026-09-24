@@ -1,0 +1,18 @@
+@model HACK26.Client.Widget.MyMoneyRules.Models.MoneyRules.AutomationSummaryViewModel
+
+<section class="iris-card mrm-card mrm-summary-card pad--base" aria-label="Automation summary">
+    <p class="mrm-summary-card__title">@Model.Title</p>
+    <p class="mrm-summary-card__amount">@Model.AmountMoved</p>
+    <p class="mrm-summary-card__description">@Model.AmountMovedDescription</p>
+
+    <div class="mrm-summary-card__stats">
+        <div>
+            <p class="mrm-summary-card__value">@Model.ActiveRules</p>
+            <p class="mrm-summary-card__description">active rules</p>
+        </div>
+        <div>
+            <p class="mrm-summary-card__value">@Model.ActionsCompleted</p>
+            <p class="mrm-summary-card__description">actions completed</p>
+        </div>
+    </div>
+</section>
