@@ -48,6 +48,65 @@
             Send a notification to the user; returns true when accepted by the notification service
             </summary>
         </member>
+        <member name="T:HACK26.MS.MyMoneyRules.Service.Integrations.AlkamiNotificationSender">
+            <summary>
+            <see cref="T:HACK26.MS.MyMoneyRules.Service.Integrations.INotificationSender"/> backed by the Alkami notifications service
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Integrations.AlkamiNotificationSender.#ctor">
+            <summary>
+            Create a sender using a default <see cref="T:Alkami.MicroServices.Notifications.Service.Client.NotificationServiceClient"/>
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Integrations.AlkamiNotificationSender.#ctor(Alkami.MicroServices.Notifications.Service.Client.NotificationServiceClient)">
+            <summary>
+            Create a sender using the given client
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Integrations.AlkamiNotificationSender.SendAsync(Alkami.Contracts.BaseRequest,HACK26.MS.MyMoneyRules.Service.Integrations.UserContact,System.String,System.String,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Integrations.AlkamiNotificationSender.TryResolveDestination(Alkami.Contracts.BaseRequest,HACK26.MS.MyMoneyRules.Service.Integrations.UserContact,System.String,Alkami.MicroServices.Notifications.Data.MediumType@,System.String@)">
+            <summary>
+            Maps the rule channel to a medium and destination; falls back to email then SMS when the preferred channel has no address
+            </summary>
+        </member>
+        <member name="T:HACK26.MS.MyMoneyRules.Service.Integrations.AlkamiTransactionSource">
+            <summary>
+            <see cref="T:HACK26.MS.MyMoneyRules.Service.Integrations.ITransactionSource"/> backed by the Alkami transactions service
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Integrations.AlkamiTransactionSource.#ctor">
+            <summary>
+            Create a source using a default <see cref="T:Alkami.MicroServices.Transactions.Service.Client.TransactionServiceClient"/>
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Integrations.AlkamiTransactionSource.#ctor(Alkami.MicroServices.Transactions.Service.Client.TransactionServiceClient)">
+            <summary>
+            Create a source using the given client
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Integrations.AlkamiTransactionSource.GetTransactionsAsync(Alkami.Contracts.BaseRequest,System.Collections.Generic.IList{System.Int32},System.DateTime,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="T:HACK26.MS.MyMoneyRules.Service.Integrations.AlkamiUserContactSource">
+            <summary>
+            <see cref="T:HACK26.MS.MyMoneyRules.Service.Integrations.IUserContactSource"/> backed by the Alkami user contacts service
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Integrations.AlkamiUserContactSource.#ctor">
+            <summary>
+            Create a source using a default <see cref="T:Alkami.MS.UserContacts.UserContactsServiceClient"/>
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Integrations.AlkamiUserContactSource.#ctor(Alkami.MS.UserContacts.UserContactsServiceClient)">
+            <summary>
+            Create a source using the given client
+            </summary>
+        </member>
+        <member name="M:HACK26.MS.MyMoneyRules.Service.Integrations.AlkamiUserContactSource.GetUserContactAsync(Alkami.Contracts.BaseRequest,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
         <member name="T:HACK26.MS.MyMoneyRules.Service.Integrations.NotConfiguredIntegrations">
             <summary>
             Placeholder integrations used until the Alkami service clients are wired in. Each logs a warning and does nothing.
