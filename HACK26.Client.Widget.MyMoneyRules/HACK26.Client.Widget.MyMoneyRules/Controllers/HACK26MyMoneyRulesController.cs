@@ -4,7 +4,6 @@ using Alkami.MicroServices.Accounts.Data;
 using Alkami.Security.Common.Claims;
 using Common.Logging;
 using HACK26.Client.Widget.MyMoneyRules.Helpers;
-using HACK26.Client.Widget.MyMoneyRules.Models.MoneyRules;
 using HACK26.Client.Widget.MyMoneyRules.Models;
 using System;
 using System.Collections.Generic;
@@ -61,17 +60,7 @@ namespace HACK26.Client.Widget.MyMoneyRules.Controllers
             {
                 Logger.DebugFormat($" {logPrefix} [GET] Controller/Index");
 
-                var model = new MoneyRulesPageViewModel
-                {
-                    Summary = GetSummary(),
-                    Builder = GetBuilder(),
-                    Recipes = GetRecipes(),
-                    Rules = GetRules()
-                };
-
-                Logger.Debug(model);
-
-                return View("Index", model);
+                return View("Index");
             }
             catch (Exception e)
             {
@@ -79,147 +68,6 @@ namespace HACK26.Client.Widget.MyMoneyRules.Controllers
                 return View("Error");
             }
         }
-
-        private static AutomationSummaryViewModel GetSummary()
-        {
-            return new AutomationSummaryViewModel
-            {
-                Title = "Your automations",
-                AmountMoved = "$1,245",
-                AmountMovedDescription = "moved to savings this year",
-                ActiveRules = 2,
-                ActionsCompleted = 18
-            };
-        }
-
-        private static RuleBuilderViewModel GetBuilder()
-        {
-            return new RuleBuilderViewModel
-            {
-                Header = "NEW RULE",
-                DefaultRuleName = "Payday Vacation Saver",
-                Steps = new List<RuleStepViewModel>
-                {
-                    new RuleStepViewModel
-                    {
-                        Label = "WHEN",
-                        PrimaryText = "Paycheck arrives",
-                        SecondaryText = "in Checking"
-                    },
-                    new RuleStepViewModel
-                    {
-                        Label = "IF",
-                        PrimaryText = "Balance stays above",
-                        SecondaryText = "$1,500"
-                    },
-                    new RuleStepViewModel
-                    {
-                        Label = "THEN",
-                        PrimaryText = "Move 10%",
-                        SecondaryText = "to Vacation Savings",
-                        IsOutcomeStep = true
-                    }
-                }
-            };
-        }
-
-        private static List<RecipeViewModel> GetRecipes()
-        {
-            return new List<RecipeViewModel>
-            {
-                new RecipeViewModel
-                {
-                    Id = "recipe-pay-yourself-first",
-                    Title = "Pay Yourself First",
-                    Description = "When my paycheck arrives, move 10% to savings.",
-                    AccentClass = "mrm-recipe-accent--green",
-                    BuilderName = "Pay Yourself First",
-                    BuilderWhen = "Paycheck arrives",
-                    BuilderWhenDetail = "in Checking",
-                    BuilderIf = "Balance stays above",
-                    BuilderIfDetail = "$1,500",
-                    BuilderThen = "Move 10%",
-                    BuilderThenDetail = "to Savings"
-                },
-                new RecipeViewModel
-                {
-                    Id = "recipe-coffee-match",
-                    Title = "Coffee Match",
-                    Description = "When I buy coffee, move the same amount to savings.",
-                    AccentClass = "mrm-recipe-accent--orange",
-                    BuilderName = "Coffee Match",
-                    BuilderWhen = "Coffee purchase posts",
-                    BuilderWhenDetail = "on Debit Card",
-                    BuilderIf = "Purchase category is",
-                    BuilderIfDetail = "Coffee Shops",
-                    BuilderThen = "Move matching amount",
-                    BuilderThenDetail = "to Savings"
-                },
-                new RecipeViewModel
-                {
-                    Id = "recipe-sweep-extra-cash",
-                    Title = "Sweep Extra Cash",
-                    Description = "When checking is above $5,000, move the extra to savings.",
-                    AccentClass = "mrm-recipe-accent--blue",
-                    BuilderName = "Sweep Extra Cash",
-                    BuilderWhen = "Daily balance check",
-                    BuilderWhenDetail = "for Checking",
-                    BuilderIf = "Balance is above",
-                    BuilderIfDetail = "$5,000",
-                    BuilderThen = "Move excess",
-                    BuilderThenDetail = "to Savings"
-                },
-                new RecipeViewModel
-                {
-                    Id = "recipe-large-purchase-alert",
-                    Title = "Large Purchase Alert",
-                    Description = "When a purchase is over $500, notify me.",
-                    AccentClass = "mrm-recipe-accent--purple",
-                    BuilderName = "Large Purchase Alert",
-                    BuilderWhen = "Card purchase posts",
-                    BuilderWhenDetail = "on any account",
-                    BuilderIf = "Transaction amount is over",
-                    BuilderIfDetail = "$500",
-                    BuilderThen = "Send notification",
-                    BuilderThenDetail = "to Mobile App"
-                }
-            };
-        }
-
-        private static List<MoneyRuleViewModel> GetRules()
-        {
-            return new List<MoneyRuleViewModel>
-            {
-                new MoneyRuleViewModel
-                {
-                    Id = 1,
-                    Name = "Pay Yourself First",
-                    TriggerText = "Paycheck received",
-                    ActionText = "Move 10% to Emergency Savings",
-                    Impact = "$825 saved",
-                    IsActive = true
-                },
-                new MoneyRuleViewModel
-                {
-                    Id = 2,
-                    Name = "Large Purchase Alert",
-                    TriggerText = "Purchase over $500",
-                    ActionText = "Notify me",
-                    Impact = "3 alerts",
-                    IsActive = true
-                },
-                new MoneyRuleViewModel
-                {
-                    Id = 3,
-                    Name = "Sweep Extra Cash",
-                    TriggerText = "Checking over $5,000",
-                    ActionText = "Move excess to Savings",
-                    Impact = "$420 saved",
-                    IsActive = false
-                }
-            };
-        }
-
 
         public ActionResult Accounts()
         {

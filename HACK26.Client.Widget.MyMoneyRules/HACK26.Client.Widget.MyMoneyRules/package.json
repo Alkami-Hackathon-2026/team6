@@ -1,0 +1,13 @@
+{
+    "name": "hack26-client-widget-my-money-rules",
+    "private": true,
+    "version": "1.0.0",
+    "scripts": {
+        "albus": "albus"
+    },
+    "dependencies": {
+        "@alkami/albus": "1.21.0",
+        "@alkami/albus-cli": "1.21.0",
+        "@alkami/albus-preset-vue2": "1.23.0"
+    }
+}

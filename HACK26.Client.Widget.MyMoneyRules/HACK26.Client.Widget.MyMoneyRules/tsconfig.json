@@ -1,0 +1,14 @@
+{
+    "extends": "./node_modules/@alkami/albus-preset-vue2/configs/tsconfig.json",
+    "include": [
+        "**/*.ts",
+        "**/*.vue"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts",
+        "**/__tests__",
+        "**/__mocks__",
+        "packages/**"
+    ]
+}
