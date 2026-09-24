@@ -38,17 +38,14 @@
     <Reference Include="Alkami.Broker.ZeroMq, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alkami.Broker.ZeroMq.3.0.0\lib\net462\Alkami.Broker.ZeroMq.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Contracts, Version=4.5.0.912, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Core.4.5.0\lib\net462\Alkami.Contracts.dll</HintPath>
+    <Reference Include="Alkami.Contracts, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Contracts.5.0.0\lib\net472\Alkami.Contracts.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Data.Access, Version=4.5.0.912, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Core.4.5.0\lib\net462\Alkami.Data.Access.dll</HintPath>
+    <Reference Include="Alkami.Data.Validations, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Data.Validations.5.0.0\lib\net472\Alkami.Data.Validations.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Data.Validations, Version=4.5.0.912, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Core.4.5.0\lib\net462\Alkami.Data.Validations.dll</HintPath>
-    </Reference>
-    <Reference Include="Alkami.Exceptions, Version=4.5.0.912, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Core.4.5.0\lib\net462\Alkami.Exceptions.dll</HintPath>
+    <Reference Include="Alkami.Exceptions, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Exceptions.5.0.0\lib\net472\Alkami.Exceptions.dll</HintPath>
     </Reference>
     <Reference Include="Alkami.MicroServices.Settings.Contracts.5.0, Version=5.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alkami.MicroServices.Settings.Contracts.5.0.3\lib\net472\Alkami.MicroServices.Settings.Contracts.5.0.dll</HintPath>
@@ -59,8 +56,8 @@
     <Reference Include="Alkami.MicroServices.Settings.Data.Validations.5.0, Version=5.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alkami.MicroServices.Settings.Contracts.5.0.3\lib\net472\Alkami.MicroServices.Settings.Data.Validations.5.0.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.MicroServices.Settings.ProviderBased.Contracts, Version=5.1.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Settings.ProviderBased.Contracts.5.1.4\lib\net472\Alkami.MicroServices.Settings.ProviderBased.Contracts.dll</HintPath>
+    <Reference Include="Alkami.MicroServices.Settings.ProviderBased.Contracts, Version=7.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.MicroServices.Settings.ProviderBased.Contracts.7.0.3\lib\net472\Alkami.MicroServices.Settings.ProviderBased.Contracts.dll</HintPath>
     </Reference>
     <Reference Include="Alkami.MicroServices.Settings.ProviderBasedClient, Version=5.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alkami.MicroServices.Settings.ProviderBasedClient.5.0.1\lib\net472\Alkami.MicroServices.Settings.ProviderBasedClient.dll</HintPath>
@@ -71,47 +68,53 @@
     <Reference Include="Alkami.MicroServices.Settings.Service.Client.5.0, Version=5.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alkami.MicroServices.Settings.Client.5.0.3\lib\net472\Alkami.MicroServices.Settings.Service.Client.5.0.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Monitoring, Version=2.11.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.Monitoring.2.11.0\lib\net462\Alkami.Monitoring.dll</HintPath>
+    <Reference Include="Alkami.Monitoring, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Monitoring.3.0.0\lib\net472\Alkami.Monitoring.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Security, Version=4.5.0.912, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Core.4.5.0\lib\net462\Alkami.Security.dll</HintPath>
+    <Reference Include="Alkami.Security, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Security.5.0.0\lib\net472\Alkami.Security.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Services.Subscriptions.Data, Version=5.0.15.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.Subscription.Base.5.0.15\lib\net472\Alkami.Services.Subscriptions.Data.dll</HintPath>
+    <Reference Include="Alkami.Services.Subscriptions.Data, Version=6.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Subscription.Base.6.0.5\lib\net472\Alkami.Services.Subscriptions.Data.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Services.Subscriptions.ParticipatingClient, Version=5.0.15.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.Subscription.ParticipatingClient.5.0.15\lib\net472\Alkami.Services.Subscriptions.ParticipatingClient.dll</HintPath>
+    <Reference Include="Alkami.Services.Subscriptions.ParticipatingClient, Version=6.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Subscription.ParticipatingClient.6.0.5\lib\net472\Alkami.Services.Subscriptions.ParticipatingClient.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Services.Subscriptions.ParticipatingService, Version=5.0.15.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.Subscription.ParticipatingService.5.0.15\lib\net472\Alkami.Services.Subscriptions.ParticipatingService.dll</HintPath>
+    <Reference Include="Alkami.Services.Subscriptions.ParticipatingService, Version=5.6.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Subscription.ParticipatingService.5.6.1\lib\net472\Alkami.Services.Subscriptions.ParticipatingService.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Services.Subscriptions.Resolver, Version=5.0.15.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.Subscription.Base.5.0.15\lib\net472\Alkami.Services.Subscriptions.Resolver.dll</HintPath>
+    <Reference Include="Alkami.Services.Subscriptions.Resolver, Version=6.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Subscription.Base.6.0.5\lib\net472\Alkami.Services.Subscriptions.Resolver.dll</HintPath>
     </Reference>
     <Reference Include="Alkami.Test, Version=5.0.4.13, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alkami.Test.5.0.4\lib\net472\Alkami.Test.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.TrackableObjects, Version=5.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.ConfigurationDrivenObjects.5.0.1\lib\net472\Alkami.TrackableObjects.dll</HintPath>
+    <Reference Include="Alkami.TrackableObjects, Version=7.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.ConfigurationDrivenObjects.7.0.3\lib\net472\Alkami.TrackableObjects.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.TrackableObjects.Plugins, Version=5.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.ConnectorsAndProcessors.5.0.1\lib\net472\Alkami.TrackableObjects.Plugins.dll</HintPath>
+    <Reference Include="Alkami.TrackableObjects.Plugins, Version=7.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.ConnectorsAndProcessors.7.0.3\lib\net472\Alkami.TrackableObjects.Plugins.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Utilities, Version=2.1.1.938, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.Utilities.2.1.1\lib\net462\Alkami.Utilities.dll</HintPath>
+    <Reference Include="Alkami.Utilities, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Utilities.3.0.0\lib\net472\Alkami.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Alkami.Utilities.Certificates, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Utilities.Certificates.1.1.1\lib\net472\Alkami.Utilities.Certificates.dll</HintPath>
     </Reference>
     <Reference Include="Alkami.Utilities.Configuration, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alkami.Utilities.Configuration.2.1.0\lib\net462\Alkami.Utilities.Configuration.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Utilities.Kubernetes, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.Utilities.Kubernetes.2.0.0\lib\net472\Alkami.Utilities.Kubernetes.dll</HintPath>
+    <Reference Include="Alkami.Utilities.Kubernetes, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Utilities.Kubernetes.2.0.1\lib\net472\Alkami.Utilities.Kubernetes.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Utilities.LegacyIdentity, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.Utilities.LegacyIdentity.1.0.2\lib\net472\Alkami.Utilities.LegacyIdentity.dll</HintPath>
+    <Reference Include="Alkami.Utilities.LegacyIdentity, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Utilities.LegacyIdentity.1.0.3\lib\net472\Alkami.Utilities.LegacyIdentity.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Utilities.Rpc, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.Utilities.Rpc.5.0.0\lib\net472\Alkami.Utilities.Rpc.dll</HintPath>
+    <Reference Include="Alkami.Utilities.Rpc, Version=5.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Utilities.Rpc.5.2.1\lib\net472\Alkami.Utilities.Rpc.dll</HintPath>
+    </Reference>
+    <Reference Include="Alkami.Utilities.ServiceAttributes, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Utilities.ServiceAttributes.1.1.0\lib\netstandard2.0\Alkami.Utilities.ServiceAttributes.dll</HintPath>
     </Reference>
     <Reference Include="AsyncIO, Version=0.1.69.0, Culture=neutral, PublicKeyToken=44a94435bd6f33f8, processorArchitecture=MSIL">
       <HintPath>..\..\packages\AsyncIO.0.1.69\lib\net40\AsyncIO.dll</HintPath>
@@ -153,8 +156,8 @@
       <HintPath>..\..\packages\NUnit.3.13.3\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -164,14 +167,17 @@
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=9.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Diagnostics.DiagnosticSource.9.0.1\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
     <Reference Include="System.IdentityModel" />
     <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="System.Net" />
     <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -180,8 +186,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
     </Reference>
     <Reference Include="System.Reactive.Core, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Rx-Core.2.2.5\lib\net45\System.Reactive.Core.dll</HintPath>
@@ -205,8 +211,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Runtime.Caching" />
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Security" />
     <Reference Include="System.Security.AccessControl, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -290,6 +296,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ILLink\ILLink.Descriptors.LibraryBuild.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
