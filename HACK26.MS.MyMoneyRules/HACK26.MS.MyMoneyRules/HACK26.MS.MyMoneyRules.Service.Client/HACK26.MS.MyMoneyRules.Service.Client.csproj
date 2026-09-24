@@ -136,6 +136,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="ServiceClient.nuspec" />
+    <None Include="Tools\IncrementNuspecVersion.ps1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HACK26.MS.MyMoneyRules.Contracts\HACK26.MS.MyMoneyRules.Contracts.csproj">
@@ -148,14 +149,16 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>if "$(ConfigurationName)" == "Release" nuget pack $(ProjectDir)ServiceClient.nuspec -OutputDirectory $(ProjectDir)</PostBuildEvent>
-  </PropertyGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+	<PropertyGroup>
+		<PostBuildEvent>
+			if EXIST "$(ProjectDir)tools\IncrementNuspecVersion.ps1" (powershell.exe -NonInteractive -command "$(ProjectDir)tools\IncrementNuspecVersion.ps1" '$(ProjectName)' '$(ProjectDir)' 'ServiceClient.nuspec')
+			if "$(ConfigurationName)" == "Release" nuget pack $(ProjectDir)ServiceClient.nuspec -OutputDirectory $(SolutionDir)nuget
+		</PostBuildEvent>
+	</PropertyGroup>
+	<Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+		<PropertyGroup>
+			<ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+		</PropertyGroup>
+		<Error Condition="!Exists('..\..\packages\Alkami.MicroServices.Settings.ProviderBasedClient.6.0.2\build\net472\Alkami.MicroServices.Settings.ProviderBasedClient.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Alkami.MicroServices.Settings.ProviderBasedClient.6.0.2\build\net472\Alkami.MicroServices.Settings.ProviderBasedClient.props'))" />
+	</Target>
 </Project>
