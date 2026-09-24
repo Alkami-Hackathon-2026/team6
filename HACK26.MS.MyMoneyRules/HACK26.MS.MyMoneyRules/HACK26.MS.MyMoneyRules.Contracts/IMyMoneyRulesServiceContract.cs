@@ -70,5 +70,17 @@ namespace HACK26.MS.MyMoneyRules.Contracts
         /// <returns></returns>
         [OperationContract]
         Task<RuleEvaluationResponse> GetRuleEvaluationsAsync(GetRuleEvaluationsRequest request);
+
+        /// <summary>
+        /// Returns whether Gemini is configured and which model will be used.
+        /// </summary>
+        [OperationContract]
+        Task<GeminiStatusResponse> GetGeminiStatusAsync(GetGeminiStatusRequest request);
+
+        /// <summary>
+        /// Sends a prompt to Gemini and returns the generated text.
+        /// </summary>
+        [OperationContract]
+        Task<GeminiChatResponse> GenerateGeminiChatAsync(GeminiChatRequest request);
     }
 }

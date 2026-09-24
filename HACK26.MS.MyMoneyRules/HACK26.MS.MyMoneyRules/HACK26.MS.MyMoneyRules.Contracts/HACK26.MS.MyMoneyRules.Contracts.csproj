@@ -80,11 +80,15 @@
     <Compile Include="Requests\AddOrUpdateDecisionRuleRequest.cs" />
     <Compile Include="Requests\DeleteDecisionRulesRequest.cs" />
     <Compile Include="Requests\EvaluateTransactionRequest.cs" />
+    <Compile Include="Requests\GeminiChatRequest.cs" />
     <Compile Include="Requests\GetDecisionRulesRequest.cs" />
     <Compile Include="Requests\GetFieldDefinitionsRequest.cs" />
+    <Compile Include="Requests\GetGeminiStatusRequest.cs" />
     <Compile Include="Requests\GetRuleEvaluationsRequest.cs" />
     <Compile Include="Responses\DecisionRuleResponse.cs" />
     <Compile Include="Responses\FieldDefinitionResponse.cs" />
+    <Compile Include="Responses\GeminiChatResponse.cs" />
+    <Compile Include="Responses\GeminiStatusResponse.cs" />
     <Compile Include="Responses\RuleEvaluationResponse.cs" />
     <Compile Include="Responses\TransactionEvaluationResponse.cs" />
     <Compile Include="RuleEvaluationFields.cs" />
