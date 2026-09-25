@@ -12,6 +12,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,83 +39,92 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Alkami.Broker, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.Broker.3.0.1\lib\net462\Alkami.Broker.dll</HintPath>
+    <Reference Include="Alkami.Broker, Version=3.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Broker.3.1.2\lib\net472\Alkami.Broker.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Broker.ZeroMq, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.Broker.ZeroMq.3.0.0\lib\net462\Alkami.Broker.ZeroMq.dll</HintPath>
+    <Reference Include="Alkami.Broker.ZeroMq, Version=3.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Broker.ZeroMq.3.1.2\lib\net472\Alkami.Broker.ZeroMq.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Contracts, Version=4.5.0.912, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Core.4.5.0\lib\net462\Alkami.Contracts.dll</HintPath>
+    <Reference Include="Alkami.Contracts, Version=6.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Contracts.6.1.0\lib\net472\Alkami.Contracts.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Data.Access, Version=4.5.0.912, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Core.4.5.0\lib\net462\Alkami.Data.Access.dll</HintPath>
+    <Reference Include="Alkami.Data.Validations, Version=6.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Data.Validations.6.1.0\lib\net472\Alkami.Data.Validations.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Data.Validations, Version=4.5.0.912, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Core.4.5.0\lib\net462\Alkami.Data.Validations.dll</HintPath>
+    <Reference Include="Alkami.Exceptions, Version=6.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Exceptions.6.1.0\lib\net472\Alkami.Exceptions.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Exceptions, Version=4.5.0.912, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Core.4.5.0\lib\net462\Alkami.Exceptions.dll</HintPath>
+    <Reference Include="Alkami.Extensions.OpenTelemetry.Abstractions, Version=1.15.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Extensions.OpenTelemetry.Abstractions.1.15.0\lib\net472\Alkami.Extensions.OpenTelemetry.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.MicroServices.Settings.Contracts.5.1, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Settings.Contracts.5.1.0\lib\net472\Alkami.MicroServices.Settings.Contracts.5.1.dll</HintPath>
+    <Reference Include="Alkami.MicroServices.Settings.Contracts.5.2, Version=5.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.MicroServices.Settings.Contracts.5.2.1\lib\net472\Alkami.MicroServices.Settings.Contracts.5.2.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.MicroServices.Settings.Data.5.1, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Settings.Contracts.5.1.0\lib\net472\Alkami.MicroServices.Settings.Data.5.1.dll</HintPath>
+    <Reference Include="Alkami.MicroServices.Settings.Data.5.2, Version=5.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.MicroServices.Settings.Contracts.5.2.1\lib\net472\Alkami.MicroServices.Settings.Data.5.2.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.MicroServices.Settings.Data.Validations.5.1, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Settings.Contracts.5.1.0\lib\net472\Alkami.MicroServices.Settings.Data.Validations.5.1.dll</HintPath>
+    <Reference Include="Alkami.MicroServices.Settings.Data.Validations.5.2, Version=5.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.MicroServices.Settings.Contracts.5.2.1\lib\net472\Alkami.MicroServices.Settings.Data.Validations.5.2.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.MicroServices.Settings.ProviderBased.Contracts, Version=5.1.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Settings.ProviderBased.Contracts.5.1.4\lib\net472\Alkami.MicroServices.Settings.ProviderBased.Contracts.dll</HintPath>
+    <Reference Include="Alkami.MicroServices.Settings.ProviderBased.Contracts, Version=7.4.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.MicroServices.Settings.ProviderBased.Contracts.7.4.2\lib\net472\Alkami.MicroServices.Settings.ProviderBased.Contracts.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.MicroServices.Settings.ProviderBasedService, Version=5.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Settings.ProviderBasedService.5.0.1\lib\net472\Alkami.MicroServices.Settings.ProviderBasedService.dll</HintPath>
+    <Reference Include="Alkami.MicroServices.Settings.ProviderBasedService, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.MicroServices.Settings.ProviderBasedService.5.1.0\lib\net472\Alkami.MicroServices.Settings.ProviderBasedService.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.MicroServices.Settings.Service.Client.5.0, Version=5.0.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Settings.Client.5.0.3\lib\net472\Alkami.MicroServices.Settings.Service.Client.5.0.dll</HintPath>
+    <Reference Include="Alkami.MicroServices.Settings.Service.Client.5.1, Version=5.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.MicroServices.Settings.Client.5.1.0\lib\net472\Alkami.MicroServices.Settings.Service.Client.5.1.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Monitoring, Version=2.10.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.Monitoring.2.10.0\lib\net462\Alkami.Monitoring.dll</HintPath>
+    <Reference Include="Alkami.Monitoring, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Monitoring.3.2.0\lib\net472\Alkami.Monitoring.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Monitoring.NewRelic, Version=2.10.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.Monitoring.NewRelic.2.10.0\lib\net462\Alkami.Monitoring.NewRelic.dll</HintPath>
+    <Reference Include="Alkami.Monitoring.NewRelic, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Monitoring.NewRelic.3.2.0\lib\net472\Alkami.Monitoring.NewRelic.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Security, Version=4.5.0.912, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Core.4.5.0\lib\net462\Alkami.Security.dll</HintPath>
+    <Reference Include="Alkami.Monitoring.OpenTelemetry, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Monitoring.OpenTelemetry.3.2.0\lib\net472\Alkami.Monitoring.OpenTelemetry.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Services.Subscriptions.Data, Version=5.0.15.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.Subscription.Base.5.0.15\lib\net472\Alkami.Services.Subscriptions.Data.dll</HintPath>
+    <Reference Include="Alkami.Security, Version=6.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Security.6.0.1\lib\net472\Alkami.Security.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Services.Subscriptions.ParticipatingClient, Version=5.0.15.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.Subscription.ParticipatingClient.5.0.15\lib\net472\Alkami.Services.Subscriptions.ParticipatingClient.dll</HintPath>
+    <Reference Include="Alkami.Services.Subscriptions.Data, Version=7.4.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Subscription.Base.7.4.2\lib\net472\Alkami.Services.Subscriptions.Data.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Services.Subscriptions.ParticipatingService, Version=5.0.15.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.Subscription.ParticipatingService.5.0.15\lib\net472\Alkami.Services.Subscriptions.ParticipatingService.dll</HintPath>
+    <Reference Include="Alkami.Services.Subscriptions.ParticipatingClient, Version=7.4.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Subscription.ParticipatingClient.7.4.2\lib\net472\Alkami.Services.Subscriptions.ParticipatingClient.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Services.Subscriptions.Resolver, Version=5.0.15.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.Subscription.Base.5.0.15\lib\net472\Alkami.Services.Subscriptions.Resolver.dll</HintPath>
+    <Reference Include="Alkami.Services.Subscriptions.ParticipatingService, Version=5.6.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Subscription.ParticipatingService.5.6.1\lib\net472\Alkami.Services.Subscriptions.ParticipatingService.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.TrackableObjects, Version=5.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.ConfigurationDrivenObjects.5.0.1\lib\net472\Alkami.TrackableObjects.dll</HintPath>
+    <Reference Include="Alkami.Services.Subscriptions.Resolver, Version=7.4.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Subscription.Base.7.4.2\lib\net472\Alkami.Services.Subscriptions.Resolver.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.TrackableObjects.Plugins, Version=5.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.ConnectorsAndProcessors.5.0.1\lib\net472\Alkami.TrackableObjects.Plugins.dll</HintPath>
+    <Reference Include="Alkami.TrackableObjects, Version=7.4.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.ConfigurationDrivenObjects.7.4.2\lib\net472\Alkami.TrackableObjects.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Utilities, Version=2.1.1.938, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.Utilities.2.1.1\lib\net462\Alkami.Utilities.dll</HintPath>
+    <Reference Include="Alkami.TrackableObjects.Plugins, Version=7.4.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.ConnectorsAndProcessors.7.4.2\lib\net472\Alkami.TrackableObjects.Plugins.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Utilities.Configuration, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.Utilities.Configuration.2.1.0\lib\net462\Alkami.Utilities.Configuration.dll</HintPath>
+    <Reference Include="Alkami.Utilities, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Utilities.3.2.0\lib\net472\Alkami.Utilities.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Utilities.Kubernetes, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.Utilities.Kubernetes.2.0.0\lib\net472\Alkami.Utilities.Kubernetes.dll</HintPath>
+    <Reference Include="Alkami.Utilities.Certificates, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Utilities.Certificates.2.1.0\lib\net472\Alkami.Utilities.Certificates.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Utilities.LegacyIdentity, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.Utilities.LegacyIdentity.1.0.2\lib\net472\Alkami.Utilities.LegacyIdentity.dll</HintPath>
+    <Reference Include="Alkami.Utilities.Configuration, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Utilities.Configuration.2.2.0\lib\net472\Alkami.Utilities.Configuration.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Utilities.Rpc, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.Utilities.Rpc.5.0.0\lib\net472\Alkami.Utilities.Rpc.dll</HintPath>
+    <Reference Include="Alkami.Utilities.Kubernetes, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Utilities.Kubernetes.2.3.0\lib\net472\Alkami.Utilities.Kubernetes.dll</HintPath>
+    </Reference>
+    <Reference Include="Alkami.Utilities.LegacyIdentity, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Utilities.LegacyIdentity.1.3.0\lib\net472\Alkami.Utilities.LegacyIdentity.dll</HintPath>
+    </Reference>
+    <Reference Include="Alkami.Utilities.Rpc, Version=5.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Utilities.Rpc.5.4.0\lib\net472\Alkami.Utilities.Rpc.dll</HintPath>
+    </Reference>
+    <Reference Include="Alkami.Utilities.ServiceAttributes, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Utilities.ServiceAttributes.1.2.0\lib\netstandard2.0\Alkami.Utilities.ServiceAttributes.dll</HintPath>
     </Reference>
     <Reference Include="AsyncIO, Version=0.1.69.0, Culture=neutral, PublicKeyToken=44a94435bd6f33f8, processorArchitecture=MSIL">
       <HintPath>..\..\packages\AsyncIO.0.1.69\lib\net40\AsyncIO.dll</HintPath>
@@ -130,6 +141,45 @@
     <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=10.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Bcl.AsyncInterfaces.10.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=10.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Configuration.10.0.0\lib\net462\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=10.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Configuration.Abstractions.10.0.0\lib\net462\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=10.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Configuration.Binder.10.0.0\lib\net462\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=10.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.DependencyInjection.10.0.0\lib\net462\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=10.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.10.0.0\lib\net462\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Diagnostics.Abstractions, Version=10.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Diagnostics.Abstractions.10.0.0\lib\net462\Microsoft.Extensions.Diagnostics.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=10.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Logging.10.0.0\lib\net462\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=10.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Logging.Abstractions.10.0.0\lib\net462\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Configuration, Version=10.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Logging.Configuration.10.0.0\lib\net462\Microsoft.Extensions.Logging.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=10.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Options.10.0.0\lib\net462\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options.ConfigurationExtensions, Version=10.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Options.ConfigurationExtensions.10.0.0\lib\net462\Microsoft.Extensions.Options.ConfigurationExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=10.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Extensions.Primitives.10.0.0\lib\net462\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
     <Reference Include="NaCl, Version=0.1.13.0, Culture=neutral, PublicKeyToken=827c20e50a9775fa, processorArchitecture=MSIL">
       <HintPath>..\..\packages\NaCl.Net.0.1.13\lib\net472\NaCl.dll</HintPath>
     </Reference>
@@ -139,23 +189,39 @@
     <Reference Include="NewRelic.Api.Agent, Version=9.0.0.0, Culture=neutral, PublicKeyToken=06552fced0b33d87, processorArchitecture=MSIL">
       <HintPath>..\..\packages\NewRelic.Agent.Api.9.4.0\lib\net45\NewRelic.Api.Agent.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTelemetry, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7bd6737fe5b67e3c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\OpenTelemetry.1.15.3\lib\net462\OpenTelemetry.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTelemetry.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7bd6737fe5b67e3c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\OpenTelemetry.Api.1.15.3\lib\net462\OpenTelemetry.Api.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTelemetry.Api.ProviderBuilderExtensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7bd6737fe5b67e3c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\OpenTelemetry.Api.ProviderBuilderExtensions.1.15.3\lib\net462\OpenTelemetry.Api.ProviderBuilderExtensions.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=10.0.0.9, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Diagnostics.DiagnosticSource.10.0.9\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
     <Reference Include="System.IdentityModel" />
     <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=9.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.IO.Pipelines.9.0.1\lib\net462\System.IO.Pipelines.dll</HintPath>
     </Reference>
     <Reference Include="System.Memory, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Memory.4.6.3\lib\net462\System.Memory.dll</HintPath>
@@ -232,13 +298,16 @@
     </Reference>
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceProcess" />
-    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    <Reference Include="System.Text.Encodings.Web, Version=9.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Text.Encodings.Web.9.0.1\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=9.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Text.Json.9.0.1\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Threading.Tasks.Extensions.4.6.3\lib\net462\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
-    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
-    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -300,4 +369,11 @@
   <PropertyGroup>
     <PostBuildEvent>if "$(ConfigurationName)" == "Release" choco pack $(ProjectDir)Installer\$(ProjectName).nuspec -OutputDirectory $(ProjectDir)Installer</PostBuildEvent>
   </PropertyGroup>
+  <Import Project="..\..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets" Condition="Exists('..\..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets'))" />
+  </Target>
 </Project>

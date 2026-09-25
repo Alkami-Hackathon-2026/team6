@@ -32,23 +32,20 @@
     <DocumentationFile>bin\Release\HACK26.MS.MyMoneyRules.Contracts.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Alkami.Contracts, Version=4.5.0.912, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Core.4.5.0\lib\net462\Alkami.Contracts.dll</HintPath>
+    <Reference Include="Alkami.Contracts, Version=6.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Contracts.6.1.0\lib\net472\Alkami.Contracts.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Data.Access, Version=4.5.0.912, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Core.4.5.0\lib\net462\Alkami.Data.Access.dll</HintPath>
+    <Reference Include="Alkami.Data.Validations, Version=6.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Data.Validations.6.1.0\lib\net472\Alkami.Data.Validations.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Data.Validations, Version=4.5.0.912, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Core.4.5.0\lib\net462\Alkami.Data.Validations.dll</HintPath>
+    <Reference Include="Alkami.Exceptions, Version=6.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Exceptions.6.1.0\lib\net472\Alkami.Exceptions.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Exceptions, Version=4.5.0.912, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Core.4.5.0\lib\net462\Alkami.Exceptions.dll</HintPath>
+    <Reference Include="Alkami.Monitoring, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Monitoring.3.2.0\lib\net472\Alkami.Monitoring.dll</HintPath>
     </Reference>
-    <Reference Include="Alkami.Monitoring, Version=2.11.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.Monitoring.2.11.0\lib\net462\Alkami.Monitoring.dll</HintPath>
-    </Reference>
-    <Reference Include="Alkami.Security, Version=4.5.0.912, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Alkami.MicroServices.Core.4.5.0\lib\net462\Alkami.Security.dll</HintPath>
+    <Reference Include="Alkami.Security, Version=6.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alkami.Security.6.1.0\lib\net472\Alkami.Security.dll</HintPath>
     </Reference>
     <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
@@ -57,7 +54,25 @@
       <HintPath>..\..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=10.0.0.8, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Diagnostics.DiagnosticSource.10.0.8\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Memory.4.6.3\lib\net462\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Numerics.Vectors.4.6.1\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Runtime.CompilerServices.Unsafe.6.1.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />

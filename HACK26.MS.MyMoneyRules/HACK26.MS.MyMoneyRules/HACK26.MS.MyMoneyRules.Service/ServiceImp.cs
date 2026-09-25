@@ -1,4 +1,4 @@
-﻿using Alkami.Contracts;
+using Alkami.Contracts;
 using Alkami.Data.Validations;
 using Common.Logging;
 using HACK26.MS.MyMoneyRules.Contracts;
@@ -30,19 +30,10 @@ namespace HACK26.MS.MyMoneyRules.Service
             // Create a new response object that encapsulates the data type we'll be returning
             var response = new SettingsResponse();
 
-            // We want some local variables that are available outside of the data scope
-            string firstSetting = string.Empty;
-            string secondSetting = string.Empty;
-
-            // GetScopeAsync() is how we retrieve settings using the request type of this service
-            using (var scope = await GetScopeAsync(request))
-            {
-                // Assigning the settings to our local variables
-                firstSetting = scope.GetSettingOrDefault<string>(SettingNames.FirstProviderSetting);
-                secondSetting = scope.GetSettingOrDefault<string>(SettingNames.SecondProviderSetting);
-                secondSetting = scope.GetSettingOrDefault<string>(SettingNames.GeminiApiKey);
-                secondSetting = scope.GetSettingOrDefault<string>(SettingNames.GeminiApiKey);
-            }
+            // Read all provider settings once for this request
+            var settings = await LoadSettingsAsync(request).ConfigureAwait(false);
+            var firstSetting = settings.FirstSetting;
+            var secondSetting = settings.SecondSetting;
 
             // It's always good to add a trace log for future troubleshooting
             Logger.Trace($"{nameof(GetSettingsAsync)} | First Setting: [{firstSetting}] | Second Setting: [{secondSetting}]");
@@ -592,7 +583,7 @@ namespace HACK26.MS.MyMoneyRules.Service
         {
             try
             {
-                var options = await GetGeminiOptionsAsync(request).ConfigureAwait(false);
+                var options = (await LoadSettingsAsync(request)).Gemini;
 
                 return new GeminiStatusResponse
                 {
@@ -626,8 +617,8 @@ namespace HACK26.MS.MyMoneyRules.Service
 
             try
             {
-                var options = await GetGeminiOptionsAsync(request).ConfigureAwait(false);
-                var result = await _geminiClient.GenerateAsync(options, request.Prompt, request.SystemInstruction, CancellationToken.None).ConfigureAwait(false);
+                var options = (await LoadSettingsAsync(request)).Gemini;
+                var result = await _geminiClient.GenerateAsync(options, request.Prompt, request.SystemInstruction, CancellationToken.None);
 
                 Logger.Trace($"{nameof(GenerateGeminiChatAsync)} | {options} | Result [{result.ErrorKind}]");
 
@@ -643,19 +634,6 @@ namespace HACK26.MS.MyMoneyRules.Service
             {
                 Logger.Error($"{nameof(GenerateGeminiChatAsync)} | Unexpected failure generating Gemini chat", ex);
                 return new GeminiChatResponse { HasError = true, SystemMessage = "An unexpected error occurred while contacting Gemini." };
-            }
-        }
-
-        /// <summary>
-        /// Resolves per-tenant Gemini configuration from provider settings
-        /// </summary>
-        private async Task<GeminiOptions> GetGeminiOptionsAsync(Alkami.Contracts.BaseRequest request)
-        {
-            using (var scope = await GetScopeAsync(request).ConfigureAwait(false))
-            {
-                return GeminiOptions.From(
-                    scope.GetSettingOrDefault<string>(SettingNames.GeminiApiKey),
-                    scope.GetSettingOrDefault<string>(SettingNames.GeminiModel));
             }
         }
 
