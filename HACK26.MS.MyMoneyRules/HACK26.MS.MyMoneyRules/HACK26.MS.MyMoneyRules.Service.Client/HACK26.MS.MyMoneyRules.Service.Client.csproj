@@ -61,6 +61,7 @@
     </Reference>
     <Reference Include="Alkami.MicroServices.Settings.ProviderBasedClient, Version=7.4.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alkami.MicroServices.Settings.ProviderBasedClient.7.4.2\lib\net472\Alkami.MicroServices.Settings.ProviderBasedClient.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Alkami.MicroServices.Settings.Service.Client.5.5, Version=5.5.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alkami.MicroServices.Settings.Client.5.5.1\lib\net472\Alkami.MicroServices.Settings.Service.Client.5.5.dll</HintPath>
@@ -213,10 +214,4 @@
 			if "$(ConfigurationName)" == "Release" nuget pack $(ProjectDir)ServiceClient.nuspec -OutputDirectory $(SolutionDir)nuget
 		</PostBuildEvent>
   </PropertyGroup>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\..\packages\Alkami.MicroServices.Settings.ProviderBasedClient.6.0.2\build\net472\Alkami.MicroServices.Settings.ProviderBasedClient.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Alkami.MicroServices.Settings.ProviderBasedClient.6.0.2\build\net472\Alkami.MicroServices.Settings.ProviderBasedClient.props'))" />
-  </Target>
 </Project>
