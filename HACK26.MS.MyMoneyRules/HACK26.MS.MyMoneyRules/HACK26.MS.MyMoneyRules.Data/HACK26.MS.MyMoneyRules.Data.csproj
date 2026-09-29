@@ -59,16 +59,36 @@
     <Compile Include="TransactionEvent.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="json\UserEngineActionExecutions.json" />
-    <None Include="json\UserEngineActions.json" />
-    <None Include="json\UserEngineConditionEvaluations.json" />
-    <None Include="json\UserEngineConditionGroups.json" />
-    <None Include="json\UserEngineConditions.json" />
-    <None Include="json\UserEngineFieldDefinitions.json" />
-    <None Include="json\UserEngineRuleEvaluations.json" />
-    <None Include="json\UserEngineRules.json" />
-    <None Include="json\UserEngineTransactionEvents.json" />
-    <None Include="json\UserEngineTriggers.json" />
+    <EmbeddedResource Include="json\UserEngineActionExecutions.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="json\UserEngineActions.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="json\UserEngineConditionEvaluations.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="json\UserEngineConditionGroups.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="json\UserEngineConditions.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="json\UserEngineFieldDefinitions.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="json\UserEngineRuleEvaluations.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="json\UserEngineRules.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="json\UserEngineTransactionEvents.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="json\UserEngineTriggers.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
