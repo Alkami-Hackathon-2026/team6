@@ -89,6 +89,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="ServiceData.nuspec" />
+    <None Include="tools\IncrementNuspecVersion.ps1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HACK26.MS.MyMoneyRules.Data\HACK26.MS.MyMoneyRules.Data.csproj">
@@ -102,7 +103,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if "$(ConfigurationName)" == "Release" nuget pack $(ProjectDir)ServiceData.nuspec -OutputDirectory $(ProjectDir)</PostBuildEvent>
+    <PostBuildEvent>if EXIST "$(ProjectDir)tools\IncrementNuspecVersion.ps1" (powershell.exe -NonInteractive -command "$(ProjectDir)tools\IncrementNuspecVersion.ps1" '$(ProjectName)' '$(ProjectDir)' 'ServiceData.nuspec')
+if "$(ConfigurationName)" == "Release" nuget pack $(ProjectDir)ServiceData.nuspec -OutputDirectory $(SolutionDir)nuget</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
-<package >
+<package>
   <metadata>
     <id>HACK26.MS.MyMoneyRules.Service.Host</id>
-    <version>1.0.0</version>
+    <version>1.3.32</version>
     <title>HACK26.MS.MyMoneyRules Service Host</title>
     <authors>Alkami Technology</authors>
     <owners>Alkami Technology</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Contains all the files and assemblies necessary to create and stand up a new instance of the HACK26.MS.MyMoneyRules Micro Service.</description>
     <copyright>Copyright (c) 2026 Alkami Technology, Inc.</copyright>
-	<tags>ConfigurableMicroservice</tags>
+    <tags>ConfigurableMicroservice</tags>
   </metadata>
   <files>
     <file src="..\bin\release\*" target="app" />

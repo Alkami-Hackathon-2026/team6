@@ -331,6 +331,7 @@
     <Content Include="Doc\gettingstarted.css" />
     <Content Include="Doc\gettingstarted.html" />
     <None Include="ProviderScripts\create_provider_datatables.sql" />
+    <None Include="Tools\IncrementNuspecVersion.ps1" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Installer\ChocolateyInstall.ps1" />
@@ -367,7 +368,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if "$(ConfigurationName)" == "Release" choco pack $(ProjectDir)Installer\$(ProjectName).nuspec -OutputDirectory $(ProjectDir)Installer</PostBuildEvent>
+    <PostBuildEvent>if EXIST "$(ProjectDir)tools\IncrementNuspecVersion.ps1" (powershell.exe -NonInteractive -command "$(ProjectDir)tools\IncrementNuspecVersion.ps1" '$(ProjectName)' '$(ProjectDir)' '\Installer\$(ProjectName).nuspec')
+if "$(ConfigurationName)" == "Release" choco pack $(ProjectDir)Installer\$(ProjectName).nuspec -OutputDirectory $(SolutionDir)nuget</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets" Condition="Exists('..\..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
